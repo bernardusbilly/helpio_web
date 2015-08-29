@@ -17,6 +17,9 @@ class Api::PinController < ApplicationController
 
   def create
     @pin = Pin.new(pin_params)
+    if pin_params[:img]
+      @pin.uploaded_file = pin_params[:img]
+    end
     respond_to do |format|
       if @pin.save
         format.json { render json: @pin, status: :created }
@@ -29,7 +32,7 @@ class Api::PinController < ApplicationController
   private
 
    def pin_params
-        params.permit(:uid, :title, :lon, :lat)
+        params.permit(:uid, :title, :lon, :lat, :img)
    end
 
 end
