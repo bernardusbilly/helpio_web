@@ -29,6 +29,13 @@ class Api::PinController < ApplicationController
     end
   end
 
+  def comment
+    @comment = Comment.where(pin_id: params[:id])
+    respond_to do |format|
+      format.json { render :json => @comment }
+    end
+  end
+
   private
 
    def pin_params

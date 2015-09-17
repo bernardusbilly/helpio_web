@@ -1,4 +1,6 @@
 class Pin < ActiveRecord::Base
+  	has_many :comment, dependent: :destroy
+
 	def uploaded_file=(fileobj)
 	    name = unique_and_proper_filename(fileobj.original_filename)
 	    directory = "public/images/upload"
