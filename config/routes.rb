@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :pin
   end
+  namespace :api, defaults: { format: :json } do
+    resources :comment
+  end
+  get '/api/pin/:id/comment', to: 'api/pin#comment', defaults: { format: :json }
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
