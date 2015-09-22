@@ -10,7 +10,9 @@ Rails.application.routes.draw do
     resources :comment
   end
   get '/api/pin/:id/comment', to: 'api/pin#comment', defaults: { format: :json }
-
+  post '/api/pin/liked', to: 'api/pin#liked', defaults: { format: :json }
+  post '/api/comment/liked', to: 'api/comment#liked', defaults: { format: :json }
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
