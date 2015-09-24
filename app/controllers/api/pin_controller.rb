@@ -63,7 +63,7 @@ class Api::PinController < ApplicationController
 
     @comment.each do |comment|
       comment.like_count = comment.comment_like.count
-      comment.liked = comment.comment_like.where(uid: 2).count
+      comment.liked = comment.comment_like.where(uid: 1).count
     end
 
     respond_to do |format|
