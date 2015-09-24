@@ -7,7 +7,7 @@ class Api::PinController < ApplicationController
     @pins.each do |pin|
       pin.comment_count = pin.comment.count
       pin.like_count = pin.pin_like.count
-      pin.liked = pin.pin_like.where(uid: 2).count
+      pin.liked = pin.pin_like.where(uid: 1).count
     end
     respond_to do |format|
       format.json { render :json => @pins }
