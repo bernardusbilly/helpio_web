@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150917095323) do
+ActiveRecord::Schema.define(version: 20151010110542) do
 
   create_table "comment_likes", force: :cascade do |t|
     t.integer  "comment_id"
@@ -48,10 +48,14 @@ ActiveRecord::Schema.define(version: 20150917095323) do
 
   create_table "users", force: :cascade do |t|
     t.integer  "uid"
-    t.string   "userid"
+    t.string   "email"
+    t.string   "password_hash"
+    t.string   "password_salt"
     t.string   "nickname"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.date     "birthday"
+    t.integer  "gender"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
 end
