@@ -17,6 +17,7 @@ class Api::CommentController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
+    @comment.assign_attributes(uid: session[:uid])
     respond_to do |format|
       if @comment.save
         format.json { render json: @comment, status: :created }
@@ -30,6 +31,7 @@ class Api::CommentController < ApplicationController
     status = params[:status]
     if status == "1"
       @comment_liked = CommentLike.new(liked_params)
+      @comment_liked.assign_attributes(uid: session[:uid])
       respond_to do |format|
         if @comment_liked.save
           format.json { render json: @comment_liked, status: :created }
@@ -38,7 +40,7 @@ class Api::CommentController < ApplicationController
         end
       end
     else
-      @comment_liked = CommentLike.where(comment_id: params[:comment_id], uid: params[:uid])
+      @comment_liked = CommentLike.where(comment_id: params[:comment_id], uid: session[:uid])
       respond_to do |format|
         if @comment_liked.destroy_all
           format.json { render json: @comment_liked, status: :accepted }
@@ -52,11 +54,11 @@ class Api::CommentController < ApplicationController
   private
 
   def comment_params
-    params.permit(:pin_id, :uid, :content)
+    params.permit(:pin_id, :content)
   end
 
   def liked_params
-    params.permit(:uid, :comment_id)
+    params.permit(:comment_id)
   end
 
 end

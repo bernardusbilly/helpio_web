@@ -7,7 +7,7 @@ class Api::PinController < ApplicationController
     @pins.each do |pin|
       pin.comment_count = pin.comment.count
       pin.like_count = pin.pin_like.count
-      pin.liked = pin.pin_like.where(uid: 1).count
+      pin.liked = pin.pin_like.where(uid: session[:uid]).count
     end
     respond_to do |format|
       format.json { render :json => @pins }
@@ -23,6 +23,7 @@ class Api::PinController < ApplicationController
 
   def create
     @pin = Pin.new(pin_params)
+    @pin.assign_attributes(uid: session[:uid])
     if pin_params[:img]
       @pin.uploaded_file = pin_params[:img]
     end
@@ -39,6 +40,7 @@ class Api::PinController < ApplicationController
     status = params[:status]
     if status == "1"
       @pin_liked = PinLike.new(liked_params)
+      @pin_liked.assign_attributes(uid: session[:uid])
       respond_to do |format|
         if @pin_liked.save
           format.json { render json: @pin_liked, status: :created }
@@ -47,7 +49,7 @@ class Api::PinController < ApplicationController
         end
       end
     else
-      @pin_liked = PinLike.where(pin_id: params[:pin_id], uid: params[:uid])
+      @pin_liked = PinLike.where(pin_id: params[:pin_id], uid: session[:uid])
       respond_to do |format|
         if @pin_liked.destroy_all
           format.json { render json: @pin_liked, status: :accepted }
@@ -63,7 +65,7 @@ class Api::PinController < ApplicationController
 
     @comment.each do |comment|
       comment.like_count = comment.comment_like.count
-      comment.liked = comment.comment_like.where(uid: 1).count
+      comment.liked = comment.comment_like.where(uid: session[:uid]).count
     end
 
     respond_to do |format|
@@ -74,11 +76,11 @@ class Api::PinController < ApplicationController
   private
 
   def pin_params
-    params.permit(:uid, :title, :lon, :lat, :img)
+    params.permit(:title, :lon, :lat, :img)
   end
 
   def liked_params
-    params.permit(:uid, :pin_id)
+    params.permit(:pin_id)
   end
 
 end
