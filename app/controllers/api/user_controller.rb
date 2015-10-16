@@ -20,6 +20,7 @@ class Api::UserController < ApplicationController
     respond_to do |format|
       if @user.save
         @user_ret = @user.attributes
+        session[:uid] = @user.id
         ['created_at', 'updated_at', 'password_hash', 'password_salt'].each { |k| @user_ret.delete k }
         format.json { render json: @user_ret, status: :created }
       else
