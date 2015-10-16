@@ -1,9 +1,9 @@
 Rails.application.routes.draw do 
 
-  get '/api/user/login', to: 'api/user#login', defaults: { format: :json }
   get '/api/user/login_user', to: 'api/user#login_user', defaults: { format: :json }
   get '/api/user/logout', to: 'api/user#logout', defaults: { format: :json }
   get '/api/pin/:id/comment', to: 'api/pin#comment', defaults: { format: :json }
+  post '/api/user/login', to: 'api/user#login', defaults: { format: :json }
   post '/api/pin/liked', to: 'api/pin#liked', defaults: { format: :json }
   post '/api/comment/liked', to: 'api/comment#liked', defaults: { format: :json }
 
