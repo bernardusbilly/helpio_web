@@ -5,6 +5,9 @@ class Api::PinController < ApplicationController
     @pins = Pin.all
 
     @pins.each do |pin|
+      user = User.find(pin.uid)
+      pin.nickname = user.nickname
+      pin.prof_img = user.prof_img
       pin.comment_count = pin.comment.count
       pin.like_count = pin.pin_like.count
       pin.liked = pin.pin_like.where(uid: session[:uid]).count
