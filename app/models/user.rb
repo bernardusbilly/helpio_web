@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 	has_many :comment_likes, dependent: :destroy
 	attr_accessor :password
 	before_save :encrypt_password
-	default_scope {select([:id, :email, :nickname, :birthday, :gender])}
+	default_scope {select([:id, :email, :nickname, :prof_img, :birthday, :gender])}
 
 	def encrypt_password
 		self.password_salt = BCrypt::Engine.generate_salt
