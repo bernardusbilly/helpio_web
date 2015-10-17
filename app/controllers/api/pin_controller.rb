@@ -67,6 +67,9 @@ class Api::PinController < ApplicationController
     @comment = Comment.where(pin_id: params[:id])
 
     @comment.each do |comment|
+      user = User.find(comment.uid)
+      comment.nickname = user.nickname
+      comment.prof_img = user.prof_img
       comment.like_count = comment.comment_like.count
       comment.liked = comment.comment_like.where(uid: session[:uid]).count
     end
