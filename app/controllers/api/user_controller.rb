@@ -29,6 +29,12 @@ class Api::UserController < ApplicationController
     end
   end
 
+  def test
+    respond_to do |format|
+      format.json { render json: {session_uid: session[:uid], ck: cookies[:uid]}, status: :created }
+    end
+  end
+
   def is_login
     respond_to do |format|
       if logged_in?

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do 
 
+  get '/api/test', to: 'api/user#test', defaults: { format: :json }
+  
   get '/api/user/is_login', to: 'api/user#is_login', defaults: { format: :json }
   get '/api/user/logout', to: 'api/user#logout', defaults: { format: :json }
   get '/api/pin/:id/comment', to: 'api/pin#comment', defaults: { format: :json }
