@@ -2,6 +2,7 @@ class Api::PinController < ApplicationController
   protect_from_forgery :except => :create 
   
   def index
+    session[:uid] = cookies[:uid] if cookies[:uid]
     @pins = Pin.all
 
     @pins.each do |pin|
