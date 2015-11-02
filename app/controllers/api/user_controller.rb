@@ -29,13 +29,14 @@ class Api::UserController < ApplicationController
     end
   end
 
-  def login_user
-    if logged_in?
-      render inline: current_user.nickname
-    else
-      render inline: "nonono"
+  def is_login
+    respond_to do |format|
+      if logged_in?
+        format.json { render json: {logged_in: 1}, status: :created }
+      else
+        format.json { render json: {logged_in: 0}, status: :created }
+      end
     end
-    return
   end
 
   def login
