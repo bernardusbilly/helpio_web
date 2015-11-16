@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pin_id: 1
+  title: MyString
+  type: 
+  read: false
+
+two:
+  pin_id: 1
+  title: MyString
+  type: 
+  read: false

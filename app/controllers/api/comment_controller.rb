@@ -20,6 +20,8 @@ class Api::CommentController < ApplicationController
     @comment.assign_attributes(uid: session[:uid])
     respond_to do |format|
       if @comment.save
+        @pin = Pin.find(@comment.pin_id)
+        @notification = Notification.create(uid: @pin.uid, pin_id: @comment.pin_id, title: 'testing notification', category: 1, read: 0)
         format.json { render json: @comment, status: :created }
       else
         format.json { render json: @comment.errors, status: :unprocessable_entity }
