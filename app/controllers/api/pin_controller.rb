@@ -47,6 +47,8 @@ class Api::PinController < ApplicationController
       @pin_liked.assign_attributes(uid: session[:uid])
       respond_to do |format|
         if @pin_liked.save
+          @pin = Pin.find(@pin_liked.pin_id)
+          @notification = Notification.create(uid: @pin.uid, suid: session[:uid], pin_id: @pin.id, title: @pin.title, category: 3, read: 0)
           format.json { render json: @pin_liked, status: :created }
         else
           format.json { render json: @pin_liked.errors, status: :unprocessable_entity }
@@ -56,6 +58,8 @@ class Api::PinController < ApplicationController
       @pin_liked = PinLike.where(pin_id: params[:pin_id], uid: session[:uid])
       respond_to do |format|
         if @pin_liked.destroy_all
+          @notification = Notification.where(suid: session[:uid], pin_id: pin_liked.pin_id)
+          @notification.destroy_all
           format.json { render json: @pin_liked, status: :accepted }
         else
           format.json { render json: @pin_liked.errors, status: :unprocessable_entity }
