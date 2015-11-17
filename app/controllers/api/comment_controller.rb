@@ -21,7 +21,7 @@ class Api::CommentController < ApplicationController
     respond_to do |format|
       if @comment.save
         @pin = Pin.find(@comment.pin_id)
-        @notification = Notification.create(uid: @pin.uid, pin_id: @comment.pin_id, title: 'testing notification', category: 1, read: 0)
+        @notification = Notification.create(uid: @pin.uid, suid: session[:uid], pin_id: @comment.pin_id, title: @pin.title, category: 2, read: 0)
         format.json { render json: @comment, status: :created }
       else
         format.json { render json: @comment.errors, status: :unprocessable_entity }
@@ -36,6 +36,8 @@ class Api::CommentController < ApplicationController
       @comment_liked.assign_attributes(uid: session[:uid])
       respond_to do |format|
         if @comment_liked.save
+          @comment = Comment.find(@comment_liked.comment_id)
+          @notification = Notification.create(uid: @comment.uid, suid: session[:uid], comment_id: @comment.id, title: @comment.content, category: 3, read: 0)
           format.json { render json: @comment_liked, status: :created }
         else
           format.json { render json: @comment_liked.errors, status: :unprocessable_entity }
@@ -45,6 +47,8 @@ class Api::CommentController < ApplicationController
       @comment_liked = CommentLike.where(comment_id: params[:comment_id], uid: session[:uid])
       respond_to do |format|
         if @comment_liked.destroy_all
+          @notification = Notification.where(suid: session[:uid], comment_id: comment_liked.comment_id)
+          @notification.destroy_all
           format.json { render json: @comment_liked, status: :accepted }
         else
           format.json { render json: @comment_liked.errors, status: :unprocessable_entity }
