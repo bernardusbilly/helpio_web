@@ -1,5 +1,6 @@
 class Api::PinController < ApplicationController
   protect_from_forgery :except => :create 
+  require 'date'
   
   def index
     session[:uid] = cookies[:uid] if cookies[:uid]
@@ -81,6 +82,14 @@ class Api::PinController < ApplicationController
 
     respond_to do |format|
       format.json { render :json => @comment }
+    end
+  end
+
+  def check_expired
+    current_time = DateTime.now.advance(:minutes => -30)
+    @pin = Pin.where("created_at < ?", current_time)
+    respond_to do |format|
+      format.json { render :json => @pin }
     end
   end
 

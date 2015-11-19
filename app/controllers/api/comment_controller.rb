@@ -40,7 +40,7 @@ class Api::CommentController < ApplicationController
         if @comment_liked.save
           @comment = Comment.find(@comment_liked.comment_id)
           if session[:uid] != @comment.uid
-            @notification = Notification.create(uid: @comment.uid, suid: session[:uid], comment_id: @comment.id, title: @comment.content, category: 3, read: 0)
+            @notification = Notification.create(uid: @comment.uid, suid: session[:uid], pin_id: @comment.pin_id, comment_id: @comment.id, title: @comment.content, category: 3, read: 0)
           end  
           format.json { render json: @comment_liked, status: :created }
         else
