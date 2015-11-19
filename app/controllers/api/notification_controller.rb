@@ -1,5 +1,5 @@
 class Api::NotificationController < ApplicationController
-  protect_from_forgery :except => :create 
+  skip_before_filter :verify_authenticity_token
   
   def index
     @notification = Notification.order('id desc').where(uid: current_user.id)

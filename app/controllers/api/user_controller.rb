@@ -1,5 +1,5 @@
 class Api::UserController < ApplicationController
-  protect_from_forgery :except => :create 
+  skip_before_filter :verify_authenticity_token
   
   def index
     @user = User.all()
