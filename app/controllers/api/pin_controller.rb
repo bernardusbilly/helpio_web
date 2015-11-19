@@ -48,7 +48,9 @@ class Api::PinController < ApplicationController
       respond_to do |format|
         if @pin_liked.save
           @pin = Pin.find(@pin_liked.pin_id)
-          @notification = Notification.create(uid: @pin.uid, suid: current_user.id, pin_id: @pin.id, title: @pin.title, category: 3, read: 0)
+          if current_user.id != @pin.uid
+            @notification = Notification.create(uid: @pin.uid, suid: current_user.id, pin_id: @pin.id, title: @pin.title, category: 3, read: 0)
+          end
           format.json { render json: @pin_liked, status: :created }
         else
           format.json { render json: @pin_liked.errors, status: :unprocessable_entity }
