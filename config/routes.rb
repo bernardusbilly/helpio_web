@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   post '/api/pin/liked', to: 'api/pin#liked', defaults: { format: :json }
   post '/api/comment/liked', to: 'api/comment#liked', defaults: { format: :json }
 
+
+  get '/api/pin/check_expired', to: 'api/pin#check_expired', defaults: { format: :json }
+
   namespace :api, defaults: { format: :json } do
     resources :user
   end
