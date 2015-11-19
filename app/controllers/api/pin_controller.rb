@@ -1,6 +1,5 @@
 class Api::PinController < ApplicationController
-  protect_from_forgery :except => :create 
-  require 'date'
+  skip_before_filter :verify_authenticity_token
   
   def index
     session[:uid] = cookies[:uid] if cookies[:uid]
