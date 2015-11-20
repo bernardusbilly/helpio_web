@@ -25,4 +25,18 @@ class Api::NotificationController < ApplicationController
       format.json { render json: @notification }
     end
   end
+
+  def read
+    @notification = Notification.find(read_params[:notification_id])
+    @notification.update(read: 1)
+    respond_to do |format|
+    	format.json { render json: @notification, status: :created }    
+    end
+  end
+
+  private
+
+  def read_params
+    params.permit(:notification_id)
+  end
 end
