@@ -40,6 +40,13 @@ class Api::PinController < ApplicationController
     end
   end
 
+  def mine
+    @pin = Pin.where(uid: current_user.id)
+    respond_to do |format|
+      format.json { render json: @pin }
+    end
+  end
+
   def liked
     status = params[:status]
     if status == "1"
