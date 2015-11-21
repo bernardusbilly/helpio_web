@@ -42,6 +42,13 @@ class Api::PinController < ApplicationController
 
   def mine
     @pin = Pin.where(uid: current_user.id)
+    @pins.each do |pin|
+      pin.nickname = current_user.nickname
+      pin.prof_img = current_user.prof_img
+      pin.comment_count = pin.comment.count
+      pin.like_count = pin.pin_like.count
+      pin.liked = pin.pin_like.where(uid: current_user.id).count
+    end
     respond_to do |format|
       format.json { render json: @pin }
     end
