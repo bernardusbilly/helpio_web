@@ -2,7 +2,7 @@ class Api::NotificationController < ApplicationController
   skip_before_filter :verify_authenticity_token
   
   def index
-    @notification = Notification.order('id desc').where(uid: current_user.id)
+    @notification = Notification.order('id desc').where(uid: current_user.id).limit(10)
 	@notification.each do |notification|
 	  user = User.find(notification.suid)
 	  pin = Pin.find(notification.pin_id)
