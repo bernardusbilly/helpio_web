@@ -8,6 +8,7 @@ class Api::NotificationController < ApplicationController
 	  pin = Pin.find(notification.pin_id)
 	  notification.nickname = user.nickname
 	  notification.prof_img = user.prof_img
+	  notification.img = user.img
 	  notification.lat = pin.lat
 	  notification.lon = pin.lon
       notification.comment_count = pin.comment.count
