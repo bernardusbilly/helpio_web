@@ -2,7 +2,6 @@ class Api::MessageController < ApplicationController
   skip_before_filter :verify_authenticity_token
   
   def index
-    session[:uid] = 1
     @messages = Message.all
 
     respond_to do |format|
