@@ -12,6 +12,9 @@ Rails.application.routes.draw do
 
   post '/api/notification/read', to: 'api/notification#read', defaults: { format: :json }
 
+  post '/api/message/send_text', to: 'api/message#send_text', defaults: { format: :json }
+  get '/api/message/content', to: 'api/message#content', defaults: { format: :json }
+
   get '/api/pin/check_expired', to: 'api/pin#check_expired', defaults: { format: :json }
 
   namespace :api, defaults: { format: :json } do
@@ -25,6 +28,9 @@ Rails.application.routes.draw do
   end
   namespace :api, defaults: { format: :json } do
     resources :notification
+  end
+  namespace :api, defaults: { format: :json } do
+    resources :message
   end
   
   # The priority is based upon order of creation: first created -> highest priority.
