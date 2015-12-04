@@ -71,7 +71,7 @@ class Api::MessageController < ApplicationController
   end
 
   def send_params
-    params.permit(:mid, :text, :suid)
+    params.permit(:mid, :text)
   end
 
 end
