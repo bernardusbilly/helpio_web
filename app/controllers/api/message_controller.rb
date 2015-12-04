@@ -29,6 +29,22 @@ class Api::MessageController < ApplicationController
     end
   end
 
+  def roomid
+    @message = Message.where("uid = ? AND suid = ? OR uid = ? AND suid = ?", current_user.id, params[:suid], params[:suid], current_user.id).first
+    respond_to do |format|
+      if @message
+        format.json { render json: {roomid: @message.id}, status: :created }
+      else
+        @message = Message.new(uid: current_user.id, suid: params[:suid])
+        if @message.save
+          format.json { render json: {roomid: @message.id}, status: :unprocessable_entity }
+        else
+          format.json { render json: @message.errors, status: :unprocessable_entity }
+        end
+      end
+    end
+  end
+
   def send_text
     @message_content = MessageContent.new(send_params)
     @message_content.assign_attributes(uid: current_user.id)
