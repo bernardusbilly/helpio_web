@@ -2,8 +2,19 @@ class Api::MessageController < ApplicationController
   skip_before_filter :verify_authenticity_token
   
   def index
-    @messages = Message.all
+    @messages = Message.where("uid = ? OR suid = ?", current_user.id, current_user.id)
 
+    @messages.each do |message|
+      if message.uid == current_user.id
+        suid = message.suid
+      else
+        suid = message.uid
+      end
+      user = User.find(suid)
+      message.nickname = user.nickname
+      message.prof_img = user.prof_img
+      message.last_text = MessageContent.where(mid: message.id).order("created_at").last.text
+    end
     respond_to do |format|
       format.json { render :json => @messages }
     end
@@ -59,6 +70,13 @@ class Api::MessageController < ApplicationController
 
   def content
     @message_contents = MessageContent.where(mid: params[:mid])
+    @message_contents.each do |content|
+      if content.uid == current_user.id
+        content.self_msg = true
+      else
+        content.self_msg = false
+      end
+    end
     respond_to do |format|
       format.json { render :json => @message_contents }
     end
