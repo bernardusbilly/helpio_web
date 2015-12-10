@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   get '/api/message/roomid', to: 'api/message#roomid', defaults: { format: :json }
   get '/api/message/content', to: 'api/message#content', defaults: { format: :json }
 
+  get '/api/friend/search', to: 'api/friend#search', defaults: { format: :json }
+
   get '/api/pin/check_expired', to: 'api/pin#check_expired', defaults: { format: :json }
 
   namespace :api, defaults: { format: :json } do
@@ -32,6 +34,9 @@ Rails.application.routes.draw do
   end
   namespace :api, defaults: { format: :json } do
     resources :message
+  end
+  namespace :api, defaults: { format: :json } do
+    resources :friend
   end
   
   # The priority is based upon order of creation: first created -> highest priority.
