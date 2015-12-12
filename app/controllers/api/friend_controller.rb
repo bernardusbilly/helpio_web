@@ -20,10 +20,10 @@ class Api::FriendController < ApplicationController
   end
 
   def show
-    @messages = Message.all
+    @friends = Friend.all
 
     respond_to do |format|
-      format.json { render :json => @messages }
+      format.json { render :json => @friends }
     end
   end
 
@@ -41,7 +41,11 @@ class Api::FriendController < ApplicationController
 
   def search
     @friends = Friend.where("uid = ? OR suid = ?", current_user.id, current_user.id).select(:uid, :suid)
-    @users = User.where("id != (?) AND id NOT IN (?)", current_user.id, @friends.map {|i| i.uid == current_user.id ? i.suid : i.uid})
+    if @friends.empty?
+      @users = User.where("id != (?)", current_user.id)
+    else
+      @users = User.where("id != (?) AND id NOT IN (?)", current_user.id, @friends.map {|i| i.uid == current_user.id ? i.suid : i.uid})
+    end
     respond_to do |format|
       format.json { render :json => @users }
     end
