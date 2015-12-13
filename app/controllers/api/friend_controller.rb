@@ -2,7 +2,7 @@ class Api::FriendController < ApplicationController
   skip_before_filter :verify_authenticity_token
   
   def index
-    @friends = Friend.where("uid = ? OR suid = ?", current_user.id, current_user.id).order(nickname: :asc)
+    @friends = Friend.where("uid = ? OR suid = ?", current_user.id, current_user.id)
 
     threshold_time = DateTime.now.advance(:days => -1)
     @friends.each do |friend|
