@@ -3,6 +3,7 @@ class Api::FriendController < ApplicationController
   
   def index
     @friends = Friend.where("uid = ? OR suid = ?", current_user.id, current_user.id)
+    @all = []
 
     threshold_time = DateTime.now.advance(:days => -1)
     @friends.each do |friend|
