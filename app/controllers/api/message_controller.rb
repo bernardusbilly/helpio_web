@@ -13,7 +13,10 @@ class Api::MessageController < ApplicationController
       user = User.find(suid)
       message.nickname = user.nickname
       message.prof_img = user.prof_img
-      message.last_text = MessageContent.where(mid: message.id).order("created_at").last.text
+      @content = MessageContent.where(mid: message.id).order("created_at").last
+      if @content
+        message.last_text = @content.text
+      end
     end
     respond_to do |format|
       format.json { render :json => @messages }
