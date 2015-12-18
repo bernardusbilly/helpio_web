@@ -1,0 +1,1523 @@
+/* ! normalize.css v1.0.0 | MIT License | git.io/normalize */
+
+/* ==========================================================================
+HTML5 display definitions
+========================================================================== */
+
+/*
+* Corrects `block` display not defined in IE 6/7/8/9 and Firefox 3.
+*/
+
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary {
+    display: block
+}
+
+/*
+* Corrects `inline-block` display not defined in IE 6/7/8/9 and Firefox 3.
+*/
+audio, canvas, video {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+/*
+* Prevents modern browsers from displaying `audio` without controls.
+* Remove excess height in iOS 5 devices.
+*/
+audio:not([controls]) {
+    display: none;
+    height: 0;
+}
+
+/*
+* Addresses styling for `hidden` attribute not present in IE 7/8/9, Firefox 3, * and Safari 4.
+* Known issue:no IE 6 support.
+*/
+[hidden] {
+    display: none
+}
+
+/* ==========================================================================
+Base
+========================================================================== */
+/*
+* 1. Corrects text resizing oddly in IE 6/7 when body `font-size` is set using
+*    `em` units.
+* 2. Prevents iOS text size adjust after orientation change, without disabling
+*    user zoom.
+*/
+
+html {
+    font-size: 100%; /* 1 */
+    -webkit-text-size-adjust: 100%; /* 2 */
+    -ms-text-size-adjust: 100%; /* 2 */
+}
+
+/*
+* Addresses `font-family` inconsistency between `textarea` and other form
+* elements.
+*/
+html, button, input, select, textarea {
+    font-family: sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/*
+* Addresses margins handled incorrectly in IE 6/7.
+*/
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+/*
+* Font Smoothing
+*/
+html, html a {
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+ /*   -webkit-font-smoothing: antialiased; */
+}
+
+/* ==========================================================================
+Links
+========================================================================== */
+/*
+* Addresses `outline` inconsistency between Chrome and other browsers.
+*/
+
+a:focus {
+    outline: none;
+    text-decoration: none;
+}
+
+/*
+* Improves readability when focused and also mouse hovered in all browsers.
+*/
+a:active, a:hover {
+    outline: 0;
+    text-decoration: none;
+}
+
+/* ==========================================================================
+Typography
+========================================================================== */
+/*
+* Addresses font sizes and margins set differently in IE 6/7.
+* Addresses font sizes within `section` and `article` in Firefox 4+, Safari 5, * and Chrome.
+*/
+
+h1 {
+    margin: 0.67em 0;
+    font-size: 2em;
+}
+h2 {
+    margin: 0.83em 0;
+    font-size: 1.5em;
+}
+h3 {
+    margin: 1em 0;
+    font-size: 1.17em;
+}
+h4 {
+    margin: 1.33em 0;
+    font-size: 1em;
+}
+h5 {
+    margin: 1.67em 0;
+    font-size: 0.83em;
+}
+h6 {
+    margin: 2.33em 0;
+    font-size: 0.75em;
+}
+
+/*
+* Addresses styling not present in IE 7/8/9, Safari 5, and Chrome.
+*/
+abbr[title] {
+    border-bottom: 1px dotted
+}
+
+/*
+* Addresses style set to `bolder` in Firefox 3+, Safari 4/5, and Chrome.
+*/
+b, strong {
+    font-weight: bold
+}
+blockquote {
+    margin: 0px
+}
+
+/*
+* Addresses styling not present in Safari 5 and Chrome.
+*/
+dfn {
+    font-style: italic
+}
+
+/*
+* Addresses styling not present in IE 6/7/8/9.
+*/
+mark {
+    background: #ff0;
+    color: #000;
+}
+
+/*
+* Addresses margins set differently in IE 6/7.
+*/
+p, pre {
+    margin: 1em 0
+}
+
+/*
+* Corrects font family set oddly in IE 6, Safari 4/5, and Chrome.
+*/
+code, kbd, pre, samp {
+    font-size: 1em;
+    font-family: monospace, serif;
+    _font-family: 'courier new', monospace;
+}
+
+/*
+* Improves readability of pre-formatted text in all browsers.
+*/
+pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/*
+* Addresses CSS quotes not supported in IE 6/7.
+*/
+q {
+    quotes: none
+}
+
+/*
+* Addresses `quotes` property not supported in Safari 4.
+*/
+q:before, q:after {
+    content: '';
+    content: none;
+}
+small {
+    font-size: 75%
+}
+
+/*
+* Prevents `sub` and `sup` affecting `line-height` in all browsers.
+*/
+sub, sup {
+    position: relative;
+    vertical-align: baseline;
+    font-size: 75%;
+    line-height: 0;
+}
+sup {
+    top: -0.5em
+}
+sub {
+    bottom: -0.25em
+}
+
+/* ==========================================================================
+Lists
+========================================================================== */
+/*
+* Addresses margins set differently in IE 6/7.
+*/
+
+dl, menu, ol, ul {
+    margin: 1em 0
+}
+dd {
+    margin: 0 0 0 40px
+}
+
+/*
+* Addresses paddings set differently in IE 6/7.
+*/
+menu, ol, ul {
+    padding: 0
+}
+
+/*
+* Corrects list images handled incorrectly in IE 7.
+*/
+nav ul, nav ol {
+    list-style: none;
+    list-style-image: none;
+}
+
+/* ==========================================================================
+Embedded content
+========================================================================== */
+/*
+* 1. Removes border when inside `a` element in IE 6/7/8/9 and Firefox 3.
+* 2. Improves image quality when scaled in IE 7.
+*/
+
+img {
+    border: 0; /* 1 */
+    -ms-interpolation-mode: bicubic; /* 2 */
+}
+
+/*
+* Corrects overflow displayed oddly in IE 9.
+*/
+svg:not(:root) {
+    overflow: hidden
+}
+
+/* ==========================================================================
+Figures
+========================================================================== */
+/*
+* Addresses margin not present in IE 6/7/8/9, Safari 5, and Opera 11.
+*/
+
+figure {
+    margin: 0
+}
+
+/* ==========================================================================
+Forms
+========================================================================== */
+/*
+* Corrects margin displayed oddly in IE 6/7.
+*/
+
+form {
+    margin: 0
+}
+
+/*
+* Define consistent border, margin, and padding.
+*/
+fieldset {
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
+    border: 1px solid #c0c0c0;
+}
+
+/*
+* 1. Corrects color not being inherited in IE 6/7/8/9.
+* 2. Corrects text not wrapping in Firefox 3.
+* 3. Corrects alignment displayed oddly in IE 6/7.
+*/
+legend {
+    padding: 0;
+    border: 0; /* 1 */
+    white-space: normal; /* 2 */
+    *margin-left: -7px; /* 3 */
+}
+
+/*
+* 1. Corrects font size not being inherited in all browsers.
+* 2. Addresses margins set differently in IE 6/7, Firefox 3+, Safari 5, *    and Chrome.
+* 3. Improves appearance and consistency in all browsers.
+*/
+button, input, select, textarea {
+    margin: 0; /* 2 */
+    vertical-align: baseline; /* 3 */
+    font-size: 100%; /* 1 */
+    *vertical-align: middle; /* 3 */
+}
+
+/*
+* Addresses Firefox 3+ setting `line-height` on `input` using ` !important` in
+* the UA stylesheet.
+*/
+button, input {
+    line-height: normal
+}
+
+/*
+* 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+*    and `video` controls.
+* 2. Corrects inability to style clickable `input` types in iOS.
+* 3. Improves usability and consistency of cursor style between image-type
+*    `input` and others.
+* 4. Removes inner spacing in IE 7 without affecting normal text inputs.
+*    Known issue:inner spacing remains in IE 6.
+*/
+button, html input[type="button"], /* 1 */
+input[type="reset"], input[type="submit"] {
+    cursor: pointer; /* 3 */
+    -webkit-appearance: button; /* 2 */
+    *overflow: visible; /* 4 */
+}
+
+/*
+* Re-set default cursor for disabled elements.
+*/
+button[disabled], input[disabled] {
+    cursor: default
+}
+
+/*
+* 1. Addresses box sizing set to content-box in IE 8/9.
+* 2. Removes excess padding in IE 8/9.
+* 3. Removes excess padding in IE 7.
+*    Known issue:excess padding remains in IE 6.
+*/
+input[type="checkbox"], input[type="radio"] {
+    box-sizing: border-box; /* 1 */
+    padding: 0; /* 2 */
+    *height: 13px; /* 3 */
+    *width: 13px; /* 3 */
+}
+
+/*
+* 1. Addresses `appearance` set to `searchfield` in Safari 5 and Chrome.
+* 2. Addresses `box-sizing` set to `border-box` in Safari 5 and Chrome
+*    (include `-moz` to future-proof).
+*/
+input[type="search"] {
+    /* 2 */
+    box-sizing: content-box;
+    -webkit-appearance: textfield; /* 1 */
+    nowhitespace: afterproperty;
+}
+
+/*
+* Removes inner padding and search cancel button in Safari 5 and Chrome
+* on OS X.
+*/
+input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none
+}
+
+/*
+* Removes inner padding and border in Firefox 3+.
+*/
+button::-moz-focus-inner, input::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+/*
+* 1. Removes default vertical scrollbar in IE 6/7/8/9.
+* 2. Improves readability and alignment in all browsers.
+*/
+textarea {
+    overflow: auto; /* 1 */
+    vertical-align: top; /* 2 */
+}
+
+/* ==========================================================================
+Tables
+========================================================================== */
+/*
+* Remove most spacing between table cells.
+*/
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+/* ==========================================================================
+Global Styles
+========================================================================== */
+.group:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+a {
+    color: #2B7BBE;
+    -webkit-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out;
+    -webkit-transition-duration: 300ms;
+    transition-duration: 300ms;
+    -webkit-transition-property: color, border-color, background-color;
+    transition-property: color, border-color, background-color;
+}
+a:hover {
+    color: #2B7BBE;
+}
+.nopadding {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+p {
+    font-size: 14px;
+    line-height: 25px;
+}
+a:hover .button-left {
+    background-color: black;
+}
+.texture-overlay {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/grid.png);
+}
+
+/* ==========================================================================
+Buttons
+========================================================================== */
+.download-btn {
+    display: inline-block;
+    margin: 0 10px 10px 0;
+    padding: 20px 50px;
+    border-radius: 3px;
+    background-color: rgb(255,100,25);
+    color: rgb(255,255,255);
+    font-size: 16px;
+}
+.download-btn:hover, .download-btn:focus {
+    background-color: rgb(255,255,255);
+    color: rgb(255,100,25);
+    text-decoration: none;
+}
+.learn-btn, .download-btn {
+    display: inline-block;
+    padding: 18px 46px;
+    border: 3px solid #fff;
+    border-radius: 10px;
+    color: rgb(255,255,255);
+    font-size: 16px;
+}
+.learn-btn:hover, .learn-btn:focus {
+    border-color: rgba(255,100,25,0.5);
+    color: rgba(255,100,25,0.5);
+    text-decoration: none;
+}
+.read-more-btn {
+    display: inline-block;
+    color: #323a45;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+.read-more-btn i, .download-btn i {
+    margin-left: 5px
+}
+.showcase .download-btn {
+    margin-top: 50px
+}
+.download .download-btn {
+    margin-top: 25px
+}
+
+/* ==========================================================================
+Modal box
+========================================================================== */
+.modal .wrapper-login {
+    overflow: hidden;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    position: relative;
+    right: -1px;
+}
+.modal .wrapper-signup {
+    overflow: hidden;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+.modal .wrapper-login .login-image {
+    height: 560px;
+}
+.modal .wrapper-signup .signup-image {
+    height: 500px;
+}
+.modal-header {
+    text-align: center;
+    background-color: #4EAEE8;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: #fff;
+    border-bottom: none;
+}
+.modal-header .modal-title {
+    font-size: 30px;
+    padding-top: 10px;
+}
+.modal-body {
+    text-align: center;
+    line-height: 30px;
+    padding: 30px;
+}
+.modal-body a {
+    color: rgb(255,100,25);
+}
+.modal-body .login-facebook,
+.modal-body .login-google,
+.modal-body .login-email {
+    border-radius: 5px;
+    color: #FFFFFF;
+    cursor: pointer;
+    padding: 5px;
+    width: 250px;
+    margin: 10px auto 0 auto;
+}
+.modal-body .login-facebook {
+    background-color: #49639F;
+}
+.modal-body .login-facebook .facebook {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+}
+.modal-body .login-google {
+    background-color: #DC4E41;
+}
+.modal-body .login-google .google {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    margin-right: 10px;
+}
+.modal-body .login-email {
+    background-color: #888888;
+}
+.modal-body .login-email .email {
+    color: #888888;
+    border-radius: 2px;
+    display: inline-block;
+    background-color: #FFFFFF;
+    width: 28px;
+    height: 28px;
+    margin-right: 10px;
+}
+.modal-body .separator {
+    width: 300px;
+    margin: 10px auto 20px auto;
+}
+.modal-body .separator .or-separator {
+    font-weight: bold;
+    padding: 8px;
+    background-color: #fff;
+}
+.modal-body input {
+    width: 300px;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+}
+.modal-body input:hover {
+    outline: none;
+    padding: 11px 21px;
+    border: 1px solid #888;
+}
+.modal-body input:focus {
+    outline: none;
+    padding: 11px 21px;
+    border: 1px solid #333;
+}
+.modal-body .agreement {
+    line-height: 150%;
+    text-align: left;
+    width: 250px;
+    font-size: 12px;
+    color: grey;
+    margin: 0 auto 20px auto;
+    padding-top: 8px;
+}
+.modal-body .submit {
+    margin-top: 10px;
+    background-color: rgb(255, 100, 25);
+    color: #fff;
+    border: none;
+    width: 300px;
+}
+<<<<<<< HEAD
+=======
+
+.modal-body .most-top {
+    margin-top: 25px;
+}
+
+>>>>>>> 1f95f94f790a476482676429c7576004ee98b39f
+.modal-body .most-bottom {
+    margin-bottom: 4px;
+}
+.modal-body .submit:hover,
+.modal-body .submit:focus {
+    background-color: rgb(235, 80, 5);
+    color: #fff;
+    outline: none;
+}
+
+/* ==========================================================================
+Navigation
+========================================================================== */
+.nav-toggle {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    z-index: 999999;
+    padding: 10px 35px 16px 0px;
+    cursor: pointer;
+}
+.nav-toggle:focus {
+    outline: none;
+}
+.nav-toggle span, .nav-toggle span:before, .nav-toggle span:after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 35px;
+    height: 5px;
+    border-radius: 1px;
+    background: #fff;
+    cursor: pointer;
+}
+.nav-toggle span:before {
+    top: -10px
+}
+.nav-toggle span:after {
+    bottom: -10px
+}
+.nav-toggle span, .nav-toggle span:before, .nav-toggle span:after {
+    -webkit-transition: all 300ms ease-in-out;
+    transition: all 300ms ease-in-out;
+}
+.nav-toggle.active span {
+    background-color: transparent
+}
+.nav-toggle.active span:before, .nav-toggle.active span:after {
+    top: 0
+}
+.nav-toggle.active span:before {
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.nav-toggle.active span:after {
+    top: 10px;
+    -webkit-transform: translateY(-10px) rotate(-45deg);
+    -ms-transform: translateY(-10px) rotate(-45deg);
+    transform: translateY(-10px) rotate(-45deg);
+}
+.navicon {
+    position: relative;
+    height: 26px;
+}
+.navicon p {
+    margin: 10px 50px 0 0
+}
+.navicon-fixed {
+    position: fixed;
+    top: 59px;
+    right: 143px;
+}
+.nav-wrapper .button-custom {
+    position: relative;
+    top: 5px;
+    border: none;
+    outline: none;
+    padding: 0;
+    color: #fff;
+}
+.nav-wrapper .button-custom {
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+}
+.nav-wrapper .button-custom .button-left {
+    display: inline-block;
+    width: 49%;
+    padding: 5px 10px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    color: #fff;
+    text-align: center;
+    -webkit-transition: all 300ms ease-in-out;
+    transition: all 300ms ease-in-out;
+}
+.nav-wrapper .button-custom .button-right {
+    display: inline-block;
+    width: 49%;
+    padding: 5px 20px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    color: #fff;
+    text-align: center;
+    margin-left: -4px;
+    border-left: 1px solid #fff;
+    -webkit-transition: all 300ms ease-in-out;
+    transition: all 300ms ease-in-out;
+}
+.nav-wrapper .button-custom .button-right:hover,
+.nav-wrapper .button-custom .button-right:focus,
+.nav-wrapper .button-custom .button-left:hover,
+.nav-wrapper .button-custom .button-left:focus {
+    background-color: rgba(255, 255, 255, 0.5);
+    -webkit-transition: all 300ms ease-in-out;
+    transition: all 300ms ease-in-out;
+}
+
+/* ==========================================================================
+Login Loading 
+========================================================================== */
+.loading-page {
+    position: fixed;
+    z-index: 1000;
+    background-color: #ffffff;
+    width: 100%;
+    height: 100%;
+}
+
+/* ==========================================================================
+Header-nav
+========================================================================== */
+.nav-wrapper {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 40px;
+    background: #333;
+    background: rgba(0,0,0,0.2);
+    color: #ffffff;
+}
+.header-nav {
+    display: block;
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #EEEEEE;
+}
+.header-nav:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+.header-nav:focus {
+    outline: none;
+}
+a.header-nav {
+    color: inherit;
+}
+
+/* ==========================================================================
+Hero
+========================================================================== */
+.hero {
+    position: relative;
+    overflow: hidden;
+    padding: 10px 0 60px 0;
+    height: 600px;
+    
+    z-index: 0;
+    color: #fff;
+}
+.hero .parallax {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+}
+.hero .hero-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+  -webkit-transition-duration: 300ms;
+  transition-duration: 300ms;
+}
+.hero .parallax {
+    color: #FFFFFF;
+}
+.hero .parallax img {
+    display: none;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    padding: 10px 0 60px 0;
+    width: 120%;
+}
+.hero .logo-helpio {
+    position: absolute;
+    z-index: 1;
+    top: 20px;
+    left: 50px;
+    width: 200px;
+}
+.hero .login-button {
+    position: absolute;
+    z-index: 1;
+    top: 20px;
+    right: 120px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    background: rgba(255, 100, 25, 0.9);
+    color: #FFFFFF;
+    border: none;
+}
+.hero .signup-button{
+    position: absolute;
+    z-index: 1;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #333333;
+    border: none;
+}
+.hero button.login-button:focus,
+.hero button.signup-button:focus{ 
+    outline: none;
+}
+.hero h1 {
+    margin: 220px 0 0 0;
+    font-weight: bold;
+    font-size: 40px;
+}
+.hero h1 span {
+    display: inline-block;
+    color: #a1a9b0;
+}
+.hero h2 {
+    margin: 10px 0 20px 0;
+}
+.hero input {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #333;
+    border: none;
+    background: rgba(255,255,255,0.5);
+
+    -webkit-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out;
+    -webkit-transition-duration: 300ms;
+    transition-duration: 300ms;
+    -webkit-transition-property: color, border-color, background-color;
+    transition-property: color, border-color, background-color;
+}
+.hero input.input {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    padding-left: 20px;
+    width: 180px;
+    text-align: center;
+}
+.hero input.input::-webkit-input-placeholder {
+   color: #FFFFFF;
+   opacity: 0.7;
+}
+.hero input.input::-webkit-outer-spin-button,
+.hero input.input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+.hero input.send-link {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;   
+}
+.hero input:focus {
+    outline: none;
+}
+.hero .send-link {
+    display: inline-block;
+    margin-left: -4px;
+    padding: 10px 20px;
+    border: none;
+    background-color: rgb(255, 100, 25);
+    color: rgb(255, 255, 255);
+}
+.hero .send-link:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgb(235, 80, 5);
+}
+
+/*====================
+Phone Section
+====================*/
+.phone-section {
+    height: 700px;
+}
+.device {
+    position: absolute;
+    animation-delay: 1s;
+    left: 20%;
+    min-height: 676px;
+    width: 359px;
+    background: url('../img/iphone-skeleton.png') no-repeat center center;
+}
+.device-content {
+    position: absolute;
+    top: 115px;
+    left: 56px;
+    width: 247px;
+    height: 445px;
+    background: rgba(0, 0, 0, 0.3);
+}
+.device-content img {
+    width: 247px;
+    height: 445px;
+}
+.phone-wrapper-left {
+    padding-top: 280px;
+    color: #888888;
+    font-size: 20px;
+}
+.phone-wrapper-left .h1 {
+    color: #333333;
+}
+
+
+/* ==========================================================================
+Video
+========================================================================== */
+.yt-player {
+    height: 500px;
+}
+section.video i {
+    margin-right: 10px;
+    color: #323a45;
+    vertical-align: middle;
+    font-size: 50px;
+    -webkit-transition: color 300ms ease-in-out;
+    transition: color 300ms ease-in-out;
+}
+section.video h1 {
+    font-weight: 400;
+    font-size: 20px;
+}
+section.video {
+    padding: 60px 0;
+    background-color: rgb(242,242,242);
+}
+section.video a {
+    color: #323a45
+}
+section.video a:hover, section.video a:focus {
+    color: rgba(255,100,25,0.5);
+    text-decoration: none;
+}
+section.video a:hover i, section.video a:focus i {
+    color: rgba(255,100,25,0.5)
+}
+
+/* ==========================================================================
+Custom Slider Controls (Flickity)
+========================================================================== */
+.flickity-page-dots .dot {
+    width: 13px;
+    height: 13px;
+    opacity: 1;
+    background: transparent;
+    border: 2px solid white;
+    -webkit-transition: background 0.3s;
+    transition: background 0.3s;
+}
+.flickity-page-dots .dot.is-selected {
+    background: white;
+}
+
+/* ==========================================================================
+Features Slider
+========================================================================== */
+.map-intro {
+    cursor: url("../img/icon/drop-pin.png") 15 35, auto;
+    overflow: hidden;
+}
+.map-intro-bg {
+    position: relative;
+    min-height: 680px;
+    background: url('../img/map-berkeley.png') no-repeat center center;
+    background-size: cover;
+    text-align: center;
+}
+.map-intro-bg .map-info {
+    position: absolute;
+    z-index: 2;
+    top: 15px;
+    right: 15px;
+    padding: 15px;
+    padding-bottom: 30px;
+    font-size: 20px;
+    color: #fff;
+    font-weight: bold;
+    text-align: right;
+    border-radius: 15px;
+    background-color: rgba(0,0,0,0.2);
+    cursor: default;
+}
+.map-intro-bg .map-info .white-line {
+    display: block;
+    width: 3px;
+    margin-left: 30px;
+    padding-top: 50px;
+}
+.map-intro-bg .map-info .red-indicator,
+.map-intro-bg .map-info .yellow-indicator,
+.map-intro-bg .map-info .blue-indicator, 
+.map-intro-bg .map-info .pin-indicator {
+    display: inline-block;
+    position: absolute;
+    top: 60px;
+    left: 27px;
+    width: 40px;
+    cursor: help;
+}
+.map-intro-bg .map-info .yellow-indicator {
+    top: 140px;
+}
+.map-intro-bg .map-info .blue-indicator {
+    top: 220px;
+}
+.map-intro-bg .map-info .pin-indicator {
+    top: 300px;
+}
+.map-intro-bg .map-info .pin-info {
+    display: none;
+    position: absolute;
+    right: 100px;
+    width: 200px;
+    border-radius: 10px;
+    border: 3px solid #FFF;
+    font-size: 12px;
+    text-align: center;
+    padding: 10px;
+}
+.map-intro-bg .map-info .pin-info-1 {
+    top: 60px;
+    background-color: #F60C1A;
+    color: #FFF;
+}
+.map-intro-bg .map-info .pin-info-2 {
+    top: 140px;
+    background-color: #F7E53B;
+    color: #888;
+}
+.map-intro-bg .map-info .pin-info-3 {
+    top: 220px;
+    background-color: #4EAEE8;
+    color: #FFF;
+}
+.map-intro-bg .map-info .pin-info-4 {
+    top: 300px;
+    background-color: #FC541F;
+    color: #FFF;
+}
+.map-intro-bg .pin-positioning {
+    position: absolute;
+    width: 100%;
+    min-height: 500px;
+}
+.map-intro-bg .pin1 {
+    position: absolute;
+    z-index: 1;
+    top: 540px;
+    left: 20%;
+}
+.map-intro-bg .pin1 > img, 
+.map-intro-bg .pin2 > img,
+.map-intro-bg .pin3 > img {
+    width: 40px;
+}
+.map-intro-bg .pin2 {
+    position: absolute;
+    z-index: 1;
+    top: 150px;
+    left: 43%;
+}
+.map-intro-bg .pin3 {
+    position: absolute;
+    z-index: 1;
+    top: 377px;
+    left: 73%;
+}
+.map-intro-bg .wp1 {
+    position: absolute;
+    top: -73px;
+    left: -103px;
+}
+.map-intro-bg .info-pin {
+    width: 250px;
+}
+.map-intro-bg .info-pin2 {
+    position: absolute;
+}
+.map-intro-bg .info-pin3 {
+    position: absolute;
+}
+.map-intro-bg .main-pin {
+    width: 40px;
+}
+.map-intro-bg .pin {
+    position: absolute;
+}
+.map-intro-bg .info h4 {
+    padding-top: 0;
+}
+.map-intro-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+.map-intro-img {
+    width: 100%;
+    height: 400px;
+    text-align: center;
+    line-height: 400px;
+}
+/* ==========================================================================
+Features List
+========================================================================== */
+.features-list {
+    padding: 130px 0
+}
+.features-list h1 {
+    margin: 0 0 10px 0;
+    padding: 0;
+    color: #24374b;
+    font-size: 20px;
+}
+.features-list p {
+    margin-bottom: 20px;
+    color: #778899;
+}
+.feature-content {
+    text-align: justify;
+}
+.icon-size {
+    display: inline-block;
+    width: 100px;
+}
+
+
+/* ==========================================================================
+Showcase
+========================================================================== */
+.showcase {
+    background: url('../img/background/people2-dark.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+.showcase h1 {
+    margin: 30px 0 20px 0;
+    color: #fff;
+    font-weight: 400;
+    font-size: 22px;
+}
+.showcase p {
+    margin-bottom: 25px;
+    color: #fff;
+}
+.showcase-wrap {
+    position: relative;
+    padding: 100px 0;
+    min-height: 600px;
+}
+.showcase-slider ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.showcase-slider .flickity-page-dots {
+    bottom: 20px;
+}
+
+/* ==========================================================================
+Testimony
+========================================================================== */
+.testimony {
+    padding: 50px 0 100px 0;
+}
+.testimony .slide {
+    width: 100%;
+    text-align: center;
+}
+.testimony blockquote {
+    margin: 40px 0 0;
+    padding: 0;
+    border: none;
+}
+.testimony blockquote p {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    width: 70%;
+    vertical-align: top;
+    font-style: italic;
+}
+.testimony blockquote .avatar {
+    display: inline-block;
+    margin-right: 20px;
+    width: 80px;
+    height: 80px;
+    vertical-align: middle;
+    border-radius: 50%;
+    border: 2px solid rgb(255, 100, 25);
+}
+.testimony blockquote .avatar img {
+    width: 100%;
+    border-radius: 50%;
+}
+.testimony blockquote .logo-quote {
+    display: inline-block;
+    margin: 0 0 0 90px;
+}
+
+/* ==========================================================================
+Screenshots
+========================================================================== */
+.screenshots .screenshots-header {
+    padding: 40px 0 30px 0;
+    font-size: 40px;
+    font-weight: 300;
+}
+.screenshots ul {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.screenshots ul li {
+    float: left;
+    min-height: 100%;
+    width: 25%;
+    background-color: #000;
+    list-style: none;
+}
+.screenshots figure {
+    position: relative;
+    overflow: hidden;
+}
+.screenshots figure img {
+    width: 100%;
+    height: 100%;
+    -webkit-transition: all 300ms ease-in-out;
+    transition: all 300ms ease-in-out;
+}
+.screenshots figure:hover img, .screenshots figure:focus img {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+}
+.screenshots figcaption {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 25% 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    text-align: center;
+    font-size: 15px;
+    opacity: 0;
+    -webkit-transition: all 300ms ease-in-out;
+    transition: all 300ms ease-in-out;
+}
+.screenshots figcaption p {
+    color: #FFFFFF;
+}
+.screenshots figure:hover figcaption, .screenshots figure:focus figcaption {
+    opacity: 1
+}
+.visible {
+    opacity: 1
+}
+.screenshots figure.cs-hover figcaption {
+    opacity: 1
+}
+.screenshots figcaption i {
+    font-size: 35px
+}
+.screenshots figcaption p {
+    margin-bottom: 0;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+.screenshots figcaption .caption-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -20px;
+    margin-left: -100px;
+    width: 200px;
+    -webkit-transform: translate(0px, 15px);
+    -ms-transform: translate(0px, 15px);
+    transform: translate(0px, 15px);
+    -webkit-transition: all 300ms ease-in-out;
+    transition: all 300ms ease-in-out;
+}
+.screenshots figure:hover figcaption .caption-content, .screenshots figure:focus figcaption .caption-content {
+    -webkit-transform: translate(0px, 0px);
+    -ms-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);
+}
+
+/* ==========================================================================
+Download Now
+========================================================================== */
+.download {
+    padding: 120px 0;
+    background-color: rgb(255,100,25);
+}
+.download h1 {
+    margin: 0 0 15px 0;
+    color: #fff;
+    font-weight: 400;
+    font-size: 40px;
+}
+
+/* ==========================================================================
+Footer
+========================================================================== */
+footer a,
+footer a:hover,
+footer a:focus {
+    color: rgb(255,100,25);
+}
+footer p {
+    color: #C7CACC;
+    font-size: 12px;
+}
+footer ul {
+    margin-top: 53px;
+}
+footer li {
+    float: left;
+    margin-right: 7%;
+    list-style: none;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+footer li:last-child {
+    margin-right: 0;
+}
+footer p {
+    margin: -10px 0 20px 0;
+    line-height: 12px;
+}
+
+/* ==========================================================================
+Nav Overlay
+========================================================================== */
+/* Overlay style */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,100,25,0.90);
+}
+
+/* Menu style */
+.overlay nav {
+    position: relative;
+    top: 50%;
+    height: 80%;
+    text-align: center;
+    font-size: 54px;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.overlay ul {
+    position: relative;
+    display: inline-block;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+}
+.overlay ul li {
+    display: block;
+    float: left;
+    margin-right: 20px;
+}
+.overlay ul li:last-child {
+    margin-right: 0px
+}
+.overlay ul li i {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 40px;
+}
+.overlay ul li a {
+    display: block;
+    padding: 50px 0;
+    min-width: 190px;
+    border: 2px solid #fff;
+    border-radius: 3px;
+    background-color: rgb(255,100,25);
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 15px;
+    -webkit-transition: all 300ms ease-in-out;
+    transition: all 300ms ease-in-out;
+}
+.overlay ul li a:hover, .overlay ul li a:focus {
+    border-color: rgb(255,200,200);
+    color: rgb(255,200,200);
+}
+
+/* Effects */
+.overlay-boxify {
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: opacity 0.5s, visibility 0s 0.5s;
+    transition: opacity 0.5s, visibility 0s 0.5s;
+}
+.overlay-boxify.open {
+    visibility: visible;
+    opacity: 1;
+    -webkit-transition: opacity 0.5s;
+    transition: opacity 0.5s;
+}
+.overlay-boxify nav ul li {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -80px, 0);
+    transform: translate3d(0, -80px, 0);
+    -webkit-transition: -webkit-transform 0.5s, opacity 0.5s;
+    transition: transform 0.5s, opacity 0.5s;
+}
+.overlay-boxify.open nav ul:first-child li:first-child {
+    -webkit-transition-delay: 0.05s;
+    transition-delay: 0.05s;
+}
+.overlay-boxify.open nav ul:first-child li:nth-child(2) {
+    -webkit-transition-delay: 0.1s;
+    transition-delay: 0.1s;
+}
+.overlay-boxify.open nav ul:nth-child(2) li:first-child {
+    -webkit-transition-delay: 0.15s;
+    transition-delay: 0.15s;
+}
+.overlay-boxify.open nav ul:nth-child(2) li:nth-child(2) {
+    -webkit-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+}
+.overlay-boxify.open nav ul li {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+/* ==========================================================================
+Waypoints
+========================================================================== */
+.wp1, .wp2, .wp3, .wp4, .wp5, .wp6 {
+    visibility: hidden
+}
+.bounceInLeft, .bounceInRight, .fadeInUp, .fadeInUpDelay, .fadeInDown, .fadeInUpD, .fadeInLeft, .fadeInRight, .bounceInDown {
+    visibility: visible
+}
+.delay-05s {
+    -webkit-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+}
+.delay-1s {
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+}
