@@ -2,6 +2,7 @@ class Api::PinController < ApplicationController
   skip_before_filter :verify_authenticity_token
   
   def index
+    session[:uid] = 1
     session[:uid] = cookies[:uid] if cookies[:uid]
     @pins = Pin.all
 

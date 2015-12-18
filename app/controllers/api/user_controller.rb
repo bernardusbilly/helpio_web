@@ -29,6 +29,26 @@ class Api::UserController < ApplicationController
     end
   end
 
+  def prof_img
+    @user = User.find(current_user.id)
+    @user.uploaded_file = params[:img]
+    respond_to do |format|
+      if @user.save
+        format.json { render json: @user, status: :created }
+      else
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def update_info
+    @user = User.find(current_user.id)
+    @user.update(update_params)
+    respond_to do |format|
+      format.json { render json: @user, status: :created }
+    end
+  end
+
   def test
     respond_to do |format|
       format.json { render json: {session_uid: session[:uid], ck: cookies[:uid]}, status: :created }
@@ -76,6 +96,10 @@ class Api::UserController < ApplicationController
 
   def user_params
     params.permit(:email, :password, :nickname, :birthday, :gender)
+  end
+
+  def update_params
+    params.permit(:password, :nickname)
   end
 
 end

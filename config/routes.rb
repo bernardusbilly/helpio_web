@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get '/api/pin/:id/comment', to: 'api/pin#comment', defaults: { format: :json }
   get '/api/pin/mine', to: 'api/pin#mine', defaults: { format: :json }
   post '/api/user/login', to: 'api/user#login', defaults: { format: :json }
+  post '/api/user/update_info', to: 'api/user#update_info', defaults: { format: :json }
+  post '/api/user/prof_img', to: 'api/user#prof_img', defaults: { format: :json }
   post '/api/pin/liked', to: 'api/pin#liked', defaults: { format: :json }
   post '/api/comment/liked', to: 'api/comment#liked', defaults: { format: :json }
 
