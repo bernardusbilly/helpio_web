@@ -22,6 +22,17 @@ Rails.application.routes.draw do
 
   get '/api/pin/check_expired', to: 'api/pin#check_expired', defaults: { format: :json }
 
+  # Sessions
+
+  get '/index', to: 'sessions#index'
+  get '/index2', to: 'sessions#index2'
+  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'auth/failure', to: redirect('session#index')
+  get 'signout', to: 'sessions#destroy', as: 'signout'
+
+  resources :sessions, only: [:create, :destroy]
+
+
   namespace :api, defaults: { format: :json } do
     resources :user
   end
