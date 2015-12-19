@@ -99,7 +99,7 @@ class Api::UserController < ApplicationController
   end
 
   def update_params
-    params.permit(:password, :nickname)
+    params.permit(:password, :nickname, :mood)
   end
 
 end
