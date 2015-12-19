@@ -1,0 +1,19 @@
+.mod-header {
+	font-size: 26px;
+	font-weight: bold;
+}
+.login-helpio-logo {
+	width: 120px;
+	padding-left: 4px;
+	padding-right: 4px;
+}
+.header-inline {
+	display: inline;
+}
+.clickable-link {
+	cursor: pointer;
+	color: rgb(255,100,25);
+}
+.btn-default {
+	height: 35px;
+}

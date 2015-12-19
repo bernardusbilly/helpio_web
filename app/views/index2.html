@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html lang="en" class="no-js">
+	<head>
+
+		<!-- Basic -->
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel="icon" type="image/png" href="img/logo/favicon.png">
+
+		<!-- Main -->
+		<title>Helpio!</title>
+		<meta name="description" content="Content" />
+		<meta name="keywords" content="Content" />
+		<meta name="author" content="Helpio Inc." />
+		
+		<!-- Bootstrap -->
+		<script src="js/modernizr.custom.js"></script>
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/index.css" rel="stylesheet">
+		
+		<link href="css/jquery.fancybox.css" rel="stylesheet">
+		<link href="css/flickity.css" rel="stylesheet" >
+		<link href="css/animate.css" rel="stylesheet">
+		<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+		<link href="css/styles.css" rel="stylesheet">
+		<link href="css/queries.css" rel="stylesheet">
+
+		<!-- Google Font -->
+		
+		<link href='http://fonts.googleapis.com/css?family=Nunito:300|PT+Sans|Pontano+Sans' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Lora:400italic' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Slabo+27px|Raleway' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
+
+		<!-- Facebook and Twitter integration -->
+		<meta property="og:title" content=""/>
+		<meta property="og:image" content=""/>
+		<meta property="og:url" content=""/>
+		<meta property="og:site_name" content=""/>
+		<meta property="og:description" content=""/>
+
+		<meta name="twitter:title" content="" />
+		<meta name="twitter:image" content="" />
+		<meta name="twitter:url" content="" />
+		<meta name="twitter:card" content="" />
+
+		<!-- IE Reconfig -->
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+	</head>
+	<body>
+		<!-- Notification to upgrade -->
+		<!--[if lt IE 7]>
+		<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+		<![endif]-->
+		<!-- open/close -->
+
+		<section class="loading-page"></section>
+
+		<!-- Modal -->
+		<div class="modal fade" id="signup">
+			<div class="modal-dialog modal-md modal-lg">
+				<div class="modal-content">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="hidden-xs hidden-sm col-md-5 col-lg-5">
+								<div class="row">
+									<div class="wrapper-signup">
+										<img src="img/stock/signup.jpg" class="signup-image"></img>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
+								<div class="row">
+									<div class="modal-body">
+										<form id="signup">
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+											<div class="mod-header">
+												<img class="login-helpio-logo" src="img/logo/helpio.png"/><br>
+												The best is yet to come, join us today!
+											</div>
+											<hr></hr>
+											<div class="login-facebook">
+												<img src="img/logo/facebook.png" class="facebook"/>Sign up with Facebook
+											</div>
+											<div class="login-google">
+												<img src="img/logo/google.png" class="google"/>Sign up with Google
+											</div>
+											<div class="login-email">
+												<div class="email"><span class="fa fa-envelope-o"></span></div>Sign up with Email
+											</div>
+											<div class="agreement">
+												By signing up you indicate that you have read  
+												<span class="clickable-link">Terms of Service and Privacy Policy</span>
+											</div>
+											Have an account? <a href="#">Log in</a>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Modal -->
+		<div class="modal fade" id="login">
+			<div class="modal-dialog modal-md modal-lg">
+				<div class="modal-content">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
+								<div class="row">
+									<div class="modal-body">
+										<form id="signup">
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+											Hi there! Just want to say<br>
+											<div class="mod-header">Welcome back!</div>
+											<hr></hr>
+											<div class="login-facebook">
+												<img src="img/logo/facebook.png" class="facebook"/>Log in with Facebook
+											</div>
+											<div class="login-google">
+												<img src="img/logo/google.png" class="google"/>Sign up with Google
+											</div>
+											<div class="login-email">
+												<div class="email"><span class="fa fa-envelope-o"></span></div>Sign up with Email
+											</div>
+											<div class="agreement">
+												By signing up you indicate that you have read  
+												<span class="clickable-link">Terms of Service and Privacy Policy</span>
+											</div>
+											Don't have an account? <a href="#">Sign Up</a>
+										</form>
+									</div>
+								</div>
+							</div>
+							<div class="hidden-xs hidden-sm col-md-5 col-lg-5">
+								<div class="row">
+									<div class="wrapper-login">
+										<img src="img/stock/login.jpg" class="login-image"></img>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<section class="hero">
+			<div class="parallax"><img src="img/background/background.jpg"></div>
+			<div class="container">
+				<a href="#"><img src="img/logo/helpio-white.png" alt="Helpio Logo" class="logo-helpio"></a>
+				<button class="login-button" data-toggle="modal" data-target="#login">
+					Log in
+				</button>
+				<button class="signup-button" data-toggle="modal" data-target="#signup">
+					Sign up
+				</button>
+				<div class="row hero-content">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+						<h1>Connecting People Through Maps</h1>
+						<h2>Helpio is changing the way we see maps</h2>
+						<div class="visible-lg visible-md visible-sm hidden-xs">
+							<input type="number" class="input" placeholder="(123)456-7890" ></input>
+							<input type="submit" class="send-link"></input>
+						</div>
+						<div class="text-center">download the app to your phone</div>
+						<div class="hidden-lg hidden-md hidden-sm visible-xs">
+							<img src="img/vendor/apple-appstore.svg" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="phone-section" id="phone">
+			<div class="container">
+				<div class="row">
+					<div class="hidden-sm col-md-6 col-lg-6">
+						<div class="text-center">
+							<div class="phone-wrapper-left">
+								<div class="h1">Content Header</div>
+								The simple explanation goes here
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-12 col-md-6 col-lg-6">
+						<div class="device wp3">
+							<div class="device-content">
+								<div class="showcase-slider">
+									<ul class="slides" id="showcaseSlider">
+										<li>
+											<img src="img/preview/1.png" alt="Device Content Image">
+										</li>
+										<li>
+											<img src="img/preview/2.png" alt="Device Content Image">
+										</li>
+										<li>
+											<img src="img/preview/3.png" alt="Device Content Image">
+										</li>
+										<li>
+											<img src="img/preview/4.png" alt="Device Content Image">
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- <section class="video" id="about">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 hidden-sm hidden-xs text-center">
+						<div id="yt-player"></div>
+					</div>
+					<div class="hidden-lg hidden-md col-sm-12 col-xs-12 text-center">
+						<h1><a href="http://www.youtube.com/embed/jofNR_WkoCE?autoplay=1&wmode=opaque&fs=1" class="youtube-media"><i class="fa fa-play-circle-o"></i> Watch the Video</a></h1>
+					</div>
+				</div>
+			</div>
+		</section> -->
+
+		<section class="map-intro" id="map">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-12 nopadding">
+						<div class="map-intro-bg">
+							<div class="map-intro-wrapper">
+							</div>
+							<div class="map-info">
+								Twing?
+								<img src="img/icon/white-line.png" class="white-line">
+								<img src="img/icon/pin-red-indicator.png" class="red-indicator">
+								<img src="img/icon/pin-yellow-indicator.png" class="yellow-indicator">
+								<img src="img/icon/pin-blue-indicator.png" class="blue-indicator">
+								<img src="img/icon/pin.png" class="pin-indicator">
+								<div class="pin-info pin-info-1">
+									Red Color Twing is a HOT Twing with popularity 100+
+								</div>
+								<div class="pin-info pin-info-2">
+									Yellow Color Twing is more popular with popularity 50-99 
+								</div>
+								<div class="pin-info pin-info-3">
+									Blue Color Twing is a NEWBIE Twing with popularity 0-49
+								</div>
+								<div class="pin-info pin-info-4">
+									Orange Color Twing is your own Twings
+								</div>
+							</div>
+							<div class="pin1">
+								<img src="img/icon/pin-yellow.png" />
+									<div class="wp1 delay-1s">
+									<img src="img/preview/info-pin.png" class="info-pin" /><br>
+								</div>
+							</div>
+							<div class="pin2">
+								<img src="img/icon/pin-red.png" />
+									<div class="wp1">
+									<img src="img/preview/info-pin.png" class="info-pin" /><br>
+								</div>
+							</div>
+							<div class="pin3">
+								<img src="img/icon/pin-blue.png" />
+									<div class="wp1 delay-05s">
+									<img src="img/preview/info-pin.png" class="info-pin" /><br>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="features-list" id="features">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="col-md-4 feature-1 wp2">
+							<div class="text-center">
+								<img src="img/icon/icon-map.png" class="icon-size">
+							</div>
+							<div class="feature-content">
+								<div class="h2 text-center">Be Map-Loving</div>
+								<p>Revolutionizing the way we use the map. Map is not only a navigational tool, but it’s also a platform to communicate, engage, and connect with people. How? Explore the app and be map-loving.</p>
+							</div>
+						</div>
+						<div class="col-md-4 feature-2 wp2 delay-05s">
+							<div class="text-center">
+								<img src="img/icon/icon-discover.png" class="icon-size">
+							</div>
+							<div class="feature-content">
+								<div class="h2 text-center">Be Discovered</div>
+								<p>Provide real-time information on notable happenings at your location. Create a buzz in your community as people like, view and comment on your twing. Place a twing and be discovered.</p>
+							</div>
+						</div>
+						<div class="col-md-4 feature-3 wp2 delay-1s">
+							<div class="text-center">
+								<img src="img/icon/icon-engage.png" class="icon-size">
+							</div>
+							<div class="feature-content">
+								<div class="h2 text-center">Be Engaged</div>
+								<p>Connect with what’s happening around you. See a twing of a person needing assistance? See a twing about nearby concerts? Go and have fun! Be engaged with your community.</p>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="screenshots" id="screenshots">
+			<div class="screenshots-header text-center">The things you can do with Helpio</div>
+			<div class="container-fluid">
+				<div class="row">
+					<ul class="grid">
+						<li>
+							<figure>
+								<img src="img/stock/1.jpg" alt="Screenshot 01">
+								<figcaption>
+								<div class="caption-content">
+									<p>Giving a shoutout to your favorite team</p>
+								</div>
+								</figcaption>
+							</figure>
+						</li>
+						<li>
+							<figure>
+								<img src="img/stock/2.jpg" alt="Screenshot 01">
+								<figcaption>
+								<div class="caption-content">
+									<p>Knowing the wait at your favorite restaurant</p>
+								</div>
+								</figcaption>
+							</figure>
+						</li>
+						<li>
+							<figure>
+								<img src="img/stock/3.jpg" alt="Screenshot 01">
+								<figcaption>
+								<div class="caption-content">
+									<p>Discovering freebies around you</p>
+								</div>
+								</figcaption>
+							</figure>
+						</li>
+						<li>
+							<figure>
+								<img src="img/stock/4.jpg" alt="Screenshot 01">
+								<figcaption>
+								<div class="caption-content">
+									<p>Finding your next hire</p>
+								</div>
+								</figcaption>
+							</figure>
+						</li>
+					</ul>
+				</div>
+				<div class="row">
+					<ul class="grid hidden-sm hidden-xs">
+						<li>
+							<figure>
+								<img src="img/stock/5.jpg" alt="Screenshot 01">
+								<figcaption>
+								<div class="caption-content">
+									<p>Holding your next social event</p>
+								</div>
+								</figcaption>
+							</figure>
+						</li>
+						<li>
+							<figure>
+								<img src="img/stock/6.jpg" alt="Screenshot 01">
+								<figcaption>
+								<div class="caption-content">
+									<p>Having a garage sale</p>
+								</div>
+								</figcaption>
+							</figure>
+						</li>
+						<li>
+							<figure>
+								<img src="img/stock/7.jpg" alt="Screenshot 01">
+								<figcaption>
+								<div class="caption-content">
+									<p>Promoting your club event</p>
+								</div>
+								</figcaption>
+							</figure>
+						</li>
+						<li>
+							<figure>
+								<img src="img/stock/8.jpg" alt="Screenshot 01">
+								<figcaption>
+								<div class="caption-content">
+									<p>Reporting a lost item</p>
+								</div>
+								</figcaption>
+							</figure>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+		<section class="testimony">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div id="testimonySlider">
+							<div class="slide">
+								<blockquote class="team-quote">
+									<div class="avatar"><img src="img/people/glorio.jpg" alt="User Avatar"></div>
+									<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc."
+
+									<br><br>- Glorio Yulianto</p>
+								</blockquote>
+							</div>
+							<div class="slide">
+								<blockquote class="team-quote">
+									<div class="avatar"><img src="img/people/glorio.jpg" alt="User Avatar"></div>
+									<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc."
+
+									<br><br>- Glorio Yulianto</p>
+								</blockquote>
+							</div>
+							<div class="slide">
+								<blockquote class="team-quote">
+									<div class="avatar"><img src="img/people/glorio.jpg" alt="User Avatar"></div>
+									<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc."
+
+									<br><br>- Glorio Yulianto</p>
+								</blockquote>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="showcase" id="showcase">
+			<div class="showcase-wrap">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-offset-3 col-md-6">
+							<h1>What's there?</h1>
+							<p>Have you ever wonder when you passed by a crowd of people and don't know what's happening? With Shout we make a shout and ask people what's going on - or probably people already put a shout on it.</p>
+
+							<h1>Want to share your thought anonymously?</h1>
+							<p>Just pick the anonymous option then make a shout! Probably you want to tell your neighbour to quite down or you want to tell others about your love story, you can do it with Helpio!
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<footer>
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6 col-md-3">
+						<h1 class="footer-logo">
+							<img src="img/logo/helpio.png" alt="Footer Logo Blue">
+						</h1>
+					</div>
+					<div class="col-sm-6 col-md-9">
+						<ul class="footer-nav">
+							<li><a href="#phone">About</a></li>
+							<li><a href="#map">Features</a></li>
+							<li><a href="#">Privacy</a></li>
+							<li><a href="#">Terms and Conditions</a></li>
+						</ul>
+					</div>
+					<div class="col-sm-12 col-md-12">
+						<div class="text-center">
+							<p>&copy Helpio Inc. 2015 - <a href="#">Disclaimer</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<div class="overlay overlay-boxify">
+			<nav>
+				<ul>
+					<li><a href="#"><i class="fa fa-lock"></i>Privacy</a></li>
+					<li><a href="#"><i class="fa fa-file-text-o"></i>Terms</a></li>
+				</ul>
+				<ul>
+					<li><a href="" data-toggle="modal" data-target="#signup"><i class="fa fa-user"></i>Sign up</a></li>
+					<li><a href="" data-toggle="modal" data-target="#login"><i class="fa fa-user"></i>Log in</a></li>
+				</ul>
+			</nav>
+		</div>
+		
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="js/min/toucheffects-min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="js/flickity.pkgd.min.js"></script>
+		<script src="js/jquery.fancybox.pack.js"></script>
+		
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<!-- <script src="js/retina.js"></script> -->
+		<script src="js/waypoints.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/scripts.js"></script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+		
+		<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+		<script>
+		(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+		function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+		e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+		e.src='//www.google-analytics.com/analytics.js';
+		r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+		ga('create','UA-XXXXX-X');ga('send','pageview');
+		</script>
+	</body>
+</html>
