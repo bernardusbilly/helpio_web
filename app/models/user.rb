@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 	require 'rubygems'
 	require 'ImageResize'
 	before_save :encrypt_password
-	default_scope {select([:id, :email, :nickname, :prof_img, :birthday, :gender])}
+	default_scope {select([:id, :email, :nickname, :prof_img, :birthday, :gender, :mood])}
 
 	def encrypt_password
 		self.password_salt = BCrypt::Engine.generate_salt
