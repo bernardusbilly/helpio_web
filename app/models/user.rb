@@ -36,10 +36,18 @@ class User < ActiveRecord::Base
 	end
 
 	def self.from_omniauth(auth)
-	    where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
+	    where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
 	      user.provider = auth.provider
 	      user.uid = auth.uid
-	      user.name = auth.info.name
+	      user.nickname = auth.info.name
+	      # TODO test with null gender
+	      gender = auth.extra.raw_info.gender
+	      if gender == 'male'
+	      	user.gender = 0
+	      elsif gender == 'female'
+	      	user.gender = 1
+	      end
+	      user.prof_img = auth.info.image
 	      user.oauth_token = auth.credentials.token
 	      user.oauth_expires_at = Time.at(auth.credentials.expires_at)
 	      user.save!
