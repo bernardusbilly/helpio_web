@@ -33,8 +33,9 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
 gem "ImageResize", "~> 0.0.5"
 
-# OmniAuth Gems
-gem "omniauth-google-oauth2", "~> 0.2.1"
+# Use OmniAuth for third-party login providers
+gem 'omniauth-google-oauth2', '~> 0.2.1'
+gem 'omniauth-facebook'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
