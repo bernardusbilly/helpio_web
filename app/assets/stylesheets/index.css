@@ -10,10 +10,3 @@
 .header-inline {
 	display: inline;
 }
-.clickable-link {
-	cursor: pointer;
-	color: rgb(255,100,25);
-}
-.btn-default {
-	height: 35px;
-}
