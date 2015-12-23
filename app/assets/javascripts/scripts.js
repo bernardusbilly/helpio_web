@@ -69,12 +69,12 @@ $(document).ready(function() {
 		if (jWindow <= 768) {
 			return;
 		}
-		$.fancybox({
+		/*$.fancybox({
 			href: this.href,
 			padding: 4,
 			type: "iframe",
 			'href': this.href.replace(new RegExp("watch\\?v=", "i"), 'v/'),
-		});
+		});*/
 		return false;
 	});
 
@@ -96,12 +96,6 @@ $(document).ready(function() {
 		$('.pin-info-4').toggle();
 		$('.pin-info-4').addClass('animated bounceInRight');
 	})
-});
-
-$(document).ready(function() {
-	$("a.single_image").fancybox({
-		padding: 4,
-	});
 });
 
 /***************** Nav Transformicon ******************/

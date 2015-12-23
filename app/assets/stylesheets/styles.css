@@ -455,14 +455,6 @@ p {
 a:hover .button-left {
     background-color: black;
 }
-.texture-overlay {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    background-image: url(../img/grid.png);
-}
 
 /* ==========================================================================
 Buttons
@@ -513,6 +505,9 @@ Buttons
 /* ==========================================================================
 Modal box
 ========================================================================== */
+.modal-dialog {
+    width: 650px;
+}
 .modal .wrapper-login {
     overflow: hidden;
     border-bottom-right-radius: 5px;
@@ -526,10 +521,11 @@ Modal box
     border-top-left-radius: 5px;
 }
 .modal .wrapper-login .login-image {
-    height: 560px;
+    height: 400px;
+    padding-left: 2px;
 }
 .modal .wrapper-signup .signup-image {
-    height: 500px;
+    height: 440px;
 }
 .modal-header {
     text-align: center;
@@ -546,10 +542,13 @@ Modal box
 .modal-body {
     text-align: center;
     line-height: 30px;
-    padding: 30px;
+    padding: 20px;
 }
 .modal-body a {
     color: rgb(255,100,25);
+}
+.modal-body .helpio-logo {
+    width: 120px;
 }
 .modal-body .login-facebook,
 .modal-body .login-google,
@@ -803,7 +802,7 @@ Hero
     position: relative;
     overflow: hidden;
     padding: 10px 0 60px 0;
-    height: 600px;
+    height: 100vh;
     
     z-index: 0;
     color: #fff;
@@ -838,7 +837,7 @@ Hero
     left: 50%;
     bottom: 0;
     padding: 10px 0 60px 0;
-    width: 120%;
+    width: 130vw;
 }
 .hero .logo-helpio {
     position: absolute;
@@ -938,7 +937,7 @@ Hero
 Phone Section
 ====================*/
 .phone-section {
-    height: 700px;
+    height: 100vh;
 }
 .device {
     position: absolute;
@@ -946,7 +945,7 @@ Phone Section
     left: 20%;
     min-height: 676px;
     width: 359px;
-    background: url('../img/iphone-skeleton.png') no-repeat center center;
+    background: url('/assets/iphone-skeleton.png') no-repeat center center;
 }
 .device-content {
     position: absolute;
@@ -1023,13 +1022,13 @@ Custom Slider Controls (Flickity)
 Features Slider
 ========================================================================== */
 .map-intro {
-    cursor: url("../img/icon/drop-pin.png") 15 35, auto;
+    cursor: url("/assets/icon/drop-pin.png") 15 35, auto;
     overflow: hidden;
 }
 .map-intro-bg {
     position: relative;
     min-height: 680px;
-    background: url('../img/map-berkeley.png') no-repeat center center;
+    background: url('/assets/map-berkeley.png') no-repeat center center;
     background-size: cover;
     text-align: center;
 }
@@ -1199,7 +1198,7 @@ Features List
 Showcase
 ========================================================================== */
 .showcase {
-    background: url('../img/background/people2-dark.jpg') no-repeat center center fixed;
+    background: url('/assets/stock/showcase.jpg') no-repeat center center fixed;
     background-size: cover;
 }
 .showcase h1 {
@@ -1271,9 +1270,11 @@ Testimony
 Screenshots
 ========================================================================== */
 .screenshots .screenshots-header {
-    padding: 40px 0 30px 0;
-    font-size: 40px;
+    padding: 20px 0 20px 0;
+    font-size: 30px;
     font-weight: 300;
+    background-color: rgb(255,100,25);
+    color: rgb(255,255,255);
 }
 .screenshots ul {
     margin: 0;

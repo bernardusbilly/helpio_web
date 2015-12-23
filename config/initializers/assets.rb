@@ -9,3 +9,19 @@ Rails.application.config.assets.version = '1.0'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
+
+# Images
+Rails.application.config.assets.precompile += %w( stock/people.jpg )
+
+# Stylesheets
+Rails.application.config.assets.precompile += %w( bootstrap.min.css )
+Rails.application.config.assets.precompile += %w( flickity.css )
+Rails.application.config.assets.precompile += %w( animate.css )
+Rails.application.config.assets.precompile += %w( styles.css )
+Rails.application.config.assets.precompile += %w( queries.css )
+
+# Javascripts
+Rails.application.config.assets.precompile += %w( flickity.pkgd.min.js )
+Rails.application.config.assets.precompile += %w( waypoints.min.js )
+Rails.application.config.assets.precompile += %w( bootstrap.min.js )
+Rails.application.config.assets.precompile += %w( scripts.js )
