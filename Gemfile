@@ -34,7 +34,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem "ImageResize", "~> 0.0.5"
 
 # Use OmniAuth for third-party login providers
-gem 'omniauth-google-oauth2', '~> 0.2.1'
+gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 
 group :development, :test do
