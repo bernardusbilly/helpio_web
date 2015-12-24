@@ -7,7 +7,7 @@ class Api::FriendController < ApplicationController
 
     threshold_time = DateTime.now.advance(:days => -1)
     @friends.each do |friend|
-      if friend.uid == current_user.id
+      if friend.suid == current_user.id
         suid = friend.suid
       else
         suid = friend.uid
