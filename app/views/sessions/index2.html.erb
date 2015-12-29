@@ -10,7 +10,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-		<link rel="icon" type="image/png" href="/images/logo/favicon.png">
+		<%= favicon_link_tag "favicon.png", type: 'image/png'%>
 
 		<!-- Main -->
 		<title>Helpio!</title>
@@ -32,7 +32,7 @@
 		<link href='https://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
 
 		<!-- Facebook and Twitter integration -->
-		<meta property="og:title" content=""/>
+		<meta property="og:title" content="Helpio"/>
 		<meta property="og:image" content=""/>
 		<meta property="og:url" content=""/>
 		<meta property="og:site_name" content=""/>
@@ -63,7 +63,7 @@
 
 		<!-- Modal -->
 		<div class="modal fade" id="signup">
-			<div class="modal-dialog">
+			<div class="modal-dialog modal-md">
 				<div class="modal-content">
 					<div class="container-fluid">
 						<div class="row">
@@ -77,13 +77,13 @@
 							<div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
 								<div class="row">
 									<div class="modal-body">
-										<form id="signup">
-											<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-											<div class="mod-header">
-												<%= image_tag "logo/helpio.png", :class => "helpio-logo"%><br>
-												The best is yet to come, join us today!
-											</div>
-											<hr></hr>
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+										<div>
+											<%= image_tag "logo/helpio.png", :class => "helpio-logo"%><br>
+											<div class="h3">The best is yet to come, join us today!</div>
+										</div>
+										<hr></hr>
+										<div class="signup-option">
 											<%= link_to '/auth/facebook' do%>
 											<div class="login-facebook">
 												<%= image_tag "logo/facebook.png", :class => "facebook"%>
@@ -104,6 +104,31 @@
 												<a href="#">Terms of Service and Privacy Policy</span>
 											</div>
 											Have an account? <a href="#">Log in</a>
+										</div>
+										<form id="signup">
+											<%= image_tag "icon/back-button.png", :class => "back-button"%>
+											<div class="row">
+												<div class="text-left col-md-5">
+													Full Name:<br>
+													Email:<br>
+													Password:<br>
+													Confirm Password:<br>
+													Gender:<br>
+													Date of Birth:<br>
+												</div>
+												<div class="col-md-7">
+													<input type="text"><br>
+													<input type="text"><br>
+													<input type="password"><br>
+													<input type="password"><br>
+													<select>
+														<option>Male
+														<option>Female
+													</select><br>
+													<input type="text" class="date"><br>
+												</div>
+											</div>
+											<button type="submit" class="submit">Sign Up</button>
 										</form>
 									</div>
 								</div>
@@ -116,17 +141,17 @@
 
 		<!-- Modal -->
 		<div class="modal fade" id="login">
-			<div class="modal-dialog">
+			<div class="modal-dialog modal-md">
 				<div class="modal-content">
 					<div class="container-fluid">
 						<div class="row">
 							<div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
 								<div class="row">
 									<div class="modal-body">
-										<form id="signup">
+										<form id="login">
 											<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-											Hi there! Just want to say<br>
-											<div class="mod-header">Welcome back!</div>
+											Hi there! Just want to say
+											<div class="h2">Welcome back!</div>
 											<hr></hr>
 											<%= link_to '/auth/facebook' do%>
 											<div class="login-facebook">
@@ -135,11 +160,11 @@
 											<% end %>
 											<%= link_to '/auth/google_oauth2' do%>
 											<div class="login-google">
-												<%= image_tag "logo/google.png", :class => "google"%>Sign up with Google
+												<%= image_tag "logo/google.png", :class => "google"%>Log in with Google
 											</div>
 											<% end %>
 											<div class="login-email">
-												<div class="email"><span class="fa fa-envelope-o"></span></div>Sign up with Email
+												<div class="email"><span class="fa fa-envelope-o"></span></div>Log in with Email
 											</div>
 											<div class="agreement">
 												By signing up you indicate that you have read  
@@ -177,16 +202,15 @@
 				</button>
 				<div class="row hero-content">
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-						<h1>Connecting People Through Maps</h1>
-						<h2>Helpio is changing the way we see maps</h2>
+						<div class="header-container">It's time to connect with <span class="typed">locals</span></div>
 						<div class="visible-lg visible-md visible-sm hidden-xs">
 							<input type="number" class="input" placeholder="(123)456-7890" ></input>
 							<input type="submit" class="send-link"></input>
 						</div>
-						<div class="text-center">download the app to your phone</div>
 						<div class="hidden-lg hidden-md hidden-sm visible-xs">
-							<%= image_tag "vendor/apple-appstore.svg" %>
+							<%= image_tag "logo/apple-appstore.svg" %>
 						</div>
+						<div class="hidden-xs text-center">Download the app to your phone</div>
 					</div>
 				</div>
 			</div>
@@ -198,8 +222,14 @@
 					<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 						<div class="text-center">
 							<div class="phone-wrapper-left">
-								<div class="h1">Content Header</div>
-								The simple explanation goes here
+								<div class="container-left">
+									<hr></hr>
+									<%= image_tag "logo/helpio-pin.png", :alt => "Pin"%>
+									<div class="h1">Helpio is proximity-based social networking application.</div>
+									Unlike other social networking apps out there, Helpio uses <i>MAP</i> as the interface for people to interact with each other.
+									<hr></hr>
+									<div class="curious">Curious how? See examples below..</div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -272,21 +302,28 @@
 							<div class="pin1">
 								<%= image_tag "icon/pin-yellow.png" %>
 									<div class="wp1 delay-1s">
-									<%= image_tag "preview/info-pin.png", :class => "info-pin"%>
+									<%= image_tag "preview/free-smoothie.png", :class => "info-pin"%>
 								</div>
 							</div>
 							<div class="pin2">
 								<%= image_tag "icon/pin-red.png" %>
-									<div class="wp1">
-									<%= image_tag "preview/info-pin.png", :class => "info-pin"%>
+									<div class="wp1 delay-05s">
+									<%= image_tag "preview/drum-line.png", :class => "info-pin"%>
 								</div>
 							</div>
 							<div class="pin3">
-								<%= image_tag "icon/pin-blue.png" %>
-									<div class="wp1 delay-05s">
-									<%= image_tag "preview/info-pin.png", :class => "info-pin"%>
+								<%= image_tag "icon/pin-red.png" %>
+									<div class="wp1 delay-1s">
+									<%= image_tag "preview/party-info.png", :class => "info-pin"%>
 								</div>
 							</div>
+							<div class="pin4">
+								<%= image_tag "icon/pin-blue.png" %>
+									<div class="wp1 delay-1s">
+									<%= image_tag "preview/cream-line.png", :class => "info-pin"%>
+								</div>
+							</div>
+							
 						</div>
 					</div>
 				</div>
@@ -421,7 +458,8 @@
 				</div>
 			</div>
 		</section>
-		<section class="testimony">
+
+		<!-- <section class="testimony">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
@@ -429,7 +467,7 @@
 							<div class="slide">
 								<blockquote class="team-quote">
 									<div class="avatar">
-										<%= image_tag "people/glorio.jpg", :alt => "Avatar" %>
+										<%= image_tag "stock/glorio.jpg", :alt => "Avatar" %>
 									</div>
 									<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc."
 
@@ -439,7 +477,7 @@
 							<div class="slide">
 								<blockquote class="team-quote">
 									<div class="avatar">
-										<%= image_tag "people/glorio.jpg", :alt => "Avatar" %>
+										<%= image_tag "stock/glorio.jpg", :alt => "Avatar" %>
 									</div>
 									<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc."
 
@@ -449,7 +487,7 @@
 							<div class="slide">
 								<blockquote class="team-quote">
 									<div class="avatar">
-										<%= image_tag "people/glorio.jpg", :alt => "Avatar" %>
+										<%= image_tag "stock/glorio.jpg", :alt => "Avatar" %>
 									</div>
 									<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc."
 
@@ -461,6 +499,7 @@
 				</div>
 			</div>
 		</section>
+
 		<section class="showcase" id="showcase">
 			<div class="showcase-wrap">
 				<div class="container">
@@ -475,7 +514,8 @@
 					</div>
 				</div>
 			</div>
-		</section>
+		</section> -->
+
 		<footer>
 			<div class="container">
 				<div class="row">
@@ -518,6 +558,7 @@
 		<%= javascript_include_tag "flickity.pkgd.min" %>
 		<%= javascript_include_tag "waypoints.min" %>
 		<%= javascript_include_tag "bootstrap.min" %>
+		<%= javascript_include_tag "typed.min" %>
 		<%= javascript_include_tag "scripts" %>
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>

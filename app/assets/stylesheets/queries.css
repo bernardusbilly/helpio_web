@@ -1,27 +1,28 @@
 @media screen and (max-width:1200px){
-	.hero .parallax img{width: 1800vw;}
+	.hero .parallax img{width: 180vw;}
 }
 @media screen and (max-width:991px){
 	.hero .parallax img{width: 200vw;}
+	.hero .hero-content .header-container {width: 600px; font-size: 30px;}
 	.screenshots ul li{width:50%;}
-	.screenshots-intro{padding:110px 0 100px 0;}
 	.features-slider{height:100%}
 }
 @media screen and (max-width:640px){
 	.hero .parallax img{width: 350vw;}
+	.hero .hero-content .header-container {width: 400px;}
 	.hero .logo-helpio {top: 20px; left: 25px; width: 130px;}
-	.hero h1 {font-size:30px; margin: 170px 0 0 0;}
 	.pin1 .wp1{display: none !important;}
 	.pin3 .wp1{display: none !important;}
+	.pin4 .wp1{display: none !important;}
 	.screenshots .screenshots-header {padding: 20px 0; font-size: 20px;}
 	footer li{display:block;text-align:left;padding:20px 0;border-bottom:dashed 1px #c7cacc;margin-right:0!important;float:none;}
 	nav{margin-top:40px;}
 	footer ul {margin-top: 20px;}
 }
 @media screen and (max-width:465px){
-	section.video i{font-size:30px;}
-	section.video h1{font-size:15px;font-weight:400;}
-	section.video{padding:40px;}
+	.hero .hero-content .header-container {width: 300px;}
+	.phone-wrapper-left {font-size: 16px;}
+	.phone-wrapper-left .h1 {font-size: 25px;}
 	.feature-content{width:100%;margin-top:20px;}
 	.features-list{padding:50px 0;}
 	.feature-1,.feature-2{margin-bottom:20px;}

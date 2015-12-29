@@ -8,12 +8,62 @@ $(document).ready(function() {
 
 	$('.parallax').parallax();
 
+    $(".typed").typed({
+        strings: ["locals", "neighbors", "strangers", "community"],
+        typeSpeed: 0,
+        loop: true,
+        backDelay: 1500,
+    });
+
+	/* Sign up */
+	$('.login-email').click(function() {
+		$('.signup-option').toggle();
+		$('.signup-option').removeClass("animated fadeInLeft");
+		$('.signup-option').addClass("animated fadeOutLeft");
+		$('form#signup').toggle();
+		$('form#signup').removeClass("animated fadeOutRight");
+		$('form#signup').addClass("animated fadeInRight");
+	});
+	$('.back-button').click(function() {
+		$('form#signup').toggle();
+		$('form#signup').removeClass("animated fadeInRight");
+		$('form#signup').addClass("animated fadeOutRight");
+		$('.signup-option').toggle();
+		$('.signup-option').removeClass("animated fadeOutLeft");
+		$('.signup-option').addClass("animated fadeInLeft");
+	});
+
+	$("input.date").keyup(function (e) {
+	    if (e.keyCode != 193 && e.keyCode != 111) {
+	        console.log(e.keyCode);
+	        if (e.keyCode != 8) {
+	            if ($(this).val().length == 2) {
+	                $(this).val($(this).val() + "/");
+	            } else if ($(this).val().length == 5) {
+	                $(this).val($(this).val() + "/");
+	            }
+	        } else {
+	            var temp = $(this).val();
+	            if ($(this).val().length == 5) {
+	                $(this).val(temp.substring(0, 4));
+	            } else if ($(this).val().length == 2) {
+	                $(this).val(temp.substring(0, 1));
+	            }
+	        }
+	    } else {
+	        var temp = $(this).val();
+	        var tam = $(this).val().length;
+	        $(this).val(temp.substring(0, tam-1));
+	    }
+	});
+
 	/***** Map *****/
 
 	$('.map-intro-wrapper').click(function() {
 		var x = event.layerX;
 		var y = event.layerY;
-		var pin = "<img src='img/icon/drop-pin.png' style='position: absolute; top:"+(y-35)+"px; left:"+(x-15)+"px;'></div>";
+		/*var pin = '<%= image_tag "icon/drop-pin.png", :style => "position: absolute; top:'+(y-35)+'px; left:'+(x-15)+'px;", :alt => "Pin"%>'*/
+		var pin = "<img src='images/icon/drop-pin.png' style='position: absolute; top:"+(y-35)+"px; left:"+(x-15)+"px;'></div>";
 		console.log("position: " + x +"px "+ y + "px");
 		$('.map-intro-bg').append(pin);
 	});
