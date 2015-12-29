@@ -71,6 +71,7 @@ class Api::UserController < ApplicationController
       session[:uid] = @user.id
       respond_to do |format|
         @user_ret = @user.attributes
+        @user_ret['mood'] ||= ''
         ['password_hash', 'password_salt'].each { |k| @user_ret.delete k }
         format.json { render json: @user_ret, status: :created }
       end
