@@ -505,15 +505,12 @@ Buttons
 /* ==========================================================================
 Modal box
 ========================================================================== */
-.modal-dialog {
-    width: 650px;
-}
 .modal .wrapper-login {
     overflow: hidden;
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
     position: relative;
-    right: -1px;
+    text-align: right;
 }
 .modal .wrapper-signup {
     overflow: hidden;
@@ -521,19 +518,10 @@ Modal box
     border-top-left-radius: 5px;
 }
 .modal .wrapper-login .login-image {
-    height: 400px;
-    padding-left: 2px;
-}
-.modal .wrapper-signup .signup-image {
     height: 440px;
 }
-.modal-header {
-    text-align: center;
-    background-color: #4EAEE8;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    color: #fff;
-    border-bottom: none;
+.modal .wrapper-signup .signup-image {
+    height: 480px;
 }
 .modal-header .modal-title {
     font-size: 30px;
@@ -541,11 +529,15 @@ Modal box
 }
 .modal-body {
     text-align: center;
-    line-height: 30px;
+    line-height: 40px;
     padding: 20px;
 }
 .modal-body a {
     color: rgb(255,100,25);
+}
+.modal-body .h2,
+.modal-body .h3 {
+    margin-top: 10px;
 }
 .modal-body .helpio-logo {
     width: 120px;
@@ -553,6 +545,7 @@ Modal box
 .modal-body .login-facebook,
 .modal-body .login-google,
 .modal-body .login-email {
+    line-height: 28px;
     border-radius: 5px;
     color: #FFFFFF;
     cursor: pointer;
@@ -598,20 +591,35 @@ Modal box
     padding: 8px;
     background-color: #fff;
 }
+.modal-body .signup-option {
+
+}
+.modal-body form#signup {
+    display: none;
+}
+.modal-body .back-button {
+    position: absolute;
+    top: -115px;
+    left: -5px;
+    width: 60px;
+    cursor: pointer;
+}
 .modal-body input {
-    width: 300px;
-    padding: 10px 20px;
-    margin-bottom: 10px;
+    width: 100%;
+    border-radius: 4px;
+    padding: 8px 10px;
+    border: 1px solid #CCCCCC;
 }
-.modal-body input:hover {
-    outline: none;
-    padding: 11px 21px;
-    border: 1px solid #888;
-}
+.modal-body input:hover,
 .modal-body input:focus {
     outline: none;
-    padding: 11px 21px;
-    border: 1px solid #333;
+    border: 1px solid #888888;
+}
+.modal-body select {
+    width: 100%;
+    border-radius: 4px;
+    padding: 8px 10px;
+    border: 1px solid #CCCCCC;
 }
 .modal-body .agreement {
     line-height: 150%;
@@ -622,23 +630,19 @@ Modal box
     margin: 0 auto 20px auto;
     padding-top: 8px;
 }
-.modal-body .submit {
-    margin-top: 10px;
-    background-color: rgb(255, 100, 25);
-    color: #fff;
-    border: none;
-    width: 300px;
-}
-<<<<<<< HEAD
-=======
-
 .modal-body .most-top {
     margin-top: 25px;
 }
-
->>>>>>> 1f95f94f790a476482676429c7576004ee98b39f
 .modal-body .most-bottom {
     margin-bottom: 4px;
+}
+.modal-body .submit {
+    margin-top: 20px;
+    background-color: rgb(255, 100, 25);
+    color: rgb(255,255,255);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
 }
 .modal-body .submit:hover,
 .modal-body .submit:focus {
@@ -815,18 +819,30 @@ Hero
     right: 0;
     z-index: -1;
 }
-.hero .hero-content::before {
+.hero .hero-content {
+    position: absolute;
+    display: inline-block;
+    top: 50vh;
+    left: 50vw;
+    transform: translate3d(-50%,-50%,0);
+    -webkit-transform: translate3d(-50%,-50%,0);
+}
+.hero .hero-content .header-container {
+    display: inline-block;
+    width: 640px;
+    font-size: 40px;
+    text-align: left;
+    margin-bottom: 15px;
+}
+.hero .parallax::before {
   content: '';
   position: absolute;
+  z-index: 1;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.3);
-  -webkit-transition-timing-function: ease-in-out;
-  transition-timing-function: ease-in-out;
-  -webkit-transition-duration: 300ms;
-  transition-duration: 300ms;
 }
 .hero .parallax {
     color: #FFFFFF;
@@ -960,14 +976,41 @@ Phone Section
     height: 445px;
 }
 .phone-wrapper-left {
-    padding-top: 280px;
+    height: 100vh;
     color: #888888;
-    font-size: 20px;
+    font-size: 26px;
+}
+.phone-wrapper-left hr:nth-child(1) {
+    position: relative;
+    top: 70px;
 }
 .phone-wrapper-left .h1 {
     color: #333333;
+    margin-bottom: 40px;
+    font-size: 42px;
 }
-
+.phone-wrapper-left .container-left {
+    position: absolute;
+    display: inline-block;
+    padding-bottom: 50px;
+    width: calc(100% - 30px);
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%,-50%,0);
+    -webkit-transform: translate3d(-50%,-50%,0);
+}
+.phone-wrapper-left .container-left img {
+    position: relative;
+    top: 15px;
+    width: 60px;
+    padding: 10px;
+    background: rgb(255,255,255);
+}
+.phone-wrapper-left .container-left .curious {
+    color: #CCCCCC;
+    font-style: italic;
+    font-size: 18px;
+}
 
 /* ==========================================================================
 Video
@@ -1109,28 +1152,35 @@ Features Slider
     width: 100%;
     min-height: 500px;
 }
+.map-intro-bg .pin1 > img, 
+.map-intro-bg .pin2 > img,
+.map-intro-bg .pin3 > img,
+.map-intro-bg .pin4 > img {
+    width: 40px;
+}
 .map-intro-bg .pin1 {
     position: absolute;
     z-index: 1;
-    top: 540px;
+    top: 450px;
     left: 20%;
-}
-.map-intro-bg .pin1 > img, 
-.map-intro-bg .pin2 > img,
-.map-intro-bg .pin3 > img {
-    width: 40px;
 }
 .map-intro-bg .pin2 {
     position: absolute;
     z-index: 1;
-    top: 150px;
-    left: 43%;
+    top: 200px;
+    left: 53%;
 }
 .map-intro-bg .pin3 {
     position: absolute;
     z-index: 1;
-    top: 377px;
-    left: 73%;
+    top: 510px;
+    left: 47%;
+}
+.map-intro-bg .pin4 {
+    position: absolute;
+    z-index: 1;
+    top: 460px;
+    left: 82%;
 }
 .map-intro-bg .wp1 {
     position: absolute;
@@ -1273,8 +1323,7 @@ Screenshots
     padding: 20px 0 20px 0;
     font-size: 30px;
     font-weight: 300;
-    background-color: rgb(255,100,25);
-    color: rgb(255,255,255);
+    color: #333333;
 }
 .screenshots ul {
     margin: 0;
