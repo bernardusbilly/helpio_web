@@ -84,14 +84,18 @@
 										</div>
 										<hr></hr>
 										<div class="signup-option">
+											<%= link_to '/auth/facebook' do%>
 											<div class="login-facebook">
 												<%= image_tag "logo/facebook.png", :class => "facebook"%>
 												Sign up with Facebook
 											</div>
+											<% end %>
+											<%= link_to '/auth/google_oauth2' do%>
 											<div class="login-google">
 												<%= image_tag "logo/google.png", :class => "google"%>
 												Sign up with Google
 											</div>
+											<% end %>
 											<div class="login-email">
 												<div class="email"><span class="fa fa-envelope-o"></span></div>Sign up with Email
 											</div>
@@ -149,12 +153,16 @@
 											Hi there! Just want to say
 											<div class="h2">Welcome back!</div>
 											<hr></hr>
+											<%= link_to '/auth/facebook' do%>
 											<div class="login-facebook">
 												<%= image_tag "logo/facebook.png", :class => "facebook"%>Log in with Facebook
 											</div>
+											<% end %>
+											<%= link_to '/auth/google_oauth2' do%>
 											<div class="login-google">
 												<%= image_tag "logo/google.png", :class => "google"%>Log in with Google
 											</div>
+											<% end %>
 											<div class="login-email">
 												<div class="email"><span class="fa fa-envelope-o"></span></div>Log in with Email
 											</div>

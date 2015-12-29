@@ -16,6 +16,7 @@ class Api::FriendController < ApplicationController
       friend.nickname = user.nickname
       friend.prof_img = user.prof_img
       friend.is_new = false
+      friend.suid = suid
       if friend.created_at >= threshold_time
         friend.is_new = true
         @all.push(friend)
