@@ -28,7 +28,16 @@ Rails.application.routes.draw do
   get '/index2', to: 'sessions#index2', as: 'index2'
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('session#index')
-  get 'signout', to: 'sessions#destroy', as: 'signout'
+  get '/signout', to: 'sessions#destroy', as: 'signout'
+
+  # Devise routes
+
+  devise_for :users, controllers: { sessions: "users/sessions", registrations: "users/registrations" }
+  devise_scope :user do
+    get '/users/signout', to: 'devise/sessions#destroy'
+  end
+
+  root 'sessions#index2'
 
   resources :sessions, only: [:create, :destroy]
 

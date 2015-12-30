@@ -33,6 +33,9 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
 gem "ImageResize", "~> 0.0.5"
 
+# Use Devise for user authentication
+gem 'devise'
+
 # Use OmniAuth for third-party login providers
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
