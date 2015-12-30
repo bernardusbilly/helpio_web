@@ -77,7 +77,7 @@ class Api::MessageController < ApplicationController
   end
 
   def content
-    @message_contents = MessageContent.where('mid = ? AND id >= ?', params[:mid], params[:last_id] || 0)
+    @message_contents = MessageContent.where('mid = ? AND id > ?', params[:mid], params[:last_id] || 0)
     @message_contents.each do |content|
       if content.uid == current_user.id
         content.self_msg = true
