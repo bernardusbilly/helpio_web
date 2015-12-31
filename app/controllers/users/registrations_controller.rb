@@ -9,7 +9,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    super
+    super do |user|
+      params.require(:user).permit(:gender, :nickname, :birthday)
+      paramUser = params[:user]
+      if (paramUser[:gender] == 'Male')
+        user.gender = 0
+      elsif (paramUser[:gender] == 'Female')
+        user.gender = 1
+      end
+      user.nickname = paramUser[:full_name]
+      user.birthday = paramUser[:birthday]
+      user.save!
+    end
   end
 
   # GET /resource/edit

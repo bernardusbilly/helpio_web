@@ -39,8 +39,6 @@ Rails.application.routes.draw do
 
   root 'sessions#index2'
 
-  resources :sessions, only: [:create, :destroy]
-
 
   namespace :api, defaults: { format: :json } do
     resources :user

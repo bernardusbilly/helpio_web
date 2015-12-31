@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
 	require 'rubygems'
 	require 'ImageResize'
 	before_save :encrypt_password
-	default_scope {select([:id, :email, :encrypted_password, :nickname, :prof_img, :birthday, :gender, :mood])}
+	# default_scope {select([:id, :email, :encrypted_password, :remember_created_at, :nickname, :prof_img, :birthday, :gender, :mood])}
 
 	def encrypt_password
 		self.password_salt = BCrypt::Engine.generate_salt
@@ -44,6 +44,7 @@ class User < ActiveRecord::Base
 	      user.provider = auth.provider
 	      user.uid = auth.uid
 	      user.nickname = auth.info.name
+	      user.password = Devise.friendly_token[0, 20]
 	      user.email = auth.info.email
 	      gender = auth.extra.raw_info.gender
 	      if gender == 'male'
