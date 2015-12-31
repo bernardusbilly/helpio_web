@@ -2,7 +2,12 @@ class Api::MessageController < ApplicationController
   skip_before_filter :verify_authenticity_token
   
   def index
-    @messages = Message.where("uid = ? OR suid = ?", current_user.id, current_user.id)
+    exclude_list = JSON.parse(params[:exclude_id] || "[]")
+    if exclude_list.count > 1
+      @messages = Message.where("(uid = ? OR suid = ?) AND id NOT IN (?)", current_user.id, current_user.id, exclude_list)
+    else
+      @messages = Message.where("uid = ? OR suid = ?", current_user.id, current_user.id)
+    end
 
     @messages.each do |message|
       if message.uid == current_user.id
@@ -72,7 +77,7 @@ class Api::MessageController < ApplicationController
   end
 
   def content
-    @message_contents = MessageContent.where(mid: params[:mid])
+    @message_contents = MessageContent.where('mid = ? AND id > ?', params[:mid], params[:last_id] || 0)
     @message_contents.each do |content|
       if content.uid == current_user.id
         content.self_msg = true
