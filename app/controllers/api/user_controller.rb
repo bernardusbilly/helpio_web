@@ -21,7 +21,7 @@ class Api::UserController < ApplicationController
       if @user.save
         @user_ret = @user.attributes
         session[:uid] = @user.id
-        ['created_at', 'updated_at', 'password_hash', 'password_salt'].each { |k| @user_ret.delete k }
+        ['created_at', 'updated_at', 'encrypted_password', 'password_hash', 'password_salt'].each { |k| @user_ret.delete k }
         format.json { render json: @user_ret, status: :created }
       else
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -82,7 +82,7 @@ class Api::UserController < ApplicationController
       respond_to do |format|
         @user_ret = @user.attributes
         @user_ret['mood'] ||= ''
-        ['password_hash', 'password_salt'].each { |k| @user_ret.delete k }
+        ['encrypted_password', 'password_hash', 'password_salt'].each { |k| @user_ret.delete k }
         format.json { render json: @user_ret, status: :created }
       end
       # flash[:notice] = "You've been logged in."
