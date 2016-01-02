@@ -1,13 +1,17 @@
 class User < ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
 	has_many :comment, dependent: :destroy
 	has_many :pin, dependent: :destroy
 	has_many :pin_likes, dependent: :destroy
 	has_many :comment_likes, dependent: :destroy
-	attr_accessor :password
+	# attr_accessor :password
 	require 'rubygems'
 	require 'ImageResize'
 	before_save :encrypt_password
-	default_scope {select([:id, :email, :nickname, :prof_img, :birthday, :gender, :mood])}
+	# default_scope {select([:id, :email, :encrypted_password, :remember_created_at, :nickname, :prof_img, :birthday, :gender, :mood])}
 
 	def encrypt_password
 		self.password_salt = BCrypt::Engine.generate_salt
@@ -27,7 +31,7 @@ class User < ActiveRecord::Base
 	end
 	
 	def self.authenticate(email, password)
-		user = User.select([:email, :password_hash, :password_salt, :nickname, :birthday, :gender]).where(email: email).first
+		user = User.select([:email, :encrypted_password, :password_hash, :password_salt, :nickname, :birthday, :gender]).where(email: email).first
 		if user && user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt)
 			user
 		else
@@ -40,6 +44,7 @@ class User < ActiveRecord::Base
 	      user.provider = auth.provider
 	      user.uid = auth.uid
 	      user.nickname = auth.info.name
+	      user.password = Devise.friendly_token[0, 20]
 	      user.email = auth.info.email
 	      gender = auth.extra.raw_info.gender
 	      if gender == 'male'
