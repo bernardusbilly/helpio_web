@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/api/user/logout', to: 'api/user#logout', defaults: { format: :json }
   get '/api/pin/:id/comment', to: 'api/pin#comment', defaults: { format: :json }
   get '/api/pin/mine', to: 'api/pin#mine', defaults: { format: :json }
+  get '/api/user/pulse_info', to: 'api/user#pulse_info', defaults: { format: :json }
   post '/api/user/login', to: 'api/user#login', defaults: { format: :json }
   post '/api/user/update_info', to: 'api/user#update_info', defaults: { format: :json }
   post '/api/user/prof_img', to: 'api/user#prof_img', defaults: { format: :json }

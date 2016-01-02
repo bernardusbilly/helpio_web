@@ -41,6 +41,16 @@ class Api::UserController < ApplicationController
     end
   end
 
+  def pulse_info
+    @message_id = Message.select("id").where("uid = ? OR suid = ?", current_user.id, current_user.id).map{ |x| [x.id] }.flatten
+    @message_unread = MessageContent.where(:mid => @message_id).where(:read => nil).size
+    threshold_time = DateTime.now.advance(:days => -1)
+    @new_friends = Friend.where("uid = ? OR suid = ?", current_user.id, current_user.id).where("created_at >= ?", threshold_time).size
+    respond_to do |format|
+      format.json { render json: {unread_message: @message_unread, new_friend: @new_friends}, status: :created }
+    end
+  end
+
   def update_info
     @user = User.find(current_user.id)
     @user.update(update_params)

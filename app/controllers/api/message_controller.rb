@@ -3,11 +3,7 @@ class Api::MessageController < ApplicationController
   
   def index
     exclude_list = JSON.parse(params[:exclude_id] || "[]")
-    if exclude_list.count > 1
-      @messages = Message.where("(uid = ? OR suid = ?) AND id NOT IN (?)", current_user.id, current_user.id, exclude_list)
-    else
-      @messages = Message.where("uid = ? OR suid = ?", current_user.id, current_user.id)
-    end
+    @messages = Message.where.not(:id => exclude_list).where("uid = ? OR suid = ?", current_user.id, current_user.id)
 
     @messages.each do |message|
       if message.uid == current_user.id
