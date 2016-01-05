@@ -1,0 +1,579 @@
+body.profile {
+	header {
+		z-index: 1000;
+		color: @white;
+		background-color: @helpio;
+		height: 42px;
+		box-shadow: 0 1px 2px @shadow;
+		img.company-logo {
+			width: 80px;
+		}
+		.logo {
+			position: relative;
+			top: -5px;
+			padding: 10px 0;
+		}
+		.search-bar {
+			.border-radius(5px);
+			color: @gray-dark;
+			margin-top: 9px;
+			text-align: center;
+			width: 100%;
+			padding: 2px 10px;
+			background: @white;
+			border: none;
+			font-style: italic;
+			&:hover, &:focus {
+				outline: none;
+			}
+		}
+		.profile-wrapper {
+			cursor: pointer;
+			padding: 6px 0;
+			margin-left: 25px;
+			.smooth();
+
+			&:hover, &:focus {
+				.smooth();
+				text-decoration: none;
+			}
+
+			.profile-wrapper-header {
+				.profile-photo {
+					position: relative;
+					width: 30px;
+				}
+				#fullname {
+					display: inline-block;
+					position: relative;
+				}
+			}
+			
+			.profile-expand {
+				position: absolute;
+				display: none;
+				top: 40px;
+				left: -100px;
+				.border-radius(10px);
+				box-shadow: 0 2px 4px @shadow-2;
+				width: 250px;
+				height: 350px;
+				background-color: @white;
+				font-family: HelveticaNeue;
+
+
+				svg.profile {
+					position: absolute;
+					top: -10px;
+					left: 134px;
+				}
+
+				.profile-edit-button {
+					position: absolute;
+					display: none;
+					top: 4px;
+					left: 3px;
+					width: 28x;
+					height: 28px;
+				}
+
+				.profile-close-button {
+					position: absolute;
+					display: none;
+					top: 4px;
+					right: 3px;
+					width: 52px;
+					height: 28px;
+				}
+
+				.profile-background-photo {
+					position: absolute;
+					width: 251px;
+					height: 170px;
+					.border-top-radius(10px);
+				}
+
+				.profile-wrapper-edit {
+					position: absolute;
+					display: none;
+					top: 180px;
+					width: 80px;
+					height: 80px;
+					z-index: 3;
+					margin-left: 83px;
+					overflow: hidden;
+					.profile-photo-edit {
+						position: relative;
+						z-index: 4;
+						top: -60px;
+						width: 80px;
+						height: 80px;
+						background-color: @white;
+						opacity: 0.6;
+						filter: alpha(opacity=60);
+						.border-radius(50%);
+						.profile-change-picture {
+							position: relative;
+							z-index: 5;
+							top: 62px;
+							text-align: center;
+							color: @black;
+							font-size: 10px;
+						}
+					}
+				}
+
+				.profile-expand-photo {
+					position: relative;
+					display: inline-block;
+					margin-left: 83px;
+					z-index: 2;
+					top: 120px;
+					width: 80px;
+					.border-radius(50%);
+					box-shadow: 0 2px 5px @shadow-2;
+				}
+
+
+
+				
+				.profile-expand-name {
+					position: relative;
+					top: 130px;
+					text-align: center;
+					color: @black;
+					font-size: 17px;
+					font-weight: bold;
+				}
+				.profile-expand-status {
+					position: relative;
+					top: 130px;
+					text-align: center;
+					color: @gray-light3;
+					font-size: 16px;
+					font-family: "MonotypeCorsiva";
+				}
+				.profile-expand-popularity {
+					position: relative;
+					top: 134px;
+					left: 50px;
+					.profile-expand-stars {
+						float:left;
+						margin-right: 4px;
+					}
+					.profile-expand-rate {
+						color: @lightblue;
+						font-size: 13px;
+					}
+				}
+				.profile-expand-settings {
+					position: absolute;
+					bottom: 4px;
+					left: 10px;
+					color: @black;
+					font-size: 13px;
+				}
+				.profile-expand-logout {
+					position: absolute;
+					bottom: 4px;
+					right: 10px;
+					color: @black;
+					font-size: 13px;
+				}
+			}
+		}
+		.additional-info {
+			text-align: center;
+			padding-top: 7px;
+			
+			img.notification,
+			img.message {
+				cursor: pointer;
+				width: 30px;
+			}
+			.unread {
+				background-color: @gray-lighter;
+			}
+			.subtitle {
+				position: relative;
+				top: -3px;
+				color: @gray;
+				font-style: italic;
+				border-bottom: 1px solid @gray-light;
+				padding: 10px 15px 0 15px;
+				margin-bottom: -3px;
+			}
+			.notification-expand {
+				position: absolute;
+				top: 40px;
+				right: 10px;
+				display: none;
+				.border-radius(10px);
+				box-shadow: 0 2px 4px @shadow-2;
+				width: 300px;
+				height: 300px;
+				color: @gray-dark;
+				background-color: @white;
+				svg.notification {
+					position: absolute;
+					top: -10px;
+					right: 55px;
+				}
+				.notification-text {
+					position: relative;
+					font-size: 12px;
+				}
+				.notification-list-container {
+					height: 300px;
+					width: 100%;
+					overflow: hidden;
+
+					.notification-scroll-wrapper {
+						.border-radius(10px);
+						overflow-y: scroll;
+						overflow-x: hidden;	
+						height: 300px;
+						width: ~'calc(100% + 15px)';
+
+						.notification-content {
+							width: 100%;
+							height: 65px;
+							padding: 10px 0;
+							border-bottom: 1px solid @gray-light;
+							cursor: pointer;
+							text-align: left;
+							
+							.notification-text {
+								top: 0;
+								.time-icon {
+									width: 10px;
+								}
+								.time-word {
+									font-size: 10px;
+									color: @gray-light;
+								}
+							}
+						}
+						.notification-load-button {
+							position: relative;
+							height: 30px;
+							padding-top: 5px;
+							a {
+								text-align: center;
+								color: @lightblue;
+							}
+						}
+					}
+				}
+			}
+			.message-expand {
+				position: absolute;
+				color: @gray-dark;
+				top: 40px;
+				right: 10px;
+				display: none;
+				.border-radius(10px);
+				box-shadow: 0 2px 4px @shadow-2;
+				width: 300px;
+				height: 300px;
+				background-color: @white;
+				text-align: center;
+				svg.message {
+					position: absolute;
+					top: -10px;
+					right: 22px;
+				}
+
+				.message-expand-wrapper {
+					overflow: hidden;
+
+					.message-scroll-wrapper {
+						width: ~'calc(100% + 15px)';
+						height: 300px;
+						overflow-y: scroll;
+						overflow-x: hidden;	
+						.border-radius(10px);					
+						
+						.message-list {
+							.wrapper-message {
+								height: 65px;
+								padding: 10px 0;
+								text-align: left;
+								cursor: pointer;
+								border-bottom: 1px solid @gray-light;
+
+								.message-name {
+									font-weight: bold;
+									font-size: 12px;
+								}
+								.message-content {
+									overflow: hidden;
+									height: 30px;
+									width: 100%;
+									font-size: 12px;
+									color: @gray;
+								}
+								.message-time {
+									position: absolute;
+									top: 0px;
+									right: 10px;
+									font-size: 10px;
+									color: @gray;
+								}
+							}
+						}
+						.message-load-more {
+							height: 30px;
+							text-align:center;
+							cursor: pointer;
+							color: @lightblue;
+							padding-top: 5px;
+							&:hover {
+								text-decoration: underline;
+							}
+						}
+						.message-detail {
+							display: none;
+							padding: 10px;
+
+							.message-detail-header {
+								font-style: italic;
+								font-size: 12px;
+								color: @gray;
+								cursor: pointer;
+							}
+							.message-chat {
+								padding: 5px 0;
+
+								.message-photo {
+									width: 45px;
+								}
+								.message-opposite {
+									position: relative;
+									font-size: 12px;
+									padding: 5px 10px 20px 10px;
+									text-align: left;
+									width: 200px;
+									margin-right: 10px;
+									background-color: @gray-lighter;
+									.border-radius(@rad-xs);
+									.message-time {
+										font-size: 10px;
+										color: @gray-light;
+										position: absolute;
+										bottom: 5px;
+										right: 5px;
+									}
+								}
+								.message-myself {
+									position: relative;
+									font-size: 12px;
+									padding: 5px 10px 20px 10px;
+									text-align: left;
+									width: 200px;
+									margin-left: 10px;
+									color: @white;
+									background-color: @blue;
+									.border-radius(@rad-xs);
+									.message-time {
+										font-size: 10px;
+										color: @white;
+										position: absolute;
+										bottom: 5px;
+										right: 5px;
+									}
+								}
+							}
+							.message-new {
+								background: @gray-lighter;
+								height: 50px;
+								.border-bottom-radius(10px);
+								padding: 5px 10px;
+								margin: 0 -10px -10px -10px;
+								.message-input {
+									.border-radius(@rad-xs);
+									border: 1px solid @gray-light;
+									padding: 5px 10px;
+									margin-top: 5px;
+									width: 200px;
+									&:hover, &:focus {
+										border: 1px solid @blue;
+										outline: none;
+									}
+								}
+								button {
+									color: @white;
+									font-size: 10px;
+									margin-top: -4px;
+								    width: 50px;
+								    height: 31px;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	.map {
+		position: absolute;
+		top: 42px;
+	}
+	section.main {
+		position: relative;
+		top: 42px;
+		height: ~'calc(100% - 42px)';
+		width: 100%;
+
+		.info-wrapper {
+			position: relative;
+			top: 10px;
+			box-shadow: 0 2px 4px @shadow-2;
+			.border-radius(10px);
+			background: @white;
+			overflow: hidden;
+			
+			.scroll-wrapper{
+				width: ~'calc(100% + 15px)';
+				height: 500px;
+				overflow-y: scroll;
+				overflow-x: hidden;
+				.border-radius(10px);
+
+				#content-header {
+					padding: 10px 10px 0 10px;
+					color: @helpio;
+					font-style: italic;
+					position: relative;
+
+					.pic {
+						width: 40px;
+					}
+					#content-time {
+						position: absolute;
+						font-size: 10px;
+						top: 25px;
+						right: 15px;
+					}
+				}
+				.btn-left, .btn-right {
+					background-color: @helpio-light;
+					border: none;
+					margin-top: 9px;
+					.border-radius(50%);
+					.fa {
+						color: @white;
+						font-size: 25px;
+						width: 20px;
+					}
+					&:hover, &:focus {
+						outline: none;
+					}
+				}
+				.btn-left {
+					float: left;
+				}
+				.btn-right {
+					float: right;
+				}
+				.info-content {
+					padding-top: 5px;
+					font-size: 12px;
+
+					.image {
+						cursor: pointer;
+						&:hover, &:focus {
+							border: none;
+							outline: none;
+						}
+					}
+					.icon {
+						position: relative;
+						top: -5px;
+						width: 12px;
+					}
+					#content-text {
+						padding: 0 15px;
+					}
+					#content-location {
+						padding: 0 10px;
+						line-height: 30px;
+						color: @helpio;
+						border-bottom: 1px solid @gray-light;
+						padding: 10px 15px;
+					}
+					#content-comment {
+						.comment-header {
+							font-style: italic;
+							color: @gray;
+							padding: 5px 10px;
+						}
+						.content-message-wrapper {
+							display: inline-block;
+							position: relative;
+							width: 100%;
+							padding-bottom: 5px;
+							margin-bottom: 5px;
+							border-bottom: 1px solid @gray-light;
+							.comment-name {
+								font-weight: bold;
+							}
+							.comment-message {
+								padding-right: 35px;
+							}
+							.comment-time {
+								font-size: 10px;
+								color: @gray;
+							}
+							.comment-like {
+								position: absolute;
+								cursor: pointer;
+								top: 20px;
+								right: 10px;
+								.comment-off {
+									display: none;
+								}
+							}
+							&:last-child {
+								border-bottom: 0;
+								margin-bottom: 0;
+							}
+						}
+					}
+					.content-comment-new {
+						display: inline-block;
+						background-color: @gray-lighter;
+						padding: 5px 0;
+						margin-bottom: -5px;
+						width: 100%;
+
+						.comment-input {
+							.border-radius(@rad-xs);
+							border: 1px solid @gray-lighter;
+							padding: 5px 10px;
+							margin-top: 5px;
+							width: 100%;
+							&:hover, &:focus {
+								border: 1px solid @blue;
+								outline: none;
+							}
+						}
+						button {
+							margin-top: 5px;
+							color: @white;
+							font-size: 10px;
+						}
+					}
+
+					// change default css from another library
+					.slick-dots {
+						bottom: -30px;
+					}
+					.slick-slider {
+						margin-bottom: 30px;
+					}
+				}
+			}
+		}
+	}
+}

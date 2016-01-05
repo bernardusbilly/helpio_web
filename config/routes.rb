@@ -24,8 +24,10 @@ Rails.application.routes.draw do
 
   # Sessions
 
+  get '/', to: 'sessions#index'
   get '/index', to: 'sessions#index'
   get '/index2', to: 'sessions#index2', as: 'index2'
+  get '/profile', to: 'sessions#profile'
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('session#index')
   get 'signout', to: 'sessions#destroy', as: 'signout'
