@@ -21,7 +21,7 @@ class Api::UserController < ApplicationController
       if @user.save
         @user_ret = @user.attributes
         session[:uid] = @user.id
-        ['created_at', 'updated_at', 'password_hash', 'password_salt'].each { |k| @user_ret.delete k }
+        ['created_at', 'updated_at', 'encrypted_password', 'password_hash', 'password_salt'].each { |k| @user_ret.delete k }
         format.json { render json: @user_ret, status: :created }
       else
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -38,6 +38,16 @@ class Api::UserController < ApplicationController
       else
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def pulse_info
+    @message_id = Message.select("id").where("uid = ? OR suid = ?", current_user.id, current_user.id).map{ |x| [x.id] }.flatten
+    @message_unread = MessageContent.where(:mid => @message_id).where(:read => nil).size
+    threshold_time = DateTime.now.advance(:days => -1)
+    @new_friends = Friend.where("uid = ? OR suid = ?", current_user.id, current_user.id).where("created_at >= ?", threshold_time).size
+    respond_to do |format|
+      format.json { render json: {unread_message: @message_unread, new_friend: @new_friends}, status: :created }
     end
   end
 
@@ -71,7 +81,8 @@ class Api::UserController < ApplicationController
       session[:uid] = @user.id
       respond_to do |format|
         @user_ret = @user.attributes
-        ['password_hash', 'password_salt'].each { |k| @user_ret.delete k }
+        @user_ret['mood'] ||= ''
+        ['encrypted_password', 'password_hash', 'password_salt'].each { |k| @user_ret.delete k }
         format.json { render json: @user_ret, status: :created }
       end
       # flash[:notice] = "You've been logged in."

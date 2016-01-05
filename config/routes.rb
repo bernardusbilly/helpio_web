@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/api/user/logout', to: 'api/user#logout', defaults: { format: :json }
   get '/api/pin/:id/comment', to: 'api/pin#comment', defaults: { format: :json }
   get '/api/pin/mine', to: 'api/pin#mine', defaults: { format: :json }
+  get '/api/user/pulse_info', to: 'api/user#pulse_info', defaults: { format: :json }
   post '/api/user/login', to: 'api/user#login', defaults: { format: :json }
   post '/api/user/update_info', to: 'api/user#update_info', defaults: { format: :json }
   post '/api/user/prof_img', to: 'api/user#prof_img', defaults: { format: :json }
@@ -30,9 +31,16 @@ Rails.application.routes.draw do
   get '/profile', to: 'sessions#profile'
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('session#index')
-  get 'signout', to: 'sessions#destroy', as: 'signout'
+  get '/signout', to: 'sessions#destroy', as: 'signout'
 
-  resources :sessions, only: [:create, :destroy]
+  # Devise routes
+
+  devise_for :users, controllers: { sessions: "users/sessions", registrations: "users/registrations" }
+  devise_scope :user do
+    get '/users/signout', to: 'devise/sessions#destroy'
+  end
+
+  root 'sessions#index2'
 
 
   namespace :api, defaults: { format: :json } do
