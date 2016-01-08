@@ -6,50 +6,74 @@ $(document).ready(function() {
 	var debug = false;
 
 	/**
-		Initializer
+		Initializer - No longer used
 	*/
-	$('.carousel').slick({
+	/*$('.carousel').slick({
 		dots: true,
 		arrows: false,
 		infinite: true,
 		slidesToShow: 1,
   		slidesToScroll: 1,
   		lazyLoad: 'ondemand',
-	});
+	});*/
 
 	/**
 		Map
 	*/
+	var mapOptions = {
+		center: new google.maps.LatLng(37.8658482,-122.2685509),
+		zoom: 14,
+		mapTypeId: google.maps.MapTypeId.ROADMAP
+	};
+
+	var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+	
+	map.addListener('click', function() {
+		$('.info-wrapper').hide();
+		$('.profile-expand').hide();
+		$('.notification-expand').hide();
+		$('.message-expand').hide();
+	});
+
+	/**
+		Marker
+	*/
+	var marker = new google.maps.Marker({
+	    position: new google.maps.LatLng(37.8658482,-122.2685509),
+	    map: map,
+	    title: 'Hello World!',
+	    icon: '/assets/icon/drop-pin.png'
+	});
+
+	marker.setMap(map);
+	marker.addListener('click', showInfo);
+
+	function getInfo() {
+
+	}
+	function showInfo() {
+		$('.info-wrapper').show();
+		$('.profile-expand').hide();
+		$('.notification-expand').hide();
+		$('.message-expand').hide();
+		$('.carousel').slick('setPosition');
+	};
 
 	/**
 		Google map and info-helpio sizing
 	*/
 	var winHeight = $(window).height();
 	// console.log(winHeight);
-	$('.scroll-wrapper').height(winHeight - 100);
-	$('iframe').height(winHeight-42);
+	$('.scroll-wrapper').css("max-height", winHeight - 100);
 
 	$(window).resize(function() {
 		winHeight = $(window).height();
-		// console.log(winHeight);
-		$('.scroll-wrapper').height(winHeight - 100);
-		$('iframe').height(winHeight-42);
+		$('.scroll-wrapper').css("max-height", winHeight - 100);
 	});
 
 	/**
 		Popups
 	*/
-
-	$('.info-wrapper').hide();
-
-	// temporary 
-	$('.search-bar').click(function(){
-		$('.info-wrapper').toggle();
-		$('.profile-expand').hide();
-		$('.notification-expand').hide();
-		$('.message-expand').hide();
-	});
-
 	$('.profile-wrapper-header').click(function() {
 		$('.info-wrapper').hide();
 		$('.profile-expand').toggle();
@@ -154,14 +178,14 @@ $(document).ready(function() {
 	 */
 	 function checkUnread() {
 		 if ($('.notification-content').hasClass("unread")) {
-		 	$('.additional-info img.notification').attr("src", "build/img/icons/notif-on.png");
+		 	$('.additional-info img.notification').attr("src", "/assets/icon/notif-on.png");
 		 } else {
-		 	$('.additional-info img.notification').attr("src", "build/img/icons/notif-off.png");
+		 	$('.additional-info img.notification').attr("src", "/assets/icon/notif-off.png");
 		 }
 		 if ($('.wrapper-message').hasClass("unread")) {
-		 	$('.additional-info img.message').attr("src", "build/img/icons/mail-on.png");
+		 	$('.additional-info img.message').attr("src", "/assets/icon/mail-on.png");
 		 } else {
-		 	$('.additional-info img.message').attr("src", "build/img/icons/mail-off.png");
+		 	$('.additional-info img.message').attr("src", "/assets/icon/mail-off.png");
 		 }
 	}
 

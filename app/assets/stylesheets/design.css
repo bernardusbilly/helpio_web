@@ -673,22 +673,26 @@ body.profile header .profile-wrapper .profile-expand .profile-expand-status {
   position: relative;
   top: 130px;
   text-align: center;
-  color: #9b9b9b;
-  font-size: 16px;
-  font-family: "MonotypeCorsiva";
+  width: 100%;
+  color: #333333;
+  font-size: 14px;
+  border: none;
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+}
+body.profile header .profile-wrapper .profile-expand .profile-expand-status:hover,
+body.profile header .profile-wrapper .profile-expand .profile-expand-status:focus {
+  outline: none;
+  border-top: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
 }
 body.profile header .profile-wrapper .profile-expand .profile-expand-popularity {
   position: relative;
-  top: 134px;
-  left: 50px;
-}
-body.profile header .profile-wrapper .profile-expand .profile-expand-popularity .profile-expand-stars {
-  float: left;
-  margin-right: 4px;
-}
-body.profile header .profile-wrapper .profile-expand .profile-expand-popularity .profile-expand-rate {
+  top: 140px;
+  font-size: 16px;
+  width: 100%;
+  text-align: center;
   color: #4a90e2;
-  font-size: 13px;
 }
 body.profile header .profile-wrapper .profile-expand .profile-expand-settings {
   position: absolute;
@@ -740,7 +744,7 @@ body.profile header .additional-info .notification-expand {
   border-bottom-left-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   width: 300px;
-  height: 300px;
+  height: 500px;
   color: #333333;
   background-color: #ffffff;
 }
@@ -754,7 +758,7 @@ body.profile header .additional-info .notification-expand .notification-text {
   font-size: 12px;
 }
 body.profile header .additional-info .notification-expand .notification-list-container {
-  height: 300px;
+  height: 500px;
   width: 100%;
   overflow: hidden;
 }
@@ -769,7 +773,7 @@ body.profile header .additional-info .notification-expand .notification-list-con
   border-bottom-left-radius: 10px;
   overflow-y: scroll;
   overflow-x: hidden;
-  height: 300px;
+  height: 500px;
   width: calc(100% + 15px);
 }
 body.profile header .additional-info .notification-expand .notification-list-container .notification-scroll-wrapper .notification-content {
@@ -815,7 +819,7 @@ body.profile header .additional-info .message-expand {
   border-bottom-left-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   width: 300px;
-  height: 300px;
+  height: 500px;
   background-color: #ffffff;
   text-align: center;
 }
@@ -829,7 +833,7 @@ body.profile header .additional-info .message-expand .message-expand-wrapper {
 }
 body.profile header .additional-info .message-expand .message-expand-wrapper .message-scroll-wrapper {
   width: calc(100% + 15px);
-  height: 300px;
+  height: 500px;
   overflow-y: scroll;
   overflow-x: hidden;
   -webkit-border-top-right-radius: 10px;
@@ -979,7 +983,6 @@ body.profile header .additional-info .message-expand .message-expand-wrapper .me
 }
 body.profile .map {
   position: absolute;
-  top: 42px;
 }
 body.profile section.main {
   position: relative;
@@ -1001,10 +1004,10 @@ body.profile section.main .info-wrapper {
   border-bottom-left-radius: 10px;
   background: #ffffff;
   overflow: hidden;
+  display: none;
 }
 body.profile section.main .info-wrapper .scroll-wrapper {
   width: calc(100% + 15px);
-  height: 500px;
   overflow-y: scroll;
   overflow-x: hidden;
   -webkit-border-top-right-radius: 10px;
@@ -1068,12 +1071,8 @@ body.profile section.main .info-wrapper .scroll-wrapper .info-content {
   font-size: 12px;
 }
 body.profile section.main .info-wrapper .scroll-wrapper .info-content .image {
-  cursor: pointer;
-}
-body.profile section.main .info-wrapper .scroll-wrapper .info-content .image:hover,
-body.profile section.main .info-wrapper .scroll-wrapper .info-content .image:focus {
-  border: none;
-  outline: none;
+  width: 100%;
+  margin-bottom: 10px;
 }
 body.profile section.main .info-wrapper .scroll-wrapper .info-content .icon {
   position: relative;

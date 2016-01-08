@@ -542,9 +542,9 @@ Modal box
 .modal-body .helpio-logo {
     width: 120px;
 }
-.modal-body .login-facebook,
-.modal-body .login-google,
-.modal-body .login-email {
+.modal-body .button-facebook,
+.modal-body .button-google,
+.modal-body .button-email {
     line-height: 28px;
     border-radius: 5px;
     color: #FFFFFF;
@@ -553,27 +553,27 @@ Modal box
     width: 250px;
     margin: 10px auto 0 auto;
 }
-.modal-body .login-facebook {
+.modal-body .button-facebook {
     background-color: #49639F;
 }
-.modal-body .login-facebook .facebook {
+.modal-body .button-facebook .facebook {
     width: 25px;
     height: 25px;
     margin-right: 10px;
 }
-.modal-body .login-google {
+.modal-body .button-google {
     background-color: #DC4E41;
 }
-.modal-body .login-google .google {
+.modal-body .button-google .google {
     display: inline-block;
     width: 28px;
     height: 28px;
     margin-right: 10px;
 }
-.modal-body .login-email {
+.modal-body .button-email {
     background-color: #888888;
 }
-.modal-body .login-email .email {
+.modal-body .button-email .email {
     color: #888888;
     border-radius: 2px;
     display: inline-block;
@@ -594,10 +594,12 @@ Modal box
 .modal-body .signup-option {
 
 }
-.modal-body form#signup {
+.modal-body form#signup,
+.modal-body form#login {
     display: none;
 }
-.modal-body .back-button {
+.modal-body .back-button-signup,
+.modal-body .back-button-login {
     position: absolute;
     top: -115px;
     left: -5px;
@@ -614,6 +616,9 @@ Modal box
 .modal-body input:focus {
     outline: none;
     border: 1px solid #888888;
+}
+.modal-body input#user_birthday {
+    padding: 0px 10px;
 }
 .modal-body select {
     width: 100%;
@@ -647,8 +652,7 @@ Modal box
 .modal-body .submit:hover,
 .modal-body .submit:focus {
     background-color: rgb(235, 80, 5);
-    color: #fff;
-    outline: none;
+    border: none;
 }
 
 /* ==========================================================================
