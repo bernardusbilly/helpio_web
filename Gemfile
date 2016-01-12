@@ -35,6 +35,7 @@ gem "ImageResize", "~> 0.0.5"
 
 # Use Devise for user authentication
 gem 'devise'
+gem 'devise_token_auth'
 
 # Use OmniAuth for third-party login providers
 gem 'omniauth-google-oauth2'

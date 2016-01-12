@@ -1,4 +1,5 @@
-Rails.application.routes.draw do 
+Rails.application.routes.draw do
+  mount_devise_token_auth_for 'User', at: 'auth' 
 
   get '/api/test', to: 'api/user#test', defaults: { format: :json }
   
@@ -35,10 +36,10 @@ Rails.application.routes.draw do
 
   # Devise routes
 
-  devise_for :users, controllers: { sessions: "users/sessions", registrations: "users/registrations" }
-  devise_scope :user do
-    get '/users/signout', to: 'devise/sessions#destroy'
-  end
+  # devise_for :users, controllers: { sessions: "users/sessions", registrations: "users/registrations" }
+  # devise_scope :user do
+  #  get '/users/signout', to: 'devise/sessions#destroy'
+  # end
 
   root 'sessions#index2'
 
