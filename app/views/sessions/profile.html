@@ -51,14 +51,13 @@
 				<%= image_tag "logo/helpio-white.png", :class => "company-logo"%>
 			</div>
 		</div>
-		<div class="col-xs-10 col-sm-4 col-md-4 col-lg-4">
+		<div class="col-xs-8 col-sm-4 col-md-4 col-lg-4">
 			<input type="text" id="search-bar" placeholder="Search"></input>
 		</div>
-		<div class="col-xs-offset-0 col-xs-2 col-sm-offset-0 col-sm-2 col-md-offset-1 col-md-2 col-lg-offset-1 col-lg-2 noPadding">
+		<div class="col-xs-offset-0 col-xs-2 col-sm-offset-0 col-sm-1 col-md-offset-0 col-md-1 col-lg-offset-1 col-lg-1 noPadding">
 			<div class="profile-wrapper">
 				<div class="profile-wrapper-header">
 					<img src="build/img/profile.png" class="profile-photo"/>
-					<div id="fullname" class="hidden-xs hidden-sm">Jessica Miller</div>
 				</div>
 				<div class="profile-expand">
 					<svg class="profile" height="10" width="10">
@@ -83,144 +82,11 @@
 				</div>
 			</div>
 		</div>
-		<div class="hidden-xs col-sm-2 col-md-1 col-lg-1 noPadding">
+		<div class="col-xs-2 col-sm-1 col-md-1 col-lg-1">
+			<%= image_tag "icon/new-pin.png", :class => "width-full", :id => "add-new-twing"%>
+		</div>
+		<div class="hidden-xs col-sm-2 col-md-2 col-lg-1">
 			<div class="additional-info">
-				<%= image_tag "icon/notif-on.png", :class => "notification"%>
-				<%= image_tag "icon/notif-bubble.png", :class => "notification-bubble"%>
-				<div class="notification-expand">
-					<div class="notification-list-container">
-						<div class="notification-scroll-wrapper">
-							<svg class="notification" height="10" width="10">
-								<polygon points="0,10 5,3 10,10" style="fill:white;" />
-							</svg>
-							<div class="subtitle text-left"> Notification</div>
-							<div class="notification-list">
-								<div class="notification-content unread">
-									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-										<img class="width-full" src="build/img/notification/profilePicture1.png"></img>
-									</div>
-									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-										<div class="row">
-											<div class="notification-text"> <b>Glorio Yulianto</b><br>
-												"I am cominnggg"<br>
-												<%= image_tag "icon/icon-time.png", :class => "time-icon"%>
-												<span class="time-word">5 hour ago</span>
-											</div>
-										</div>
-									</div>
-									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-										<img class="width-full" src="build/img/notification/thumbnail1.png"></img>
-									</div>
-								</div>
-								<div class="notification-content ">
-									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-										<img class="width-full" src="build/img/notification/profilePicture1.png"></img>
-									</div>
-									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-										<div class="row">
-											<div class="notification-text"> <b>Glorio Yulianto</b><br>
-												"I am cominnggg"<br>
-												<%= image_tag "icon/icon-time.png", :class => "time-icon"%>
-												<span class="time-word">5 hour ago</span>
-											</div>
-										</div>
-									</div>
-									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-										<img class="width-full" src="build/img/notification/thumbnail1.png"></img>
-									</div>
-								</div>
-								<div class="notification-content ">
-									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-										<img class="width-full" src="build/img/notification/profilePicture1.png"></img>
-									</div>
-									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-										<div class="row">
-											<div class="notification-text"> <b>Glorio Yulianto</b><br>
-												"I am cominnggg"<br>
-												<%= image_tag "icon/icon-time.png", :class => "time-icon"%>
-												<span class="time-word">5 hour ago</span>
-											</div>
-										</div>
-									</div>
-									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-										<img class="width-full" src="build/img/notification/thumbnail1.png"></img>
-									</div>
-								</div>
-								<div class="notification-content ">
-									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-										<img class="width-full" src="build/img/notification/profilePicture1.png"></img>
-									</div>
-									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-										<div class="row">
-											<div class="notification-text"> <b>Glorio Yulianto</b><br>
-												"I am cominnggg"<br>
-												<%= image_tag "icon/icon-time.png", :class => "time-icon"%>
-												<span class="time-word">5 hour ago</span>
-											</div>
-										</div>
-									</div>
-									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-										<img class="width-full" src="build/img/notification/thumbnail1.png"></img>
-									</div>
-								</div>
-								<div class="notification-content unread">
-									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-										<img class="width-full" src="build/img/notification/profilePicture1.png"></img>
-									</div>
-									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-										<div class="row">
-											<div class="notification-text"> <b>Glorio Yulianto</b><br>
-												"I am cominnggg"<br>
-												<%= image_tag "icon/icon-time.png", :class => "time-icon"%>
-												<span class="time-word">5 hour ago</span>
-											</div>
-										</div>
-									</div>
-									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-										<img class="width-full" src="build/img/notification/thumbnail1.png"></img>
-									</div>
-								</div>
-								<div class="notification-content">
-									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-										<img class="width-full" src="build/img/notification/profilePicture1.png"></img>
-									</div>
-									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-										<div class="row">
-											<div class="notification-text"> <b>Glorio Yulianto</b><br>
-												"I am cominnggg"<br>
-												<%= image_tag "icon/icon-time.png", :class => "time-icon"%>
-												<span class="time-word">5 hour ago</span>
-											</div>
-										</div>
-									</div>
-									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-										<img class="width-full" src="build/img/notification/thumbnail1.png"></img>
-									</div>
-								</div>
-								<div class="notification-content">
-									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-										<img class="width-full" src="build/img/notification/profilePicture1.png"></img>
-									</div>
-									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-										<div class="row">
-											<div class="notification-text"> <b>Glorio Yulianto</b><br>
-												"I am cominnggg"<br>
-												<%= image_tag "icon/icon-time.png", :class => "time-icon"%>
-												<span class="time-word">5 hour ago</span>
-											</div>
-										</div>
-									</div>
-									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-										<img class="width-full" src="build/img/notification/thumbnail1.png"></img>
-									</div>
-								</div>
-							</div>
-							<div class="notification-load-button">
-								<a href="#">load more</a>
-							</div>
-						</div>
-					</div>
-				</div>
 				<%= image_tag "icon/mail-on.png", :class => "message"%>
 				<%= image_tag "icon/notif-bubble.png", :class => "message-bubble"%>
 				<div class="message-expand">
@@ -413,19 +279,148 @@
 						</div>
 					</div>
 				</div>
+				<%= image_tag "icon/notif-on.png", :class => "notification"%>
+				<%= image_tag "icon/notif-bubble.png", :class => "notification-bubble"%>
+				<div class="notification-expand">
+					<div class="notification-list-container">
+						<div class="notification-scroll-wrapper">
+							<svg class="notification" height="10" width="10">
+								<polygon points="0,10 5,3 10,10" style="fill:white;" />
+							</svg>
+							<div class="subtitle text-left"> Notification</div>
+							<div class="notification-list">
+								<div class="notification-content unread">
+									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+										<img class="width-full" src="build/img/notification/profilePicture1.png"></img>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+										<div class="row">
+											<div class="notification-text"> <b>Glorio Yulianto</b><br>
+												"I am cominnggg"<br>
+												<%= image_tag "icon/icon-time.png", :class => "time-icon"%>
+												<span class="time-word">5 hour ago</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+										<img class="width-full" src="build/img/notification/thumbnail1.png"></img>
+									</div>
+								</div>
+								<div class="notification-content ">
+									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+										<img class="width-full" src="build/img/notification/profilePicture1.png"></img>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+										<div class="row">
+											<div class="notification-text"> <b>Glorio Yulianto</b><br>
+												"I am cominnggg"<br>
+												<%= image_tag "icon/icon-time.png", :class => "time-icon"%>
+												<span class="time-word">5 hour ago</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+										<img class="width-full" src="build/img/notification/thumbnail1.png"></img>
+									</div>
+								</div>
+								<div class="notification-content ">
+									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+										<img class="width-full" src="build/img/notification/profilePicture1.png"></img>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+										<div class="row">
+											<div class="notification-text"> <b>Glorio Yulianto</b><br>
+												"I am cominnggg"<br>
+												<%= image_tag "icon/icon-time.png", :class => "time-icon"%>
+												<span class="time-word">5 hour ago</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+										<img class="width-full" src="build/img/notification/thumbnail1.png"></img>
+									</div>
+								</div>
+								<div class="notification-content ">
+									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+										<img class="width-full" src="build/img/notification/profilePicture1.png"></img>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+										<div class="row">
+											<div class="notification-text"> <b>Glorio Yulianto</b><br>
+												"I am cominnggg"<br>
+												<%= image_tag "icon/icon-time.png", :class => "time-icon"%>
+												<span class="time-word">5 hour ago</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+										<img class="width-full" src="build/img/notification/thumbnail1.png"></img>
+									</div>
+								</div>
+								<div class="notification-content unread">
+									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+										<img class="width-full" src="build/img/notification/profilePicture1.png"></img>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+										<div class="row">
+											<div class="notification-text"> <b>Glorio Yulianto</b><br>
+												"I am cominnggg"<br>
+												<%= image_tag "icon/icon-time.png", :class => "time-icon"%>
+												<span class="time-word">5 hour ago</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+										<img class="width-full" src="build/img/notification/thumbnail1.png"></img>
+									</div>
+								</div>
+								<div class="notification-content">
+									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+										<img class="width-full" src="build/img/notification/profilePicture1.png"></img>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+										<div class="row">
+											<div class="notification-text"> <b>Glorio Yulianto</b><br>
+												"I am cominnggg"<br>
+												<%= image_tag "icon/icon-time.png", :class => "time-icon"%>
+												<span class="time-word">5 hour ago</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+										<img class="width-full" src="build/img/notification/thumbnail1.png"></img>
+									</div>
+								</div>
+								<div class="notification-content">
+									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+										<img class="width-full" src="build/img/notification/profilePicture1.png"></img>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+										<div class="row">
+											<div class="notification-text"> <b>Glorio Yulianto</b><br>
+												"I am cominnggg"<br>
+												<%= image_tag "icon/icon-time.png", :class => "time-icon"%>
+												<span class="time-word">5 hour ago</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+										<img class="width-full" src="build/img/notification/thumbnail1.png"></img>
+									</div>
+								</div>
+							</div>
+							<div class="notification-load-button">
+								<a href="#">load more</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				
 			</div>
 		</div>
 	</header>
 	<section id="map" class="map" style="height: 100vh; width: 100vw;">
 	</section>
-	<!-- <iframe
-		class="map"
-      	width="100%"
-      	height="700"
-      	frameborder="0" style="border:0"
-      	src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBSqyaSMrjj8WvPTM5WO9VyJ9YI07BTeSs
-        	&q=Memorial+Glade,Berkeley+CA&zoom=17">
-    </iframe>  -->
 	<section class="main">
 		<div class="col-xs-offset-8 col-xs-4 col-sm-offset-9 col-sm-3 col-md-offset-9 col-md-3 col-lg-offset-9 col-lg-3">
 			<div class="info-wrapper">

@@ -501,11 +501,13 @@ body.profile header {
   z-index: 1000;
   color: #ffffff;
   background-color: #ff6419;
-  height: 42px;
+  height: 55px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 body.profile header img.company-logo {
-  width: 80px;
+  position: relative;
+  top: 4px;
+  width: 100px;
 }
 body.profile header .logo {
   position: relative;
@@ -522,12 +524,13 @@ body.profile header #search-bar {
   -webkit-border-bottom-left-radius: 5px;
   border-bottom-left-radius: 5px;
   color: #333333;
-  margin-top: 9px;
+  margin-top: 13px;
   text-align: center;
   width: 100%;
-  padding: 2px 10px;
+  padding: 4px 10px;
   background: #ffffff;
   border: none;
+  font-size: 14px;
 }
 body.profile header #search-bar:hover,
 body.profile header #search-bar:focus {
@@ -535,6 +538,12 @@ body.profile header #search-bar:focus {
 }
 body.profile header #search-bar::-webkit-input-placeholder {
   font-style: italic;
+}
+body.profile header #add-new-twing {
+  cursor: pointer;
+  position: relative;
+  top: 2px;
+  width: 46px;
 }
 body.profile header .profile-wrapper {
   cursor: pointer;
@@ -555,7 +564,7 @@ body.profile header .profile-wrapper:focus {
 }
 body.profile header .profile-wrapper .profile-wrapper-header .profile-photo {
   position: relative;
-  width: 30px;
+  width: 42px;
 }
 body.profile header .profile-wrapper .profile-wrapper-header #fullname {
   display: inline-block;
@@ -564,8 +573,8 @@ body.profile header .profile-wrapper .profile-wrapper-header #fullname {
 body.profile header .profile-wrapper .profile-expand {
   position: absolute;
   display: none;
-  top: 40px;
-  left: -100px;
+  top: 50px;
+  left: -94px;
   -webkit-border-top-right-radius: 10px;
   border-top-right-radius: 10px;
   -webkit-border-bottom-right-radius: 10px;
@@ -707,24 +716,29 @@ body.profile header .profile-wrapper .profile-expand .profile-expand-logout {
   font-size: 13px;
 }
 body.profile header .additional-info {
-  text-align: center;
+  text-align: right;
   padding-top: 7px;
 }
 body.profile header .additional-info img.notification,
 body.profile header .additional-info img.message {
+  position: relative;
+  top: 6px;
   cursor: pointer;
   width: 30px;
 }
+body.profile header .additional-info img.notification {
+  margin-left: 10px;
+}
 body.profile header .additional-info .notification-bubble {
   position: absolute;
-  top: 0;
-  left: 42px;
+  top: 6px;
+  right: 5px;
   width: 20px;
 }
 body.profile header .additional-info .message-bubble {
   position: absolute;
-  top: 0;
-  left: 76px;
+  top: 6px;
+  right: 50px;
   width: 20px;
 }
 body.profile header .additional-info .unread {
@@ -741,7 +755,7 @@ body.profile header .additional-info .subtitle {
 }
 body.profile header .additional-info .notification-expand {
   position: absolute;
-  top: 40px;
+  top: 50px;
   right: 10px;
   display: none;
   -webkit-border-top-right-radius: 10px;
@@ -761,7 +775,7 @@ body.profile header .additional-info .notification-expand {
 body.profile header .additional-info .notification-expand svg.notification {
   position: absolute;
   top: -10px;
-  right: 55px;
+  right: 15px;
 }
 body.profile header .additional-info .notification-expand .notification-text {
   position: relative;
@@ -816,7 +830,7 @@ body.profile header .additional-info .notification-expand .notification-list-con
 body.profile header .additional-info .message-expand {
   position: absolute;
   color: #333333;
-  top: 40px;
+  top: 50px;
   right: 10px;
   display: none;
   -webkit-border-top-right-radius: 10px;
@@ -836,7 +850,7 @@ body.profile header .additional-info .message-expand {
 body.profile header .additional-info .message-expand svg.message {
   position: absolute;
   top: -10px;
-  right: 22px;
+  right: 59px;
 }
 body.profile header .additional-info .message-expand .message-expand-wrapper {
   overflow: hidden;
@@ -1002,7 +1016,7 @@ body.profile section.main {
 }
 body.profile section.main .info-wrapper {
   position: relative;
-  top: 10px;
+  top: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   -webkit-border-top-right-radius: 10px;
   border-top-right-radius: 10px;

@@ -129,7 +129,6 @@ $(document).ready(function() {
 				$('.content-image-wrapper').hide();
 			} else {
 				$('.content-image-wrapper').show();
-				console.log($('#content-image').width());
 				if ($('#content-image').width() < 100) {
 					$('#content-image').removeClass("image-full");
 					$('#content-image').addClass("image-center");
@@ -218,6 +217,14 @@ $(document).ready(function() {
 			$('.profile-expand').hide();
 			$('.notification-expand').hide();
 			$('.message-expand').hide();
+		});
+		
+		marker.addListener('click', function() {
+			if (marker.getAnimation() !== null) {
+				marker.setAnimation(null);
+			} else {
+				marker.setAnimation(google.maps.Animation.BOUNCE);
+			}
 		});
 	}
 
