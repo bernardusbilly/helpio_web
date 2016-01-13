@@ -16,7 +16,7 @@ $(document).ready(function() {
     });
 
 	/* Sign up */
-	$('.login-email').click(function() {
+	$('#signup-email').click(function() {
 		$('.signup-option').toggle();
 		$('.signup-option').removeClass("animated fadeInLeft");
 		$('.signup-option').addClass("animated fadeOutLeft");
@@ -24,13 +24,31 @@ $(document).ready(function() {
 		$('form#signup').removeClass("animated fadeOutRight");
 		$('form#signup').addClass("animated fadeInRight");
 	});
-	$('.back-button').click(function() {
+	$('.back-button-signup').click(function() {
 		$('form#signup').toggle();
 		$('form#signup').removeClass("animated fadeInRight");
 		$('form#signup').addClass("animated fadeOutRight");
 		$('.signup-option').toggle();
 		$('.signup-option').removeClass("animated fadeOutLeft");
 		$('.signup-option').addClass("animated fadeInLeft");
+	});
+
+	/* Log in */
+	$('#login-email').click(function() {
+		$('.login-option').toggle();
+		$('.login-option').removeClass("animated fadeInLeft");
+		$('.login-option').addClass("animated fadeOutLeft");
+		$('form#login').toggle();
+		$('form#login').removeClass("animated fadeOutRight");
+		$('form#login').addClass("animated fadeInRight");
+	});
+	$('.back-button-login').click(function() {
+		$('form#login').toggle();
+		$('form#login').removeClass("animated fadeInRight");
+		$('form#login').addClass("animated fadeOutRight");
+		$('.login-option').toggle();
+		$('.login-option').removeClass("animated fadeOutLeft");
+		$('.login-option').addClass("animated fadeInLeft");
 	});
 
 	$("input.date").keyup(function (e) {

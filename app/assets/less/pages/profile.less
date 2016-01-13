@@ -149,22 +149,25 @@ body.profile {
 					position: relative;
 					top: 130px;
 					text-align: center;
-					color: @gray-light3;
-					font-size: 16px;
-					font-family: "MonotypeCorsiva";
+					width: 100%;
+					color: @gray-dark;
+					font-size: 14px;
+					border: none;
+					border-top: 1px solid @white;
+					border-bottom: 1px solid @white;
+					&:hover, &:focus {
+						outline: none;
+						border-top: 1px solid @gray-light;
+						border-bottom: 1px solid @gray-light;
+					}
 				}
 				.profile-expand-popularity {
 					position: relative;
-					top: 134px;
-					left: 50px;
-					.profile-expand-stars {
-						float:left;
-						margin-right: 4px;
-					}
-					.profile-expand-rate {
-						color: @lightblue;
-						font-size: 13px;
-					}
+					top: 140px;
+					font-size: 16px;
+					width: 100%;
+					text-align: center;
+					color: @lightblue;
 				}
 				.profile-expand-settings {
 					position: absolute;
@@ -211,7 +214,7 @@ body.profile {
 				.border-radius(10px);
 				box-shadow: 0 2px 4px @shadow-2;
 				width: 300px;
-				height: 300px;
+				height: 500px;
 				color: @gray-dark;
 				background-color: @white;
 				svg.notification {
@@ -224,7 +227,7 @@ body.profile {
 					font-size: 12px;
 				}
 				.notification-list-container {
-					height: 300px;
+					height: 500px;
 					width: 100%;
 					overflow: hidden;
 
@@ -232,7 +235,7 @@ body.profile {
 						.border-radius(10px);
 						overflow-y: scroll;
 						overflow-x: hidden;	
-						height: 300px;
+						height: 500px;
 						width: ~'calc(100% + 15px)';
 
 						.notification-content {
@@ -275,7 +278,7 @@ body.profile {
 				.border-radius(10px);
 				box-shadow: 0 2px 4px @shadow-2;
 				width: 300px;
-				height: 300px;
+				height: 500px;
 				background-color: @white;
 				text-align: center;
 				svg.message {
@@ -289,7 +292,7 @@ body.profile {
 
 					.message-scroll-wrapper {
 						width: ~'calc(100% + 15px)';
-						height: 300px;
+						height: 500px;
 						overflow-y: scroll;
 						overflow-x: hidden;	
 						.border-radius(10px);					
@@ -417,7 +420,6 @@ body.profile {
 	}
 	.map {
 		position: absolute;
-		top: 42px;
 	}
 	section.main {
 		position: relative;
@@ -432,10 +434,10 @@ body.profile {
 			.border-radius(10px);
 			background: @white;
 			overflow: hidden;
+			display: none;
 			
 			.scroll-wrapper{
 				width: ~'calc(100% + 15px)';
-				height: 500px;
 				overflow-y: scroll;
 				overflow-x: hidden;
 				.border-radius(10px);
@@ -481,11 +483,8 @@ body.profile {
 					font-size: 12px;
 
 					.image {
-						cursor: pointer;
-						&:hover, &:focus {
-							border: none;
-							outline: none;
-						}
+						width: 100%;
+						margin-bottom: 10px;
 					}
 					.icon {
 						position: relative;
