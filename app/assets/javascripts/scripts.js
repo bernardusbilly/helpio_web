@@ -33,6 +33,21 @@ $(document).ready(function() {
 		$('.signup-option').addClass("animated fadeInLeft");
 	});
 
+	$('.password-checking').on("input", function() {
+		if ($(this).val().length < 8) {
+			$(this).addClass("password-validation");
+		} else {
+			$(this).removeClass("password-validation");
+		}
+	});
+	$('.confirm-password').on("input", function() {
+		if ($(this).val() != $('.password-checking').val()){
+			$(this).addClass("password-validation");
+		} else {
+			$(this).removeClass("password-validation");
+		}
+	});
+
 	/* Log in */
 	$('#login-email').click(function() {
 		$('.login-option').toggle();
@@ -42,6 +57,7 @@ $(document).ready(function() {
 		$('form#login').removeClass("animated fadeOutRight");
 		$('form#login').addClass("animated fadeInRight");
 	});
+
 	$('.back-button-login').click(function() {
 		$('form#login').toggle();
 		$('form#login').removeClass("animated fadeInRight");

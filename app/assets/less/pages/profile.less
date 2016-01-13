@@ -13,7 +13,7 @@ body.profile {
 			top: -5px;
 			padding: 10px 0;
 		}
-		.search-bar {
+		#search-bar {
 			.border-radius(5px);
 			color: @gray-dark;
 			margin-top: 9px;
@@ -22,9 +22,11 @@ body.profile {
 			padding: 2px 10px;
 			background: @white;
 			border: none;
-			font-style: italic;
 			&:hover, &:focus {
 				outline: none;
+			}
+			&::-webkit-input-placeholder {
+			   font-style: italic;
 			}
 		}
 		.profile-wrapper {
@@ -153,12 +155,8 @@ body.profile {
 					color: @gray-dark;
 					font-size: 14px;
 					border: none;
-					border-top: 1px solid @white;
-					border-bottom: 1px solid @white;
 					&:hover, &:focus {
 						outline: none;
-						border-top: 1px solid @gray-light;
-						border-bottom: 1px solid @gray-light;
 					}
 				}
 				.profile-expand-popularity {
@@ -193,6 +191,18 @@ body.profile {
 			img.message {
 				cursor: pointer;
 				width: 30px;
+			}
+			.notification-bubble {
+				position: absolute;
+			    top: 0;
+			    left: 42px;
+			    width: 20px;
+			}
+			.message-bubble {
+				position: absolute;
+			    top: 0;
+			    left: 76px;
+			    width: 20px;
 			}
 			.unread {
 				background-color: @gray-lighter;
@@ -348,8 +358,8 @@ body.profile {
 							.message-chat {
 								padding: 5px 0;
 
-								.message-photo {
-									width: 45px;
+								.img {
+									width: 100%;
 								}
 								.message-opposite {
 									position: relative;
@@ -457,6 +467,9 @@ body.profile {
 						top: 25px;
 						right: 15px;
 					}
+					#content-owner-name {
+						padding-left: 5px;
+					}
 				}
 				.btn-left, .btn-right {
 					background-color: @helpio-light;
@@ -482,9 +495,25 @@ body.profile {
 					padding-top: 5px;
 					font-size: 12px;
 
-					.image {
-						width: 100%;
-						margin-bottom: 10px;
+					.content-image-wrapper {
+						background-color: @black;
+						text-align: center;
+						position: relative;
+						height: 200px;
+						overflow: hidden;
+						#content-image {
+							
+						}
+						.image-center {
+							display: inline-block;
+							position: absolute;
+						    transform: translate3d(-50%,-50%,0);
+						    top: 50%;
+						    left: 50%;
+						}
+						.image-full {
+							width: 100%;
+						}
 					}
 					.icon {
 						position: relative;
@@ -492,7 +521,7 @@ body.profile {
 						width: 12px;
 					}
 					#content-text {
-						padding: 0 15px;
+						padding: 10px 15px 0 15px;
 					}
 					#content-location {
 						padding: 0 10px;
@@ -501,12 +530,12 @@ body.profile {
 						border-bottom: 1px solid @gray-light;
 						padding: 10px 15px;
 					}
-					#content-comment {
-						.comment-header {
-							font-style: italic;
-							color: @gray;
-							padding: 5px 10px;
-						}
+					.comment-header {
+						font-style: italic;
+						color: @gray;
+						padding: 5px 10px;
+					}
+					#content-comment-container {
 						.content-message-wrapper {
 							display: inline-block;
 							position: relative;

@@ -512,7 +512,7 @@ body.profile header .logo {
   top: -5px;
   padding: 10px 0;
 }
-body.profile header .search-bar {
+body.profile header #search-bar {
   -webkit-border-top-right-radius: 5px;
   border-top-right-radius: 5px;
   -webkit-border-bottom-right-radius: 5px;
@@ -528,11 +528,13 @@ body.profile header .search-bar {
   padding: 2px 10px;
   background: #ffffff;
   border: none;
-  font-style: italic;
 }
-body.profile header .search-bar:hover,
-body.profile header .search-bar:focus {
+body.profile header #search-bar:hover,
+body.profile header #search-bar:focus {
   outline: none;
+}
+body.profile header #search-bar::-webkit-input-placeholder {
+  font-style: italic;
 }
 body.profile header .profile-wrapper {
   cursor: pointer;
@@ -677,14 +679,10 @@ body.profile header .profile-wrapper .profile-expand .profile-expand-status {
   color: #333333;
   font-size: 14px;
   border: none;
-  border-top: 1px solid #ffffff;
-  border-bottom: 1px solid #ffffff;
 }
 body.profile header .profile-wrapper .profile-expand .profile-expand-status:hover,
 body.profile header .profile-wrapper .profile-expand .profile-expand-status:focus {
   outline: none;
-  border-top: 1px solid #cccccc;
-  border-bottom: 1px solid #cccccc;
 }
 body.profile header .profile-wrapper .profile-expand .profile-expand-popularity {
   position: relative;
@@ -716,6 +714,18 @@ body.profile header .additional-info img.notification,
 body.profile header .additional-info img.message {
   cursor: pointer;
   width: 30px;
+}
+body.profile header .additional-info .notification-bubble {
+  position: absolute;
+  top: 0;
+  left: 42px;
+  width: 20px;
+}
+body.profile header .additional-info .message-bubble {
+  position: absolute;
+  top: 0;
+  left: 76px;
+  width: 20px;
 }
 body.profile header .additional-info .unread {
   background-color: #eeeeee;
@@ -893,8 +903,8 @@ body.profile header .additional-info .message-expand .message-expand-wrapper .me
 body.profile header .additional-info .message-expand .message-expand-wrapper .message-scroll-wrapper .message-detail .message-chat {
   padding: 5px 0;
 }
-body.profile header .additional-info .message-expand .message-expand-wrapper .message-scroll-wrapper .message-detail .message-chat .message-photo {
-  width: 45px;
+body.profile header .additional-info .message-expand .message-expand-wrapper .message-scroll-wrapper .message-detail .message-chat .img {
+  width: 100%;
 }
 body.profile header .additional-info .message-expand .message-expand-wrapper .message-scroll-wrapper .message-detail .message-chat .message-opposite {
   position: relative;
@@ -1034,6 +1044,9 @@ body.profile section.main .info-wrapper .scroll-wrapper #content-header #content
   top: 25px;
   right: 15px;
 }
+body.profile section.main .info-wrapper .scroll-wrapper #content-header #content-owner-name {
+  padding-left: 5px;
+}
 body.profile section.main .info-wrapper .scroll-wrapper .btn-left,
 body.profile section.main .info-wrapper .scroll-wrapper .btn-right {
   background-color: #ff864c;
@@ -1070,9 +1083,22 @@ body.profile section.main .info-wrapper .scroll-wrapper .info-content {
   padding-top: 5px;
   font-size: 12px;
 }
-body.profile section.main .info-wrapper .scroll-wrapper .info-content .image {
+body.profile section.main .info-wrapper .scroll-wrapper .info-content .content-image-wrapper {
+  background-color: #000000;
+  text-align: center;
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+body.profile section.main .info-wrapper .scroll-wrapper .info-content .content-image-wrapper .image-center {
+  display: inline-block;
+  position: absolute;
+  transform: translate3d(-50%, -50%, 0);
+  top: 50%;
+  left: 50%;
+}
+body.profile section.main .info-wrapper .scroll-wrapper .info-content .content-image-wrapper .image-full {
   width: 100%;
-  margin-bottom: 10px;
 }
 body.profile section.main .info-wrapper .scroll-wrapper .info-content .icon {
   position: relative;
@@ -1080,7 +1106,7 @@ body.profile section.main .info-wrapper .scroll-wrapper .info-content .icon {
   width: 12px;
 }
 body.profile section.main .info-wrapper .scroll-wrapper .info-content #content-text {
-  padding: 0 15px;
+  padding: 10px 15px 0 15px;
 }
 body.profile section.main .info-wrapper .scroll-wrapper .info-content #content-location {
   padding: 0 10px;
@@ -1089,12 +1115,12 @@ body.profile section.main .info-wrapper .scroll-wrapper .info-content #content-l
   border-bottom: 1px solid #cccccc;
   padding: 10px 15px;
 }
-body.profile section.main .info-wrapper .scroll-wrapper .info-content #content-comment .comment-header {
+body.profile section.main .info-wrapper .scroll-wrapper .info-content .comment-header {
   font-style: italic;
   color: #888888;
   padding: 5px 10px;
 }
-body.profile section.main .info-wrapper .scroll-wrapper .info-content #content-comment .content-message-wrapper {
+body.profile section.main .info-wrapper .scroll-wrapper .info-content #content-comment-container .content-message-wrapper {
   display: inline-block;
   position: relative;
   width: 100%;
@@ -1102,26 +1128,26 @@ body.profile section.main .info-wrapper .scroll-wrapper .info-content #content-c
   margin-bottom: 5px;
   border-bottom: 1px solid #cccccc;
 }
-body.profile section.main .info-wrapper .scroll-wrapper .info-content #content-comment .content-message-wrapper .comment-name {
+body.profile section.main .info-wrapper .scroll-wrapper .info-content #content-comment-container .content-message-wrapper .comment-name {
   font-weight: bold;
 }
-body.profile section.main .info-wrapper .scroll-wrapper .info-content #content-comment .content-message-wrapper .comment-message {
+body.profile section.main .info-wrapper .scroll-wrapper .info-content #content-comment-container .content-message-wrapper .comment-message {
   padding-right: 35px;
 }
-body.profile section.main .info-wrapper .scroll-wrapper .info-content #content-comment .content-message-wrapper .comment-time {
+body.profile section.main .info-wrapper .scroll-wrapper .info-content #content-comment-container .content-message-wrapper .comment-time {
   font-size: 10px;
   color: #888888;
 }
-body.profile section.main .info-wrapper .scroll-wrapper .info-content #content-comment .content-message-wrapper .comment-like {
+body.profile section.main .info-wrapper .scroll-wrapper .info-content #content-comment-container .content-message-wrapper .comment-like {
   position: absolute;
   cursor: pointer;
   top: 20px;
   right: 10px;
 }
-body.profile section.main .info-wrapper .scroll-wrapper .info-content #content-comment .content-message-wrapper .comment-like .comment-off {
+body.profile section.main .info-wrapper .scroll-wrapper .info-content #content-comment-container .content-message-wrapper .comment-like .comment-off {
   display: none;
 }
-body.profile section.main .info-wrapper .scroll-wrapper .info-content #content-comment .content-message-wrapper:last-child {
+body.profile section.main .info-wrapper .scroll-wrapper .info-content #content-comment-container .content-message-wrapper:last-child {
   border-bottom: 0;
   margin-bottom: 0;
 }

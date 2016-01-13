@@ -518,7 +518,7 @@ Modal box
     border-top-left-radius: 5px;
 }
 .modal .wrapper-login .login-image {
-    height: 440px;
+    height: 490px;
 }
 .modal .wrapper-signup .signup-image {
     height: 480px;
@@ -532,12 +532,16 @@ Modal box
     line-height: 40px;
     padding: 20px;
 }
+.modal-body .header {
+    font-size: 20px;
+}
 .modal-body a {
     color: rgb(255,100,25);
 }
 .modal-body .h2,
 .modal-body .h3 {
     margin-top: 10px;
+    font-weight: bold;
 }
 .modal-body .helpio-logo {
     width: 120px;
@@ -591,12 +595,24 @@ Modal box
     padding: 8px;
     background-color: #fff;
 }
-.modal-body .signup-option {
-
+.modal-body .signup-option,
+.modal-body .login-option {
+    margin-top: 50px;
 }
 .modal-body form#signup,
 .modal-body form#login {
     display: none;
+    position: relative;
+}
+.modal-body form#signup .password-requirement {
+    position: absolute;
+    top: 100px;
+    left: 15px;
+    font-size: 10px;
+    color: gray;
+}
+.modal-body form#signup .password-validation {
+    border-color: red;
 }
 .modal-body .back-button-signup,
 .modal-body .back-button-login {
@@ -642,7 +658,7 @@ Modal box
     margin-bottom: 4px;
 }
 .modal-body .submit {
-    margin-top: 20px;
+    margin-top: 30px;
     background-color: rgb(255, 100, 25);
     color: rgb(255,255,255);
     padding: 10px 20px;
