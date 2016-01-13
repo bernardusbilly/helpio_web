@@ -1,4 +1,4 @@
-class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+class Users::OmniauthCallbacksController < DeviseTokenAuth::OmniauthCallbacksController
   # You should configure your model like this:
   # devise :omniauthable, omniauth_providers: [:twitter]
 
@@ -13,6 +13,14 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # def passthru
   #   super
   # end
+
+  def omniauth_success
+    super do |user|
+      print("omniauth success")
+      print(user)
+    end
+  end
+
 
   # GET|POST /users/auth/twitter/callback
   # def failure

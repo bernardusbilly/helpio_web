@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  mount_devise_token_auth_for 'User', at: 'auth' 
+  
 
   get '/api/test', to: 'api/user#test', defaults: { format: :json }
   
@@ -32,9 +32,16 @@ Rails.application.routes.draw do
   get '/profile', to: 'sessions#profile'
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('session#index')
-  get '/signout', to: 'sessions#destroy', as: 'signout'
 
   # Devise routes
+  mount_devise_token_auth_for 'User', at: 'auth', controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+  }
+
+  devise_scope :user do
+    get '/sign_out', to: 'devise_token_auth/sessions#destroy'
+  end
 
   # devise_for :users, controllers: { sessions: "users/sessions", registrations: "users/registrations" }
   # devise_scope :user do
