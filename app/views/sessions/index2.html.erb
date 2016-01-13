@@ -111,18 +111,18 @@
 												<div class="text-left col-md-5">
 													Full Name:<br>
 													Email:<br>
-													Password:<br>
+													Password: <div class="password-requirement italic">(8 characters minimum)</div><br>
 													Confirm Password:<br>
 													Gender:<br>
 													Date of Birth:<br>
 												</div>
 												<div class="col-md-7">
-													<%= f.text_field :nickname %><br>
-													<%= f.email_field :email %><br />
-													<%= f.password_field :password, autocomplete: "off" %><br />
-													<%= f.password_field :password_confirmation, autocomplete: "off" %><br />
+													<%= f.text_field :nickname, required: true%><br>
+													<%= f.email_field :email, required: true%><br>
+													<%= f.password_field :password, autocomplete: "off", required: true, :pattern => ".{8,20}", :title => "8 to 16 characters", :class => "password-checking" %><br>
+													<%= f.password_field :password_confirmation, autocomplete: "off", required: true, :class => "confirm-password" %><br />
 													<%= f.select :gender, ['Male', 'Female'] %><br>
-													<%= f.date_field :birthday %><br>
+													<%= f.date_field :birthday, required: true%><br>
 												</div>
 											</div>
 											<%= f.submit "Sign up", :class => "submit" %>
@@ -146,7 +146,7 @@
 								<div class="row">
 									<div class="modal-body">
 										<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-										Hi there! Just want to say
+										<div class="header">Hi there! Just want to say:</div>
 										<div class="h2">Welcome back!</div>
 										<hr></hr>
 										<div class="login-option">
@@ -164,7 +164,7 @@
 												<div class="email"><span class="fa fa-envelope-o"></span></div>Log in with Email
 											</div>
 											<div class="agreement">
-												By signing up you indicate that you have read  
+												By logging in you indicate that you have read  
 												<a href="#">Terms of Service and Privacy Policy</span>
 											</div>
 											Don't have an account? <a href="#">Sign Up</a>
@@ -181,6 +181,7 @@
 													<input></input>
 												</div>
 											</div>
+											<input type="submit" class="submit" value="Log In"></input>
 										</form>
 									</div>
 								</div>
@@ -572,7 +573,7 @@
 		<%= javascript_include_tag "scripts" %>
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
-		
+
 		<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 		<script>
 		(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=

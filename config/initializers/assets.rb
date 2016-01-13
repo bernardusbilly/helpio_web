@@ -22,6 +22,8 @@ Rails.application.config.assets.precompile += %w( preview/party-info.png )
 Rails.application.config.assets.precompile += %w( profile/sf-background.png )
 Rails.application.config.assets.precompile += %w( icon/icon-pin.png )
 Rails.application.config.assets.precompile += %w( icon/icon-time.png )
+Rails.application.config.assets.precompile += %w( icon/notif-bubble.png )
+Rails.application.config.assets.precompile += %w( icon/new-pin.png )
 
 ### Stylesheets
 # Landing Page Temporary
