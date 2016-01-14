@@ -30,13 +30,14 @@ Rails.application.routes.draw do
   get '/index', to: 'sessions#index'
   get '/index2', to: 'sessions#index2', as: 'index2'
   get '/profile', to: 'sessions#profile'
-  get 'auth/:provider/callback', to: 'sessions#create'
-  get 'auth/failure', to: redirect('session#index')
+  # get 'auth/:provider/callback', to: 'sessions#create'
+  # get 'auth/failure', to: redirect('session#index')
 
   # Devise routes
   mount_devise_token_auth_for 'User', at: 'auth', controllers: {
     sessions: 'users/sessions',
-    registrations: 'users/registrations'
+    registrations: 'users/registrations',
+    omniauth_callbacks: 'users/omniauth_callbacks'
   }
 
   devise_scope :user do

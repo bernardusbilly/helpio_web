@@ -48,10 +48,11 @@ class Users::RegistrationsController < DeviseTokenAuth::RegistrationsController
   # end
 
   def render_create_success
-    render "sessions/index2"
+    render "sessions/profile"
   end
 
   def sign_up_params
+    super
     params.require(:user).permit(:email, :password, :password_confirmation, :gender, :nickname, :birthday, :user, :authenticity_token, :utf8, :commit)
   end
 

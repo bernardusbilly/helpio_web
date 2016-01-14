@@ -15,12 +15,33 @@ class Users::OmniauthCallbacksController < DeviseTokenAuth::OmniauthCallbacksCon
   # end
 
   def omniauth_success
-    super do |user|
-      print("omniauth success")
-      print(user)
+    get_resource_from_auth_hash
+    create_token_info
+    set_token_on_resource
+    create_auth_params
+
+    if resource_class.devise_modules.include?(:confirmable)
+      # don't send confirmation email!!!
+      @resource.skip_confirmation!
     end
+
+    sign_in(:user, @resource, store: false, bypass: false)
+
+    @resource.save!
+
+    yield if block_given?
+
+    render "sessions/profile"
   end
 
+
+  def assign_provider_attrs(user, auth_hash)
+      user.assign_attributes({
+        nickname: auth_hash['info']['name'],
+        prof_img:    auth_hash['info']['image'],
+        email:    auth_hash['info']['email']
+      })
+  end
 
   # GET|POST /users/auth/twitter/callback
   # def failure

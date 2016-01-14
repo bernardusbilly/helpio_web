@@ -1,4 +1,4 @@
-class Users::SessionsController < Devise::SessionsController
+class Users::SessionsController < DeviseTokenAuth::SessionsController
 # before_filter :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
@@ -16,7 +16,17 @@ class Users::SessionsController < Devise::SessionsController
     super
   end
 
-  # protected
+
+  def resource_params
+    super
+    params.require(:user).permit(:email, :password, :user, :authenticity_token, :utf8, :commit)
+  end
+
+  def render_create_success
+    render 'sessions/profile'
+  end
+
+  protected
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params
