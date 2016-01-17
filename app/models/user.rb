@@ -16,8 +16,10 @@ class User < ActiveRecord::Base
 	# default_scope {select([:id, :email, :encrypted_password, :remember_created_at, :nickname, :prof_img, :birthday, :gender, :mood])}
 
 	def encrypt_password
-		self.password_salt = BCrypt::Engine.generate_salt
-		self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
+		if password
+			self.password_salt = BCrypt::Engine.generate_salt
+			self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
+		end
 	end
 
 	def uploaded_file=(fileobj)
