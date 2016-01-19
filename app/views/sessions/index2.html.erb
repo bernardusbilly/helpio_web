@@ -117,7 +117,7 @@
 													Date of Birth:<br>
 												</div>
 												<div class="col-md-7">
-													<%= f.text_field :full_name, required: true%><br>
+													<%= f.text_field :nickname, required: true%><br>
 													<%= f.email_field :email, required: true%><br>
 													<%= f.password_field :password, autocomplete: "off", required: true, :pattern => ".{8,20}", :title => "8 to 16 characters", :class => "password-checking" %><br>
 													<%= f.password_field :password_confirmation, autocomplete: "off", required: true, :class => "confirm-password" %><br />
@@ -169,7 +169,7 @@
 											</div>
 											Don't have an account? <a href="#">Sign Up</a>
 										</div>
-										<form id="login">
+										<%= form_for(:user, :html => {:id => "login"}, url: session_path(:user)) do |f| %>
 											<%= image_tag "icon/back-button.png", :class => "back-button-login"%>
 											<div class="row">
 												<div class="text-left col-md-5">
@@ -177,12 +177,12 @@
 													Password:<br>
 												</div>
 												<div class="col-md-7">
-													<input></input>
-													<input></input>
+													<%= f.email_field :email, required: true%><br>
+													<%= f.password_field :password, autocomplete: "off" %>
 												</div>
 											</div>
-											<input type="submit" class="submit" value="Log In"></input>
-										</form>
+											<%= f.submit "Log In", :class => "submit" %>
+										<% end %>
 									</div>
 								</div>
 							</div>

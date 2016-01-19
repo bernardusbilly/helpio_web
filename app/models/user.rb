@@ -2,7 +2,9 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable
+  include DeviseTokenAuth::Concerns::User
+  
 	has_many :comment, dependent: :destroy
 	has_many :pin, dependent: :destroy
 	has_many :pin_likes, dependent: :destroy
@@ -14,8 +16,10 @@ class User < ActiveRecord::Base
 	# default_scope {select([:id, :email, :encrypted_password, :remember_created_at, :nickname, :prof_img, :birthday, :gender, :mood])}
 
 	def encrypt_password
-		self.password_salt = BCrypt::Engine.generate_salt
-		self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
+		if password
+			self.password_salt = BCrypt::Engine.generate_salt
+			self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
+		end
 	end
 
 	def uploaded_file=(fileobj)

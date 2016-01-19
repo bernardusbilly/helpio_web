@@ -1,4 +1,4 @@
-class Users::RegistrationsController < Devise::RegistrationsController
+class Users::RegistrationsController < DeviseTokenAuth::RegistrationsController
 # before_filter :configure_sign_up_params, only: [:create]
 # before_filter :configure_account_update_params, only: [:update]
 
@@ -10,17 +10,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super do |user|
-      params.require(:user).permit(:gender, :nickname, :birthday)
       paramUser = params[:user]
       if (paramUser[:gender] == 'Male')
         user.gender = 0
       elsif (paramUser[:gender] == 'Female')
         user.gender = 1
       end
-      user.nickname = paramUser[:full_name]
+      user.nickname = paramUser[:nickname]
       user.birthday = paramUser[:birthday]
       user.save!
     end
+
   end
 
   # GET /resource/edit
@@ -47,11 +47,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
+  def render_create_success
+    render "sessions/profile"
+  end
+
+  def sign_up_params
+    super
+    params.require(:user).permit(:email, :password, :password_confirmation, :gender, :nickname, :birthday, :user, :authenticity_token, :utf8, :commit)
+  end
+
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
-  #   devise_parameter_sanitizer.for(:sign_up) << :attribute
+  #  devise_parameter_sanitizer.for(:sign_up) << :user
   # end
 
   # If you have extra params to permit, append them to the sanitizer.
