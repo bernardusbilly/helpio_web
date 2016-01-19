@@ -38,6 +38,10 @@ $(document).ready(function() {
 	    }
 	});
 
+
+	/** 
+		Api and friends
+	*/
 	var apiUrl = "http://140.112.7.222:3030";
 
 	// assume already logged in
@@ -67,14 +71,21 @@ $(document).ready(function() {
 		});
 	};
 
+
+	/** 
+		Pins and Friends
+	*/
+	var markers = [];
+	var bouncingMarker = new google.maps.Marker();
+
 	var displayPins = function(data) {
 		for (var i = 0; i < data.length; i++) {
 			dropPinOnMap(data[i]);
       	}
 	}
 
-
 	var dropPinOnMap = function(data) {
+		// Pin types
 		var icon = '/assets/icon/drop-pin.png';
 		var score = data.like_count*2 + data.comment_count*3;
 		if (score < 10) {
@@ -85,7 +96,7 @@ $(document).ready(function() {
 			icon = '/assets/icon/redTwing.png';
 		}
 		
-		var image = {
+		var iconImage = {
 		    url: icon,
 		    origin: new google.maps.Point(0, 0),
 		    anchor: new google.maps.Point(16, 45),
@@ -96,7 +107,9 @@ $(document).ready(function() {
 		    position: new google.maps.LatLng(data.lat, data.lon),
 		    map: map,
 		    title: data.title,
-		    icon: image,
+
+		    // Pin's info onclick
+		    icon: iconImage,
 		    nickname: data.nickname,
 		    id: data.id,
 		    lat: data.lat,
@@ -105,40 +118,55 @@ $(document).ready(function() {
 		    like_count: data.like_count,
 		    img: data.img,
 		    prof_img: data.prof_img,
-		    created_at: data.created_at
+		    created_at: data.created_at,
+		    animation: google.maps.Animation.DROP,
 		});
 
-		marker.setMap(map);
+		markers.push(marker);
+
 		marker.addListener('click', function() {
+
+			// Turn of other bouncing marker
+			if ((bouncingMarker !== marker) && (bouncingMarker.getAnimation() !== null)) {
+				bouncingMarker.setAnimation(null);
+			}
+
+			marker.setAnimation(google.maps.Animation.BOUNCE);
+			bouncingMarker = marker;
+			
+			// Information for each marker
 			$('#content-owner-name').html(marker.nickname);
 			$('#content-text').html(marker.title);
+			$('#content-time').html(data.created_at.substring(0,10));
 
+			// Pin's owner's image
 			if (marker.prof_img == null) {
 				$('#content-owner-photo').attr("src", "/assets/stock/default_profile_picture.png");	
 			} else {
 				$('#content-owner-photo').attr("src", "http://140.112.7.222:3030/images/upload/resize/" + marker.prof_img);
 			}
 
-			/*var time1 = data.created_at.substring(0,10);
-			var time2 = data.created_at.substring(11,20);
-			var year = time1;
-			console.log(year); */
-			$('#content-time').html(data.created_at.substring(0,10));
-
+			// Pin's photo
 			if (marker.img == null) {
 				$('.content-image-wrapper').hide();
 			} else {
+				// Check original size of the image
+				$("<img/>").attr("src", "http://140.112.7.222:3030/images/upload/resize/" + marker.img)
+			    .load(function() {
+			        if (this.width < 100) {
+						$('#content-image').removeClass("image-full");
+						$('#content-image').addClass("image-center");
+					} else {
+						$('#content-image').removeClass("image-center");
+						$('#content-image').addClass("image-full");
+					}
+			    });
+
 				$('.content-image-wrapper').show();
-				if ($('#content-image').width() < 100) {
-					$('#content-image').removeClass("image-full");
-					$('#content-image').addClass("image-center");
-				} else {
-					$('#content-image').removeClass("image-center");
-					$('#content-image').addClass("image-full");
-				}
 				$('#content-image').attr("src", "http://140.112.7.222:3030/images/upload/resize/" + marker.img);
 			}
 
+			// Pin's number of comment and like
 			if (marker.comment_count <= 1) {
 				$('#content-comment').html(marker.comment_count + " comment");
 			} else {
@@ -151,6 +179,7 @@ $(document).ready(function() {
 				$('#content-like').html(marker.like_count + " likes");
 			}
 
+			// Location Request
 			$.ajax({
 				type: 'GET',
 				url: "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + marker.lat + "," + marker.lon + "&key=AIzaSyD30pHRGSlQYv5pWSEXDveA2DuPz001uK8",
@@ -158,9 +187,14 @@ $(document).ready(function() {
 				success: function(data) {
 					$('#content-loc').html(data.results[0].formatted_address);
 				},
-				error: onFailure
+				error: function() {
+					if (debug == true) {
+						console.log(data);
+					}
+				}
 			});
 
+			// Comments Request
 			$.ajax({
 				type: 'GET',
 				url: "http://140.112.7.222:3030/api/pin/" + marker.id + "/comment",
@@ -177,17 +211,20 @@ $(document).ready(function() {
 				}
 			});
 
+			// Fake Data for Comments
 			var temporaryComment = '[{"id":3,"pin_id":5,"uid":2,"like_count":0,"created_at":"2015-12-04T23:52:13.884Z","updated_at":"2015-12-04T23:52:13.884Z","content":"how long will this promotion last?","nickname":"glorio","prof_img":null,"liked":0},{"id":4,"pin_id":5,"uid":2,"like_count":0,"created_at":"2015-12-04T23:52:46.181Z","updated_at":"2015-12-04T23:52:46.181Z","content":"Im going to check it out after my class","nickname":"glorio","prof_img":null,"liked":0},{"id":5,"pin_id":5,"uid":2,"like_count":0,"created_at":"2015-12-04T23:53:15.148Z","updated_at":"2015-12-04T23:53:15.148Z","content":"cant wait to grab my favorite bread :)","nickname":"glorio","prof_img":null,"liked":0},{"id":6,"pin_id":5,"uid":2,"like_count":0,"created_at":"2015-12-04T23:53:32.565Z","updated_at":"2015-12-04T23:53:32.565Z","content":"im sure people will love it","nickname":"glorio","prof_img":null,"liked":0},{"id":7,"pin_id":5,"uid":2,"like_count":0,"created_at":"2015-12-04T23:53:41.404Z","updated_at":"2015-12-04T23:53:41.404Z","content":"is this for real?","nickname":"glorio","prof_img":null,"liked":0},{"id":8,"pin_id":5,"uid":2,"like_count":0,"created_at":"2015-12-04T23:53:52.859Z","updated_at":"2015-12-04T23:53:52.859Z","content":"both drinks and breads?","nickname":"glorio","prof_img":null,"liked":0},{"id":9,"pin_id":5,"uid":2,"like_count":0,"created_at":"2015-12-04T23:54:05.287Z","updated_at":"2015-12-04T23:54:05.287Z","content":"fantastic!","nickname":"glorio","prof_img":null,"liked":0},{"id":10,"pin_id":5,"uid":2,"like_count":0,"created_at":"2015-12-04T23:54:09.201Z","updated_at":"2015-12-04T23:54:09.201Z","content":"love!","nickname":"glorio","prof_img":null,"liked":0}]';
 			var temporaryJsonComment = JSON.parse(temporaryComment);
 			$('#content-comment-container').html("");
 
 			for (var i = 0; i < temporaryJsonComment.length; i++) {
-
+				// Comment's owner photo
 				if (temporaryJsonComment[i].prof_img == null) {
 					var photo = '<img src="/assets/stock/default_profile_picture.png" class="width-full"/>';
 				} else {
 					var photo = '<img src="http://140.112.7.222:3030/images/upload/resize/"' + temporaryJsonComment.prof_img + '" class="width-full">';
 				}
+
+				// Construct a comment
 				var comment = 	'<div class="content-message-wrapper">\
 									<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">\
 										' + photo + '\
@@ -213,102 +250,98 @@ $(document).ready(function() {
 				$('#content-comment-container').append(comment);
 	      	}
 
+	      	// Only show pin's information
 			$('.info-wrapper').show();
 			$('.profile-expand').hide();
 			$('.notification-expand').hide();
 			$('.message-expand').hide();
 		});
-		
-		marker.addListener('click', function() {
-			if (marker.getAnimation() !== null) {
-				marker.setAnimation(null);
-			} else {
-				marker.setAnimation(google.maps.Animation.BOUNCE);
-			}
-		});
 	}
-
-	var onFailure = function() {
-		console.log("Failure to make request.");
-	}
-
-	
 
 	// makeGetRequest(url, displayPins, onFailure);
 
 	/**
 		Map Section
+		Berkeley location: 37.8658482,-122.2685509
 	*/
+	var location = new google.maps.LatLng(37.8658482,-122.2685509);
+
 	var mapOptions = {
-		center: new google.maps.LatLng(37.8658482,-122.2685509),
+		center: location,
 		zoom: 14,
+		disableDefaultUI: true,
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
 
 	var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 	
 	map.addListener('click', function() {
+		// hide infos
 		$('.info-wrapper').hide();
 		$('.profile-expand').hide();
 		$('.notification-expand').hide();
 		$('.message-expand').hide();
+
+		// turn off animation
+		if (bouncingMarker.getAnimation() !== null) {
+			bouncingMarker.setAnimation(null);
+		}
 	});
 
 	// Create the search box and link it to the UI element.
-  var input = document.getElementById('search-bar');
-  var searchBox = new google.maps.places.SearchBox(input);
+	var input = document.getElementById('search-bar');
+	var searchBox = new google.maps.places.SearchBox(input);
 
-  // Bias the SearchBox results towards current map's viewport.
-  map.addListener('bounds_changed', function() {
-    searchBox.setBounds(map.getBounds());
-  });
+	// Bias the SearchBox results towards current map's viewport.
+	map.addListener('bounds_changed', function() {
+	searchBox.setBounds(map.getBounds());
+	});
 
-  var markers = [];
-  // [START region_getplaces]
-  // Listen for the event fired when the user selects a prediction and retrieve
-  // more details for that place.
-  searchBox.addListener('places_changed', function() {
-    var places = searchBox.getPlaces();
+	// [START region_getplaces]
+	// Listen for the event fired when the user selects a prediction and retrieve
+	// more details for that place.
+	searchBox.addListener('places_changed', function() {
+	    var places = searchBox.getPlaces();
 
-    if (places.length == 0) {
-      return;
-    }
+	    if (places.length == 0) {
+	      return;
+	    }
 
-    // Clear out the old markers.
-    markers.forEach(function(marker) {
-      marker.setMap(null);
-    });
-    markers = [];
+	    // Clear out the old markers.
+	    markers.forEach(function(marker) {
+	    	marker.setMap(null);
+	    });
+	    markers = [];
 
-    // For each place, get the icon, name and location.
-    var bounds = new google.maps.LatLngBounds();
-    places.forEach(function(place) {
-      /*var icon = {
-        url: place.icon,
-        size: new google.maps.Size(71, 71),
-        origin: new google.maps.Point(0, 0),
-        anchor: new google.maps.Point(17, 34),
-        scaledSize: new google.maps.Size(25, 25)
-      };
+	    // For each place, get the icon, name and location.
+	    var bounds = new google.maps.LatLngBounds();
+	    places.forEach(function(place) {
+			/*var icon = {
+				url: place.icon,
+				size: new google.maps.Size(71, 71),
+				origin: new google.maps.Point(0, 0),
+				anchor: new google.maps.Point(17, 34),
+				scaledSize: new google.maps.Size(25, 25)
+			};
 
-      // Create a marker for each place.
-      markers.push(new google.maps.Marker({
-        map: map,
-        icon: icon,
-        title: place.name,
-        position: place.geometry.location
-      }));*/
+			// Create a marker for each place.
+				markers.push(new google.maps.Marker({
+				map: map,
+				icon: icon,
+				title: place.name,
+				position: place.geometry.location
+			}));*/
 
-      if (place.geometry.viewport) {
-        // Only geocodes have viewport.
-        bounds.union(place.geometry.viewport);
-      } else {
-        bounds.extend(place.geometry.location);
-      }
-    });
-    map.fitBounds(bounds);
-  });
-  // [END region_getplaces]
+			if (place.geometry.viewport) {
+				// Only geocodes have viewport.
+				bounds.union(place.geometry.viewport);
+			} else {
+				bounds.extend(place.geometry.location);
+			}
+	    });
+	    map.fitBounds(bounds);
+	});
+	// [END region_getplaces]
 
 	displayPins(temporaryJsonPin);
 
@@ -318,10 +351,18 @@ $(document).ready(function() {
 	var winHeight = $(window).height();
 	// console.log(winHeight);
 	$('.scroll-wrapper').css("max-height", winHeight - 100);
+	$('.message-expand').css("max-height", winHeight - 100);
+	$('.message-scroll-wrapper').css("max-height", winHeight - 100);
+	$('.notification-expand').css("max-height", winHeight - 100);
+	$('.notification-scroll-wrapper').css("max-height", winHeight - 100);
 
 	$(window).resize(function() {
 		winHeight = $(window).height();
 		$('.scroll-wrapper').css("max-height", winHeight - 100);
+		$('.message-expand').css("max-height", winHeight - 100);
+		$('.message-scroll-wrapper').css("max-height", winHeight - 100);
+		$('.notification-expand').css("max-height", winHeight - 100);
+		$('.notification-scroll-wrapper').css("max-height", winHeight - 100);
 	});
 
 	/**
@@ -368,76 +409,76 @@ $(document).ready(function() {
 		Profile
 	*/
 	$('.profile-background-photo').hover(function() {
-		$('.profile-edit-button').css("display", "block");
-		$('.profile-close-button').css("display", "block");
+		$('.profile-edit-button').show();
+		$('.profile-close-button').show();
 	}, function() {
-		$('.profile-edit-button').css("display", "none");
-		$('.profile-close-button').css("display", "none");
-	});
-
-	$('.profile-expand-photo').hover(function() {
-		$('.profile-wrapper-edit').css("display", "block");
-	}, function() {
-		$('.profile-wrapper-edit').css("display", "none");
+		$('.profile-edit-button').hide();
+		$('.profile-close-button').hide();
 	});
 
 	$('.profile-close-button').hover(function() {
-		$('.profile-close-button').css("display", "block");
-		$('.profile-edit-button').css("display", "block");
+		$('.profile-close-button').show();
+		$('.profile-edit-button').show();
 	});
 
 	$('.profile-edit-button').hover(function() {
-		$('.profile-edit-button').css("display", "block");
-		$('.profile-close-button').css("display", "block");
+		$('.profile-edit-button').show();
+		$('.profile-close-button').show();
+	});
+
+	$('.profile-expand-photo').hover(function() {
+		$('.profile-wrapper-edit').show();
+	}, function() {
+		$('.profile-wrapper-edit').hide();
 	});
 
 	$('.profile-photo-edit').hover(function() {
-		$('.profile-wrapper-edit').css("display", "block");
+		$('.profile-wrapper-edit').show();
 	}, function() {
-		$('.profile-wrapper-edit').css("display", "none");
+		$('.profile-wrapper-edit').hide();
 	});
 
 
 	/**
 		Message
-	 */
-	 $('.unread').click(function() {
+	*/
+	$('.unread').click(function() {
 	 	$(this).removeClass("unread");
 	 	checkUnread();
-	 });
+	});
 
-	 $('.wrapper-message').click(function() {
+	$('.wrapper-message').click(function() {
 	 	$('.message-list').hide();
 	 	$('.message-load-more').hide();
 	 	$('.message-detail').show();
-	 });
+	});
 
-	 $('.message-back').click(function() {
+	$('.message-back').click(function() {
 	 	$('.message-detail').hide();
 	 	$('.message-list').show();
 	 	$('.message-load-more').show();
-	 });
+	});
 
-	 /**
-	  * Icon on top right header
-	 */
-	 function checkUnread() {
-		 if ($('.notification-content').hasClass("unread")) {
-		 	$('.notification-bubble').show();
-		 } else {
-		 	$('.notification-bubble').hide();
-		 }
-		 if ($('.wrapper-message').hasClass("unread")) {
-		 	$('.message-bubble').show();
-		 } else {
-		 	$('.message-bubble').hide();
-		 }
+	/**
+		Icon on top right header
+	*/
+	function checkUnread() {
+		if ($('.notification-content').hasClass("unread")) {
+			$('.notification-bubble').show();
+		} else {
+			$('.notification-bubble').hide();
+		}
+		if ($('.wrapper-message').hasClass("unread")) {
+			$('.message-bubble').show();
+		} else {
+			$('.message-bubble').hide();
+		}
 	}
 
-	 /**
-	  * Comment
-	  */
-	 $('#comment-button').click(function() {
+	/**
+		Add new Comment
+	*/
+	$('#comment-button').click(function() {
 	 	var content = $('.comment-input').val();
 	 	$('.comment-input').val("");
 	 	var str = '<div class="content-message-wrapper">\
@@ -455,5 +496,5 @@ $(document).ready(function() {
 		$('#content-comment-container').append(str);
 		location.hash = "#comment-new";
 		history.pushState('', document.title, window.location.pathname);
-	 });
+	});
 });

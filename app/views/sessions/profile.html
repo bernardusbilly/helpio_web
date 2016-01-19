@@ -69,7 +69,9 @@
   					<img src="build/img/profile.png" class="profile-expand-photo"/>
   					<div class="profile-wrapper-edit">
   						<div class="profile-photo-edit">
-  							<div class="profile-change-picture">Change</div>
+  							<input id="inputfile" type="file" class="profile-hide-input"></input>
+  							<label for="inputfile" class="profile-change-picture">Change</label>
+  							<!-- <input type="file" class="profile-change-picture">Change</input> -->
   						</div>
   					</div>
 					<div class="profile-expand-name">Jessica Miller</div>
@@ -87,7 +89,7 @@
 		</div>
 		<div class="hidden-xs col-sm-2 col-md-2 col-lg-1">
 			<div class="additional-info">
-				<%= image_tag "icon/mail-on.png", :class => "message"%>
+				<%= image_tag "icon/mail-off.png", :class => "message"%>
 				<%= image_tag "icon/notif-bubble.png", :class => "message-bubble"%>
 				<div class="message-expand">
 					<div class="message-expand-wrapper">
@@ -99,7 +101,7 @@
 							<div class="message-list">
 								<div class="wrapper-message unread">
 									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-										<img src="build/img/profile.png" class="width-full"/>
+										<img src="build/img/profile.png" class="width-full circle"/>
 									</div>
 									<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
 										<div class="row">
@@ -117,7 +119,7 @@
 								</div>
 								<div class="wrapper-message">
 									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-										<img src="build/img/profile.png" class="width-full"/>
+										<img src="build/img/profile.png" class="width-full circle"/>
 									</div>
 									<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
 										<div class="row">
@@ -135,7 +137,7 @@
 								</div>
 								<div class="wrapper-message unread">
 									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-										<img src="build/img/profile.png" class="width-full"/>
+										<img src="build/img/profile.png" class="width-full circle"/>
 									</div>
 									<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
 										<div class="row">
@@ -153,7 +155,7 @@
 								</div>
 								<div class="wrapper-message">
 									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-										<img src="build/img/profile.png" class="width-full"/>
+										<img src="build/img/profile.png" class="width-full circle"/>
 									</div>
 									<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
 										<div class="row">
@@ -171,7 +173,7 @@
 								</div>
 								<div class="wrapper-message">
 									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-										<img src="build/img/profile.png" class="width-full"/>
+										<img src="build/img/profile.png" class="width-full circle"/>
 									</div>
 									<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
 										<div class="row">
@@ -189,7 +191,7 @@
 								</div>
 								<div class="wrapper-message">
 									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-										<img src="build/img/profile.png" class="width-full"/>
+										<img src="build/img/profile.png" class="width-full circle"/>
 									</div>
 									<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
 										<div class="row">
@@ -207,7 +209,7 @@
 								</div>
 								<div class="wrapper-message unread">
 									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-										<img src="build/img/profile.png" class="width-full"/>
+										<img src="build/img/profile.png" class="width-full circle"/>
 									</div>
 									<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
 										<div class="row">
@@ -279,7 +281,7 @@
 						</div>
 					</div>
 				</div>
-				<%= image_tag "icon/notif-on.png", :class => "notification"%>
+				<%= image_tag "icon/notif-off.png", :class => "notification"%>
 				<%= image_tag "icon/notif-bubble.png", :class => "notification-bubble"%>
 				<div class="notification-expand">
 					<div class="notification-list-container">
@@ -291,7 +293,7 @@
 							<div class="notification-list">
 								<div class="notification-content unread">
 									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-										<img class="width-full" src="build/img/notification/profilePicture1.png"></img>
+										<img src="build/img/profile.png" class="width-full circle"/>
 									</div>
 									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 										<div class="row">
@@ -308,7 +310,7 @@
 								</div>
 								<div class="notification-content ">
 									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-										<img class="width-full" src="build/img/notification/profilePicture1.png"></img>
+										<img src="build/img/profile.png" class="width-full circle"/>
 									</div>
 									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 										<div class="row">
@@ -325,7 +327,7 @@
 								</div>
 								<div class="notification-content ">
 									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-										<img class="width-full" src="build/img/notification/profilePicture1.png"></img>
+										<img src="build/img/profile.png" class="width-full circle"/>
 									</div>
 									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 										<div class="row">
@@ -342,7 +344,7 @@
 								</div>
 								<div class="notification-content ">
 									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-										<img class="width-full" src="build/img/notification/profilePicture1.png"></img>
+										<img src="build/img/profile.png" class="width-full circle"/>
 									</div>
 									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 										<div class="row">
@@ -359,7 +361,7 @@
 								</div>
 								<div class="notification-content unread">
 									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-										<img class="width-full" src="build/img/notification/profilePicture1.png"></img>
+										<img src="build/img/profile.png" class="width-full circle"/>
 									</div>
 									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 										<div class="row">
@@ -376,7 +378,7 @@
 								</div>
 								<div class="notification-content">
 									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-										<img class="width-full" src="build/img/notification/profilePicture1.png"></img>
+										<img src="build/img/profile.png" class="width-full circle"/>
 									</div>
 									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 										<div class="row">
@@ -393,7 +395,7 @@
 								</div>
 								<div class="notification-content">
 									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-										<img class="width-full" src="build/img/notification/profilePicture1.png"></img>
+										<img src="build/img/profile.png" class="width-full circle"/>
 									</div>
 									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 										<div class="row">
@@ -471,7 +473,7 @@
 						</div>
 						<div id="comment-new" class="content-comment-new">
 							<div class="hidden-xs hidden-sm col-md-3 col-lg-3">
-								<img src="build/img/profile.png" class="width-full"/>
+								<img src="build/img/profile.png" class="width-full circle"/>
 							</div>
 							<div class="col-xs-12 col-sm-9 col-md-6 col-lg-6">
 								<div class="row">

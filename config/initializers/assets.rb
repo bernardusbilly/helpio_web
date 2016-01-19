@@ -15,8 +15,10 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( favicon.png )
 Rails.application.config.assets.precompile += %w( logo/apple-appstore.svg )
 Rails.application.config.assets.precompile += %w( icon/back-button.png )
+Rails.application.config.assets.precompile += %w( iphone-skeleton.png )
 Rails.application.config.assets.precompile += %w( stock/people.jpg )
 Rails.application.config.assets.precompile += %w( preview/party-info.png )
+Rails.application.config.assets.precompile += %w( map-berkeley.png )
 
 # Profile Page
 Rails.application.config.assets.precompile += %w( profile/sf-background.png )

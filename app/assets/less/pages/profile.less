@@ -3,12 +3,14 @@ body.profile {
 		z-index: 1000;
 		color: @white;
 		background-color: @helpio;
-		height: 55px;
-		box-shadow: 0 1px 2px @shadow;
+		background-image: -webkit-linear-gradient(lighten(@helpio, 10%) 5%, lighten(@helpio, 5%) 10%, @helpio 100%);
+		background-image: linear-gradient(lighten(@helpio, 10%) 5%, lighten(@helpio, 5%) 10%, @helpio 100%);
+		height: 46px;
+		box-shadow: 0 1px 2px @shadow-2;
 		img.company-logo {
 			position: relative;
-			top: 4px;
-			width: 100px;
+			top: 2px;
+			width: 90px;
 		}
 		.logo {
 			position: relative;
@@ -16,9 +18,9 @@ body.profile {
 			padding: 10px 0;
 		}
 		#search-bar {
-			.border-radius(5px);
+			.border-radius(2px);
 			color: @gray-dark;
-			margin-top: 13px;
+			margin-top: 10px;
 			text-align: center;
 			width: 100%;
 			padding: 4px 10px;
@@ -35,11 +37,10 @@ body.profile {
 		#add-new-twing {
 			cursor: pointer;
 			position: relative;
-			top: 2px;
-			width: 46px;
+			top: 4px;
+			width: 36px;
 		}
 		.profile-wrapper {
-			cursor: pointer;
 			padding: 6px 0;
 			margin-left: 25px;
 			.smooth();
@@ -51,8 +52,11 @@ body.profile {
 
 			.profile-wrapper-header {
 				.profile-photo {
+					cursor: pointer;
 					position: relative;
-					width: 42px;
+					top: 1px;
+					width: 35px;
+					.border-radius(50%);
 				}
 				#fullname {
 					display: inline-block;
@@ -76,31 +80,30 @@ body.profile {
 				svg.profile {
 					position: absolute;
 					top: -10px;
-					left: 134px;
+					left: 130px;
 				}
 
 				.profile-edit-button {
+					cursor: pointer;
 					position: absolute;
 					display: none;
 					top: 4px;
 					left: 3px;
 					width: 28x;
-					height: 28px;
 				}
 
 				.profile-close-button {
+					cursor: pointer;
 					position: absolute;
 					display: none;
 					top: 4px;
 					right: 3px;
 					width: 52px;
-					height: 28px;
 				}
 
 				.profile-background-photo {
 					position: absolute;
 					width: 251px;
-					height: 170px;
 					.border-top-radius(10px);
 				}
 
@@ -109,10 +112,9 @@ body.profile {
 					display: none;
 					top: 180px;
 					width: 80px;
-					height: 80px;
-					z-index: 3;
 					margin-left: 83px;
 					overflow: hidden;
+
 					.profile-photo-edit {
 						position: relative;
 						z-index: 4;
@@ -123,31 +125,36 @@ body.profile {
 						opacity: 0.6;
 						filter: alpha(opacity=60);
 						.border-radius(50%);
+
+						.profile-hide-input {
+							width: 0.1px;
+							height: 0.1px;
+							opacity: 0;
+							overflow: hidden;
+							position: absolute;
+							z-index: -1;
+						}
 						.profile-change-picture {
+							cursor: pointer;
 							position: relative;
-							z-index: 5;
-							top: 62px;
-							text-align: center;
+							top: 58px;
+							left: 22px;
 							color: @black;
 							font-size: 10px;
+							font-weight: normal;
 						}
 					}
 				}
-
 				.profile-expand-photo {
 					position: relative;
 					display: inline-block;
 					margin-left: 83px;
-					z-index: 2;
 					top: 120px;
 					width: 80px;
 					.border-radius(50%);
-					box-shadow: 0 2px 5px @shadow-2;
+					border: 2px solid @white;
+					box-shadow: 0 2px 4px @shadow-2;
 				}
-
-
-
-				
 				.profile-expand-name {
 					position: relative;
 					top: 130px;
@@ -199,9 +206,9 @@ body.profile {
 			img.notification,
 			img.message {
 				position: relative;
-				top: 6px;
+				top: 4px;
 				cursor: pointer;
-				width: 30px;
+				width: 25px;
 			}
 			img.notification {
 				margin-left: 10px;
@@ -209,14 +216,14 @@ body.profile {
 			.notification-bubble {
 				position: absolute;
 			    top: 6px;
-			    right: 5px;
-			    width: 20px;
+			    right: 7px;
+			    width: 16px;
 			}
 			.message-bubble {
 				position: absolute;
 			    top: 6px;
-			    right: 50px;
-			    width: 20px;
+			    right: 49px;
+			    width: 16px;
 			}
 			.unread {
 				background-color: @gray-lighter;
@@ -244,7 +251,7 @@ body.profile {
 				svg.notification {
 					position: absolute;
 					top: -10px;
-					right: 15px;
+					right: 13px;
 				}
 				.notification-text {
 					position: relative;
@@ -308,7 +315,7 @@ body.profile {
 				svg.message {
 					position: absolute;
 					top: -10px;
-					right: 59px;
+					right: 52px;
 				}
 
 				.message-expand-wrapper {
@@ -408,6 +415,13 @@ body.profile {
 										position: absolute;
 										bottom: 5px;
 										right: 5px;
+									}
+								}
+								.message-photo {
+									width: 55px;
+									img {
+										width: 100%;
+										.border-radius(50%);
 									}
 								}
 							}

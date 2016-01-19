@@ -19,6 +19,16 @@ a:focus {
 .section {
   text-align: center;
 }
+.circle {
+  -webkit-border-top-right-radius: 50%;
+  border-top-right-radius: 50%;
+  -webkit-border-bottom-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  -webkit-border-top-left-radius: 50%;
+  border-top-left-radius: 50%;
+  -webkit-border-bottom-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+}
 .smooth {
   -webkit-transition-timing-function: ease-in-out;
   transition-timing-function: ease-in-out;
@@ -501,13 +511,15 @@ body.profile header {
   z-index: 1000;
   color: #ffffff;
   background-color: #ff6419;
-  height: 55px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  background-image: -webkit-linear-gradient(#ff864c 5%, #ff7533 10%, #ff6419 100%);
+  background-image: linear-gradient(#ff864c 5%, #ff7533 10%, #ff6419 100%);
+  height: 46px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 body.profile header img.company-logo {
   position: relative;
-  top: 4px;
-  width: 100px;
+  top: 2px;
+  width: 90px;
 }
 body.profile header .logo {
   position: relative;
@@ -515,16 +527,16 @@ body.profile header .logo {
   padding: 10px 0;
 }
 body.profile header #search-bar {
-  -webkit-border-top-right-radius: 5px;
-  border-top-right-radius: 5px;
-  -webkit-border-bottom-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  -webkit-border-top-left-radius: 5px;
-  border-top-left-radius: 5px;
-  -webkit-border-bottom-left-radius: 5px;
-  border-bottom-left-radius: 5px;
+  -webkit-border-top-right-radius: 2px;
+  border-top-right-radius: 2px;
+  -webkit-border-bottom-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  -webkit-border-top-left-radius: 2px;
+  border-top-left-radius: 2px;
+  -webkit-border-bottom-left-radius: 2px;
+  border-bottom-left-radius: 2px;
   color: #333333;
-  margin-top: 13px;
+  margin-top: 10px;
   text-align: center;
   width: 100%;
   padding: 4px 10px;
@@ -542,11 +554,10 @@ body.profile header #search-bar::-webkit-input-placeholder {
 body.profile header #add-new-twing {
   cursor: pointer;
   position: relative;
-  top: 2px;
-  width: 46px;
+  top: 4px;
+  width: 36px;
 }
 body.profile header .profile-wrapper {
-  cursor: pointer;
   padding: 6px 0;
   margin-left: 25px;
   -webkit-transition-timing-function: ease-in-out;
@@ -563,8 +574,18 @@ body.profile header .profile-wrapper:focus {
   text-decoration: none;
 }
 body.profile header .profile-wrapper .profile-wrapper-header .profile-photo {
+  cursor: pointer;
   position: relative;
-  width: 42px;
+  top: 1px;
+  width: 35px;
+  -webkit-border-top-right-radius: 50%;
+  border-top-right-radius: 50%;
+  -webkit-border-bottom-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  -webkit-border-top-left-radius: 50%;
+  border-top-left-radius: 50%;
+  -webkit-border-bottom-left-radius: 50%;
+  border-bottom-left-radius: 50%;
 }
 body.profile header .profile-wrapper .profile-wrapper-header #fullname {
   display: inline-block;
@@ -592,28 +613,27 @@ body.profile header .profile-wrapper .profile-expand {
 body.profile header .profile-wrapper .profile-expand svg.profile {
   position: absolute;
   top: -10px;
-  left: 134px;
+  left: 130px;
 }
 body.profile header .profile-wrapper .profile-expand .profile-edit-button {
+  cursor: pointer;
   position: absolute;
   display: none;
   top: 4px;
   left: 3px;
   width: 28x;
-  height: 28px;
 }
 body.profile header .profile-wrapper .profile-expand .profile-close-button {
+  cursor: pointer;
   position: absolute;
   display: none;
   top: 4px;
   right: 3px;
   width: 52px;
-  height: 28px;
 }
 body.profile header .profile-wrapper .profile-expand .profile-background-photo {
   position: absolute;
   width: 251px;
-  height: 170px;
   -webkit-border-top-left-radius: 10px;
   border-top-left-radius: 10px;
   -webkit-border-top-right-radius: 10px;
@@ -624,8 +644,6 @@ body.profile header .profile-wrapper .profile-expand .profile-wrapper-edit {
   display: none;
   top: 180px;
   width: 80px;
-  height: 80px;
-  z-index: 3;
   margin-left: 83px;
   overflow: hidden;
 }
@@ -647,19 +665,27 @@ body.profile header .profile-wrapper .profile-expand .profile-wrapper-edit .prof
   -webkit-border-bottom-left-radius: 50%;
   border-bottom-left-radius: 50%;
 }
+body.profile header .profile-wrapper .profile-expand .profile-wrapper-edit .profile-photo-edit .profile-hide-input {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
 body.profile header .profile-wrapper .profile-expand .profile-wrapper-edit .profile-photo-edit .profile-change-picture {
+  cursor: pointer;
   position: relative;
-  z-index: 5;
-  top: 62px;
-  text-align: center;
+  top: 58px;
+  left: 22px;
   color: #000000;
   font-size: 10px;
+  font-weight: normal;
 }
 body.profile header .profile-wrapper .profile-expand .profile-expand-photo {
   position: relative;
   display: inline-block;
   margin-left: 83px;
-  z-index: 2;
   top: 120px;
   width: 80px;
   -webkit-border-top-right-radius: 50%;
@@ -670,7 +696,8 @@ body.profile header .profile-wrapper .profile-expand .profile-expand-photo {
   border-top-left-radius: 50%;
   -webkit-border-bottom-left-radius: 50%;
   border-bottom-left-radius: 50%;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  border: 2px solid #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 body.profile header .profile-wrapper .profile-expand .profile-expand-name {
   position: relative;
@@ -722,9 +749,9 @@ body.profile header .additional-info {
 body.profile header .additional-info img.notification,
 body.profile header .additional-info img.message {
   position: relative;
-  top: 6px;
+  top: 4px;
   cursor: pointer;
-  width: 30px;
+  width: 25px;
 }
 body.profile header .additional-info img.notification {
   margin-left: 10px;
@@ -732,14 +759,14 @@ body.profile header .additional-info img.notification {
 body.profile header .additional-info .notification-bubble {
   position: absolute;
   top: 6px;
-  right: 5px;
-  width: 20px;
+  right: 7px;
+  width: 16px;
 }
 body.profile header .additional-info .message-bubble {
   position: absolute;
   top: 6px;
-  right: 50px;
-  width: 20px;
+  right: 49px;
+  width: 16px;
 }
 body.profile header .additional-info .unread {
   background-color: #eeeeee;
@@ -775,7 +802,7 @@ body.profile header .additional-info .notification-expand {
 body.profile header .additional-info .notification-expand svg.notification {
   position: absolute;
   top: -10px;
-  right: 15px;
+  right: 13px;
 }
 body.profile header .additional-info .notification-expand .notification-text {
   position: relative;
@@ -850,7 +877,7 @@ body.profile header .additional-info .message-expand {
 body.profile header .additional-info .message-expand svg.message {
   position: absolute;
   top: -10px;
-  right: 59px;
+  right: 52px;
 }
 body.profile header .additional-info .message-expand .message-expand-wrapper {
   overflow: hidden;
@@ -968,6 +995,20 @@ body.profile header .additional-info .message-expand .message-expand-wrapper .me
   position: absolute;
   bottom: 5px;
   right: 5px;
+}
+body.profile header .additional-info .message-expand .message-expand-wrapper .message-scroll-wrapper .message-detail .message-chat .message-photo {
+  width: 55px;
+}
+body.profile header .additional-info .message-expand .message-expand-wrapper .message-scroll-wrapper .message-detail .message-chat .message-photo img {
+  width: 100%;
+  -webkit-border-top-right-radius: 50%;
+  border-top-right-radius: 50%;
+  -webkit-border-bottom-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  -webkit-border-top-left-radius: 50%;
+  border-top-left-radius: 50%;
+  -webkit-border-bottom-left-radius: 50%;
+  border-bottom-left-radius: 50%;
 }
 body.profile header .additional-info .message-expand .message-expand-wrapper .message-scroll-wrapper .message-detail .message-new {
   background: #eeeeee;
