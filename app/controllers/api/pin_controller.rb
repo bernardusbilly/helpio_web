@@ -1,6 +1,6 @@
 class Api::PinController < ApplicationController
-  skip_before_filter :verify_authenticity_token
-  before_action :authenticate_user!
+  # skip_before_filter :verify_authenticity_token
+  # before_action :authenticate_user!
   
   def index
     session[:uid] = cookies[:uid] if cookies[:uid]
