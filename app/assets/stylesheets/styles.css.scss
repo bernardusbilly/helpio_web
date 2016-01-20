@@ -981,7 +981,7 @@ Phone Section
     left: 20%;
     min-height: 676px;
     width: 359px;
-    background: url('/assets/iphone-skeleton.png') no-repeat center center;
+    background: url(image_path('iphone-skeleton.png')) no-repeat center center;
 }
 .device-content {
     position: absolute;
@@ -1085,13 +1085,13 @@ Custom Slider Controls (Flickity)
 Features Slider
 ========================================================================== */
 .map-intro {
-    cursor: url("/assets/icon/drop-pin.png") 15 35, auto;
+    cursor: url(image_path("icon/drop-pin.png")) 15 35, auto;
     overflow: hidden;
 }
 .map-intro-bg {
     position: relative;
     min-height: 680px;
-    background: url('/assets/map-berkeley.png') no-repeat center center;
+    background: url(image_path('map-berkeley.png')) no-repeat center center;
     background-size: cover;
     text-align: center;
 }
@@ -1268,7 +1268,7 @@ Features List
 Showcase
 ========================================================================== */
 .showcase {
-    background: url('/assets/stock/showcase.jpg') no-repeat center center fixed;
+    background: url(image_path('stock/showcase.jpg')) no-repeat center center fixed;
     background-size: cover;
 }
 .showcase h1 {
