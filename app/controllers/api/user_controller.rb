@@ -17,6 +17,7 @@ class Api::UserController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.uid = SecureRandom.uuid
     respond_to do |format|
       if @user.save
         @user_ret = @user.attributes
