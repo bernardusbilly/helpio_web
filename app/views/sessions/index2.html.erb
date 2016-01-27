@@ -101,9 +101,9 @@
 											</div>
 											<div class="agreement">
 												By signing up you indicate that you have read  
-												<a href="#">Terms of Service and Privacy Policy</span>
+												<a href="#">Terms of Service and Privacy Policy</a>
 											</div>
-											Have an account? <a href="#">Log in</a>
+											Have an account? <a href="#" id="jumpToLogin">Log in</a>
 										</div>
 										<%= form_for(:user, :html => {:id => "signup"}, url: registration_path(:user)) do |f| %>
 											<%= image_tag "icon/back-button.png", :class => "back-button-signup"%>
@@ -165,9 +165,9 @@
 											</div>
 											<div class="agreement">
 												By logging in you indicate that you have read  
-												<a href="#">Terms of Service and Privacy Policy</span>
+												<a href="#">Terms of Service and Privacy Policy</a>
 											</div>
-											Don't have an account? <a href="#">Sign Up</a>
+											Don't have an account? <a href="#" id="jumpToSignUp">Sign Up</a>
 										</div>
 										<%= form_for(:user, :html => {:id => "login"}, url: session_path(:user)) do |f| %>
 											<%= image_tag "icon/back-button.png", :class => "back-button-login"%>

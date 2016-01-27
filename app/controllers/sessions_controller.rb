@@ -3,6 +3,10 @@ class SessionsController < ApplicationController
 	end
 
 	def index2
+		respond_to do |f|
+    		f.js { render layout: false, content_type: 'text/javascript' }
+    		f.html
+    	end
 	end
 
 	def create

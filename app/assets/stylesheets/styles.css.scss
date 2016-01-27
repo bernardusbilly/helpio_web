@@ -651,6 +651,9 @@ Modal box
     margin: 0 auto 20px auto;
     padding-top: 8px;
 }
+.modal-body .agreement a {
+    color: #8888FF;
+}
 .modal-body .most-top {
     margin-top: 25px;
 }
@@ -1085,7 +1088,7 @@ Custom Slider Controls (Flickity)
 Features Slider
 ========================================================================== */
 .map-intro {
-    cursor: url(image_path("icon/drop-pin.png")) 15 35, auto;
+    cursor: url(image_path('icon/drop-pin.png')) 15 35, auto;
     overflow: hidden;
 }
 .map-intro-bg {

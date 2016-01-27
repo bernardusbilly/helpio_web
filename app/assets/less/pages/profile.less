@@ -181,7 +181,7 @@ body.profile {
 					font-size: 16px;
 					width: 100%;
 					text-align: center;
-					color: @lightblue;
+					color: @blue-light;
 				}
 				.profile-expand-settings {
 					position: absolute;
@@ -294,7 +294,7 @@ body.profile {
 							padding-top: 5px;
 							a {
 								text-align: center;
-								color: @lightblue;
+								color: @blue-light;
 							}
 						}
 					}
@@ -360,7 +360,7 @@ body.profile {
 							height: 30px;
 							text-align:center;
 							cursor: pointer;
-							color: @lightblue;
+							color: @blue-light;
 							padding-top: 5px;
 							&:hover {
 								text-decoration: underline;
@@ -464,6 +464,87 @@ body.profile {
 		top: 42px;
 		height: ~'calc(100% - 42px)';
 		width: 100%;
+
+		.twing-wrapper {
+			cursor: pointer;
+			position: absolute;
+			top: 30px;
+			right: 30px;
+			width: 70px;
+			height: 70px;
+			background-color: @white;
+			.border-radius(50%);
+			overflow: hidden;
+			box-shadow: 0 2px 4px @shadow-2;
+
+			.add-new-twing {
+				position: absolute;
+				top: 8px;
+				left: 17px;
+				width: 36px;
+				height: 50px;
+			}
+			form {
+				display: none;
+				.header {
+					padding-top: 10px;
+					text-align: center;
+					width: 100%;
+					height: 40px;
+					color: @white;
+					background-color: @helpio;
+				}
+				.info {
+					padding: 5px 10px;
+					font-size: 12px;
+					color: @gray;
+				}
+				textarea {
+					resize: none;
+					padding: 0 10px;
+					width: 100%;
+					height: 180px;
+					border: none;
+					outline: none;
+				}
+				.thumbnail-custom {
+					position: absolute;
+					bottom: 0;
+					.border-bottom-radius(4px);
+					padding-bottom: 20px;
+					background-color: @gray-light;
+					width: 100%;
+					text-align: center;
+					.info {
+						text-align: left;
+						margin-bottom: 10px;
+					}
+					.thumbnail-wrapper {
+						cursor: pointer;
+						text-align: center;
+						color: @gray;
+
+						.photo-none,
+						.photo-upload {
+							width: 50px;
+						    position: relative;
+						}
+
+						&:hover, &:focus {
+							color: @helpio;
+						}
+					}
+					button {
+						margin-top: 20px;
+						padding: 10px 40px;
+						border: none;
+						color: @white;
+						background-color: @blue-light;
+					}
+				}
+			}
+		}
+		
 
 		.info-wrapper {
 			position: relative;

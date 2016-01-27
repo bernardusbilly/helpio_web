@@ -20,6 +20,13 @@ module.exports = function(grunt) {
 			    },	
 			},
 		},
+		sprite:{
+			all: {
+				src: 'images/pins/*.png',
+				dest: 'images/sprites/sprites.png',
+				destCss: 'stylesheets/sprites.css',
+	    	},
+	    },
 		watch: {
 			less: {
 			    files: ['less/*.less', 'less/pages/*.less'],
@@ -34,7 +41,7 @@ module.exports = function(grunt) {
 				tasks: ['uglify'],
 			},*/
 		},
-	});
+	});  	
 
 	grunt.registerTask('default', ['watch']);
 	grunt.loadNpmTasks('grunt-contrib-concat');
@@ -42,5 +49,5 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-watch');
-
+	grunt.loadNpmTasks('grunt-spritesmith');
 }

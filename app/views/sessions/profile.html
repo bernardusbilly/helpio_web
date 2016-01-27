@@ -22,6 +22,7 @@
 	<%= stylesheet_link_tag "slick-theme", "data-turbolinks-track" => true %>
 	<%= stylesheet_link_tag "design", "data-turbolinks-track" => true %>
 	<%= stylesheet_link_tag "animate", "data-turbolinks-track" => true %>
+	<%= stylesheet_link_tag "sprites", "data-turbolinks-track" => true %>
 	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
 
 	<!-- Facebook and Twitter integration -->
@@ -424,6 +425,36 @@
 	<section id="map" class="map" style="height: 100vh; width: 100vw;">
 	</section>
 	<section class="main">
+		<div class="twing-wrapper">
+			<%= image_tag "icon/drop-pin.png", :class => "add-new-twing"%>
+			<form>
+				<div class="header">
+					Adding New Twing
+				</div>
+				<div class="info">
+					Title
+				</div>
+				<textarea id="new-twing-description" placeholder="Description goes here.."></textarea>
+				<div class="thumbnail-custom">
+					<div class="info">
+						Thumbnail
+					</div>
+						<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+							<div class="thumbnail-wrapper">
+								<%= image_tag "logo/thumbnail-default.png", :class => "photo-none"%>
+								none
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+							<div class="thumbnail-wrapper">
+								<%= image_tag "logo/thumbnail-upload.png", :class => "photo-upload"%>
+								upload
+							</div>
+						</div>
+					<button>Finish</button>
+				</div>
+			</form>
+		</div>
 		<div class="col-xs-offset-8 col-xs-4 col-sm-offset-9 col-sm-3 col-md-offset-9 col-md-3 col-lg-offset-9 col-lg-3">
 			<div class="info-wrapper">
 				<div class="scroll-wrapper">
@@ -434,7 +465,7 @@
 					</div>
 					<div class="info-content">
 						<div class="content-image-wrapper">
-							<img id="content-image" src="build/img/stock/food1.jpg"/>
+							<img id="content-image"/>
 						</div>
 						<div id="content-text">
 							Content
@@ -496,6 +527,7 @@
 <script 
 	src="http://maps.googleapis.com/maps/api/js?key=AIzaSyD30pHRGSlQYv5pWSEXDveA2DuPz001uK8&libraries=places">
 </script>
+<%= javascript_include_tag "pins-url" %>
 <%= javascript_include_tag "scripts-profile" %>
 </body>
 </html>
