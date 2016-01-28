@@ -747,14 +747,16 @@ body.profile header .additional-info {
   padding-top: 7px;
 }
 body.profile header .additional-info img.notification,
-body.profile header .additional-info img.message {
+body.profile header .additional-info img.message,
+body.profile header .additional-info img.pulse {
   position: relative;
   top: 4px;
   cursor: pointer;
   width: 25px;
-}
-body.profile header .additional-info img.notification {
   margin-left: 10px;
+}
+body.profile header .additional-info img.pulse {
+  width: 20px;
 }
 body.profile header .additional-info .notification-bubble {
   position: absolute;
@@ -779,6 +781,57 @@ body.profile header .additional-info .subtitle {
   border-bottom: 1px solid #cccccc;
   padding: 10px 15px 0 15px;
   margin-bottom: -3px;
+}
+body.profile header .additional-info .pulse-expand {
+  position: absolute;
+  top: 50px;
+  right: 10px;
+  display: none;
+  -webkit-border-top-right-radius: 10px;
+  border-top-right-radius: 10px;
+  -webkit-border-bottom-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  -webkit-border-top-left-radius: 10px;
+  border-top-left-radius: 10px;
+  -webkit-border-bottom-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  width: 200px;
+  height: 140px;
+  color: #333333;
+  background-color: #ffffff;
+}
+body.profile header .additional-info .pulse-expand hr {
+  margin: 0 10px;
+  border-top: 1px solid #ff6419;
+}
+body.profile header .additional-info .pulse-expand .pulse-friend,
+body.profile header .additional-info .pulse-expand .pulse-twing {
+  height: 50%;
+  position: relative;
+  cursor: pointer;
+}
+body.profile header .additional-info .pulse-expand .pulse-friend img,
+body.profile header .additional-info .pulse-expand .pulse-twing img {
+  position: absolute;
+  top: 50%;
+  left: 50px;
+  transform: translate3d(-50%, -50%, 0);
+  width: 30px;
+}
+body.profile header .additional-info .pulse-expand .pulse-friend .text,
+body.profile header .additional-info .pulse-expand .pulse-twing .text {
+  position: absolute;
+  top: 50%;
+  left: 120px;
+  transform: translate3d(-50%, -50%, 0);
+}
+body.profile header .additional-info .pulse-expand .pulse-friend:hover,
+body.profile header .additional-info .pulse-expand .pulse-twing:hover,
+body.profile header .additional-info .pulse-expand .pulse-friend:focus,
+body.profile header .additional-info .pulse-expand .pulse-twing:focus {
+  background-color: #cccccc;
 }
 body.profile header .additional-info .notification-expand {
   position: absolute;
@@ -846,6 +899,7 @@ body.profile header .additional-info .notification-expand .notification-list-con
   color: #cccccc;
 }
 body.profile header .additional-info .notification-expand .notification-list-container .notification-scroll-wrapper .notification-load-button {
+  text-align: center;
   position: relative;
   height: 30px;
   padding-top: 5px;
@@ -1092,6 +1146,13 @@ body.profile section.main .twing-wrapper form .header {
   color: #ffffff;
   background-color: #ff6419;
 }
+body.profile section.main .twing-wrapper form .header .cancel-button {
+  position: absolute;
+  cursor: pointer;
+  top: 3px;
+  right: 10px;
+  color: #ffffff;
+}
 body.profile section.main .twing-wrapper form .info {
   padding: 5px 10px;
   font-size: 12px;
@@ -1126,6 +1187,18 @@ body.profile section.main .twing-wrapper form .thumbnail-custom .thumbnail-wrapp
   text-align: center;
   color: #888888;
 }
+body.profile section.main .twing-wrapper form .thumbnail-custom .thumbnail-wrapper .hide-input {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+body.profile section.main .twing-wrapper form .thumbnail-custom .thumbnail-wrapper label {
+  font-weight: normal;
+  cursor: pointer;
+}
 body.profile section.main .twing-wrapper form .thumbnail-custom .thumbnail-wrapper .photo-none,
 body.profile section.main .twing-wrapper form .thumbnail-custom .thumbnail-wrapper .photo-upload {
   width: 50px;
@@ -1141,6 +1214,30 @@ body.profile section.main .twing-wrapper form .thumbnail-custom button {
   border: none;
   color: #ffffff;
   background-color: #4a90e2;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+  -webkit-transition-duration: 300ms;
+  transition-duration: 300ms;
+}
+body.profile section.main .twing-wrapper form .thumbnail-custom button:hover,
+body.profile section.main .twing-wrapper form .thumbnail-custom button:focus {
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+  -webkit-transition-duration: 300ms;
+  transition-duration: 300ms;
+  background-color: #2275d7;
+}
+body.profile section.main .twing-wrapper form .thumbnail-custom .cancel-button {
+  cursor: pointer;
+  position: absolute;
+  color: #ff8888;
+  bottom: 32px;
+  right: 30px;
+  font-size: 12px;
+}
+body.profile section.main .twing-wrapper form .thumbnail-custom .cancel-button:hover,
+body.profile section.main .twing-wrapper form .thumbnail-custom .cancel-button:focus {
+  text-decoration: underline;
 }
 body.profile section.main .info-wrapper {
   position: relative;

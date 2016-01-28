@@ -204,14 +204,16 @@ body.profile {
 			padding-top: 7px;
 			
 			img.notification,
-			img.message {
+			img.message,
+			img.pulse {
 				position: relative;
 				top: 4px;
 				cursor: pointer;
 				width: 25px;
-			}
-			img.notification {
 				margin-left: 10px;
+			}
+			img.pulse {
+				width: 20px;
 			}
 			.notification-bubble {
 				position: absolute;
@@ -236,6 +238,45 @@ body.profile {
 				border-bottom: 1px solid @gray-light;
 				padding: 10px 15px 0 15px;
 				margin-bottom: -3px;
+			}
+			.pulse-expand {
+				position: absolute;
+				top: 50px;
+				right: 10px;
+				display: none;
+				.border-radius(10px);
+				overflow: hidden;
+				box-shadow: 0 2px 4px @shadow-2;
+				width: 200px;
+				height: 140px;
+				color: @gray-dark;
+				background-color: @white;
+				hr {
+					margin: 0 10px;
+					border-top: 1px solid @helpio;
+				}
+				.pulse-friend,
+				.pulse-twing {
+					height: 50%;
+					position: relative;
+					cursor: pointer;
+					img {
+						position: absolute;
+						top: 50%;
+						left: 50px;
+						transform: translate3d(-50%, -50%, 0);
+						width: 30px;
+					}
+					.text {
+						position: absolute;
+						top: 50%;
+						left: 120px;
+						transform: translate3d(-50%, -50%, 0);
+					}
+					&:hover, &:focus {
+						background-color: @gray-light;
+					}
+				}
 			}
 			.notification-expand {
 				position: absolute;
@@ -289,6 +330,7 @@ body.profile {
 							}
 						}
 						.notification-load-button {
+							text-align: center;
 							position: relative;
 							height: 30px;
 							padding-top: 5px;
@@ -493,6 +535,13 @@ body.profile {
 					height: 40px;
 					color: @white;
 					background-color: @helpio;
+					.cancel-button {
+						position: absolute;
+						cursor: pointer;
+						top: 3px;
+						right: 10px;
+						color: @white;
+					}
 				}
 				.info {
 					padding: 5px 10px;
@@ -524,6 +573,19 @@ body.profile {
 						text-align: center;
 						color: @gray;
 
+						.hide-input {
+							width: 0.1px;
+							height: 0.1px;
+							opacity: 0;
+							overflow: hidden;
+							position: absolute;
+							z-index: -1;
+						}
+						label {
+							font-weight: normal;
+							cursor: pointer;
+						}
+
 						.photo-none,
 						.photo-upload {
 							width: 50px;
@@ -540,6 +602,22 @@ body.profile {
 						border: none;
 						color: @white;
 						background-color: @blue-light;
+						.smooth();
+						&:hover, &:focus{
+							.smooth();
+							background-color: darken(@blue-light, 10%);
+						}
+					}
+					.cancel-button {
+						cursor: pointer;
+						position: absolute;
+						color: @red-light;
+						bottom: 32px;
+    					right: 30px;
+    					font-size: 12px;
+    					&:hover, &:focus {
+    						text-decoration: underline;
+    					}
 					}
 				}
 			}

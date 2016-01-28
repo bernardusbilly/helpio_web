@@ -26,28 +26,42 @@ $(document).ready(function() {
 			$('.profile-expand').hide();
 			$('.notification-expand').hide();
 			$('.message-expand').hide();
+			$('.pulse-expand').hide();
 
-			// add new twing back to default
-			$('.twing-wrapper > form').hide();
-			showForm = false;
-			$('.twing-wrapper').animate({
-				width: "70px",
-				height: "70px",
-				borderRadius: "50%",
-			}, 350, function() {
-				$('.add-new-twing').show();	
-				$('.twing-wrapper').css('cursor','pointer');
-				$('#map > div > div').css('cursor','default');
-			});
-			cursorTwing = false;
+			cancelAddNewTwing();
 			
-			// remove temporaryMarker
-			temporaryMarker.setMap(null);
-			temporaryMarker = new google.maps.Marker();
-
 			// bouncing Twing set off
 			bouncingMarker.setAnimation(null);
 	    }
+	});
+
+	var cancelAddNewTwing = function() {
+		// add new twing back to default
+		$('.twing-wrapper > form').hide();
+		showForm = false;
+		$('.twing-wrapper').animate({
+			width: "70px",
+			height: "70px",
+			borderRadius: "50%",
+		}, 350, function() {
+			$('.add-new-twing').show();	
+			$('.twing-wrapper').css('cursor','pointer');
+			$('#map > div > div').css('cursor','default');
+			cursorTwing = false;
+		});
+
+		// remove temporaryMarker
+		temporaryMarker.setMap(null);
+		temporaryMarker = new google.maps.Marker();
+
+		if (debug == true) {
+			console.log("form: " + showForm);
+			console.log("cursor: " + cursorTwing);
+		}
+	}
+
+	$('.cancel-button').click(function() {
+		cancelAddNewTwing();
 	});
 
 	/**
@@ -79,13 +93,13 @@ $(document).ready(function() {
 			cursorTwing = false;
 		}
 	});
-
-/*	$('#map').hover(function() {
+	
+	$('#map').mousemove(function() {
 		if (cursorTwing === true) {
 			var path = "<%= image_path('icon/drop-pin') %>";
 			$('#map > div > div').css('cursor','url('+path+') 15 35, auto');
 		}
-	});*/
+	});
 
 
 	/** 
@@ -135,9 +149,8 @@ $(document).ready(function() {
 
 	var dropPinOnMap = function(data) {
 		// Pin types
-		var icon = '/assets/icon/drop-pin.png';
+		var icon = "<%= image_path('icon/drop-pin') %>";
 		var score = data.like_count*2 + data.comment_count*3;
-		/*icon = "<%= image_path('pins/"+score+".png') %>"*/
 		if (score <= 100) {
 			icon = window['pin' + String(score)];	
 		} else {
@@ -303,6 +316,7 @@ $(document).ready(function() {
 			$('.profile-expand').hide();
 			$('.notification-expand').hide();
 			$('.message-expand').hide();
+			$('.pulse-expand').hide();
 		});
 	}
 
@@ -330,18 +344,26 @@ $(document).ready(function() {
 		$('.profile-expand').hide();
 		$('.notification-expand').hide();
 		$('.message-expand').hide();
+		$('.pulse-expand').hide();
+
 
 		// turn off animation
 		if (bouncingMarker.getAnimation() !== null) {
 			bouncingMarker.setAnimation(null);
 		}
 
+		// adding a new twing
 		if ((cursorTwing === true) && (showForm === false)) {
 			/*$('.twing-wrapper').css('cursor','default');*/
+			if (debug == true) {
+				console.log("form: " + showForm);
+				console.log("cursor: " + cursorTwing);
+			}
+			
 			cursorTwing = false;
+			showForm = true;
 
 			var icon = "<%= image_path('icon/drop-pin') %>";
-		
 			var iconImage = {
 			    url: icon,
 			    origin: new google.maps.Point(0, 0),
@@ -361,7 +383,6 @@ $(document).ready(function() {
 				borderRadius: "4px",
 			}, 350, function() {
 				$('.twing-wrapper > form').show();
-				showForm = true;
 				$('.twing-wrapper').css('cursor','default');
 			});
 
@@ -449,6 +470,7 @@ $(document).ready(function() {
 	});
 	// [END region_getplaces]
 
+	// THIS IS THE IMPORTANT PART
 	displayPins(temporaryJsonPin);
 
 	/**
@@ -479,6 +501,7 @@ $(document).ready(function() {
 		$('.profile-expand').toggle();
 		$('.notification-expand').hide();
 		$('.message-expand').hide();
+		$('.pulse-expand').hide();
 	});
 
 	$('.profile-close-button').click(function() {
@@ -490,6 +513,7 @@ $(document).ready(function() {
 		$('.profile-expand').hide();
 		$('.notification-expand').toggle();
 		$('.message-expand').hide();
+		$('.pulse-expand').hide();
 	});
 
 	$('img.message').click(function() {
@@ -497,6 +521,15 @@ $(document).ready(function() {
 		$('.profile-expand').hide();
 		$('.notification-expand').hide();
 		$('.message-expand').toggle();
+		$('.pulse-expand').hide();
+	});
+
+	$('img.pulse').click(function() {
+		$('.info-wrapper').hide();
+		$('.profile-expand').hide();
+		$('.notification-expand').hide();
+		$('.message-expand').hide();
+		$('.pulse-expand').toggle();
 	});
 
 	/**
