@@ -827,6 +827,10 @@ body.profile header .additional-info .pulse-expand .pulse-twing .text {
   left: 120px;
   transform: translate3d(-50%, -50%, 0);
 }
+body.profile header .additional-info .pulse-expand .pulse-friend.active,
+body.profile header .additional-info .pulse-expand .pulse-twing.active {
+  background-color: #cccccc;
+}
 body.profile header .additional-info .pulse-expand .pulse-friend:hover,
 body.profile header .additional-info .pulse-expand .pulse-twing:hover,
 body.profile header .additional-info .pulse-expand .pulse-friend:focus,

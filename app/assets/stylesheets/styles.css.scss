@@ -895,6 +895,7 @@ Hero
     background: rgba(255, 100, 25, 0.9);
     color: #FFFFFF;
     border: none;
+    display: none;
 }
 .hero .signup-button{
     position: absolute;
@@ -906,6 +907,7 @@ Hero
     background: rgba(255, 255, 255, 0.9);
     color: #333333;
     border: none;
+    display: none;
 }
 .hero button.login-button:focus,
 .hero button.signup-button:focus{ 

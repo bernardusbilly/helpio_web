@@ -22,6 +22,8 @@ Rails.application.config.assets.precompile += %w( map-berkeley.png )
 
 # Profile Page
 Rails.application.config.assets.precompile += %w( profile/sf-background.png )
+Rails.application.config.assets.precompile += %w( stock/default_profile_picture.png )
+Rails.application.config.assets.precompile += %w( icon/pin-expired.png )
 Rails.application.config.assets.precompile += %w( icon/icon-pin.png )
 Rails.application.config.assets.precompile += %w( icon/icon-time.png )
 Rails.application.config.assets.precompile += %w( icon/pulse.png )
